@@ -1,86 +1,112 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Corion Gutachter oferă servicii rapide și profesioniste de evaluare a daunelor auto în Germania. Specializați în ajutor pentru clienții din Frankfurt, Hofheim, Wiesbaden și Mainz. Contactează-ne pentru consultanță gratuită și rapoarte detaliate pentru reparații auto!">
-  <meta name="keywords" content="evaluare daune auto, Germania, Frankfurt, Hofheim, Wiesbaden, Mainz, servicii auto">
-  <meta name="author" content="Corion Gutachter">
-  <title>Corion Gutachter - Evaluare Daune Auto</title>
-  <!-- Leagă fișierul extern de stiluri -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Fonturi Google (opțional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corion Gutachter - Ihr Kfz-Sachverständiger</title>
+    <meta name="description" content="Corion Gutachter bietet schnelle und professionelle Kfz-Gutachten in Frankfurt und Umgebung.">
+    <meta name="keywords" content="Kfz Gutachter, Frankfurt, Hofheim, Wiesbaden, Mainz">
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb}
+        .corion-red{color:#c00000}
+        .bg-corion-red{background-color:#c00000}
+        .hover\:bg-corion-red-dark:hover{background-color:#a00000}
+        .card{background:#1f2937;border:1px solid #374151;border-radius:.75rem;transition:all .3s ease-in-out}
+        .card:hover{transform:translateY(-5px);box-shadow:0 10px 15px -3px rgba(192,0,0,.3),0 4px 6px -2px rgba(192,0,0,.25)}
+    </style>
 </head>
-<body>
-  <!-- Antet -->
-  <header>
-    <img src="images/Logo.png" alt="Logo Corion Gutachter">
-    <h1>Corion Gutachter</h1>
-    <p>Servicii rapide și profesioniste de evaluare a daunelor auto în Germania. Specializați în ajutor pentru clienții din Frankfurt, Hofheim, Wiesbaden și Mainz.</p>
-    <p>📞 <a href="https://wa.me/+4917683458274" style="color: white; text-decoration: none;">+49 176 83458274</a></p>
-  </header>
-
-  <!-- Meniu de navigare -->
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="servicii.html">Servicii</a>
-    <a href="blog.html">Blog</a>
-    <a href="formular.html">Formular</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <!-- Conținut principal -->
-  <div class="container">
-    <section class="intro">
-      <h2>De ce să alegi Corion Gutachter?</h2>
-      <p>Oferim servicii de evaluare completă a daunelor auto, raportare detaliată și consultanță gratuită pentru clienții noștri. Suntem dedicați excelenței și promptitudinii.</p>
+<body class="antialiased">
+<header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-700">
+    <div class="container mx-auto flex items-center justify-between h-16 px-4">
+        <a href="#home" class="flex items-center">
+            <img src="uploaded:+1CorionGutachter_On_Black (High).jpg-cf96354b-3ede-4c18-a25f-3992b2e2bca1" alt="Corion Gutachter" class="h-10 w-auto">
+        </a>
+        <nav class="hidden md:flex space-x-4">
+            <a href="#home" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-white">Start</a>
+            <a href="#leistungen" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-white">Leistungen</a>
+            <a href="#kontakt" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-white">Kontakt</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden p-2 text-gray-400"><i class="fas fa-bars fa-lg"></i></button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <a href="#home" class="block py-2 nav-link">Start</a>
+        <a href="#leistungen" class="block py-2 nav-link">Leistungen</a>
+        <a href="#kontakt" class="block py-2 nav-link">Kontakt</a>
+    </div>
+</header>
+<main>
+    <section id="home" class="py-24 text-center bg-cover bg-center" style="background-image:linear-gradient(to right,rgba(17,24,39,.9),rgba(17,24,39,.7)),url('https://placehold.co/1920x1080/1f2937/374151?text=Moderne+Fahrzeugtechnik');">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold">Ihr Partner für <span class="corion-red">Kfz-Gutachten</span></h1>
+        <p class="mt-6 max-w-xl mx-auto text-lg text-gray-300">Schnell, professionell und unabhängig. Wir erstellen Schadengutachten und Wertgutachten im Rhein-Main-Gebiet.</p>
+        <div class="mt-10 flex justify-center space-x-4">
+            <a href="#leistungen" class="px-8 py-3 rounded-md bg-corion-red hover:bg-corion-red-dark text-white font-medium shadow">Unsere Leistungen</a>
+            <a href="#kontakt" class="px-8 py-3 rounded-md bg-gray-100 text-corion-red font-medium shadow">Direkt anfragen</a>
+        </div>
     </section>
 
-    <section class="services">
-      <h2>Serviciile Noastre</h2>
-      <ul>
-        <li><a href="evaluare-daune.html">Evaluare daune auto pentru companii de asigurări</a></li>
-        <li><a href="raport-reparatii.html">Raport detaliat pentru reparații auto</a></li>
-        <li><a href="consultanta-daune.html">Consultanță gratuită pentru daune</a></li>
-      </ul>
+    <section id="leistungen" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Unsere Gutachter-Leistungen</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <article class="card p-6 text-center">
+                    <i class="fas fa-car-crash fa-3x corion-red mb-4"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Schadengutachten</h3>
+                    <p class="text-gray-400 text-sm">Rechtssichere Gutachten zur Regulierung mit der gegnerischen Versicherung.</p>
+                </article>
+                <article class="card p-6 text-center">
+                    <i class="fas fa-search-dollar fa-3x corion-red mb-4"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Wertgutachten</h3>
+                    <p class="text-gray-400 text-sm">Ermittlung des aktuellen Marktwerts für An- und Verkauf oder Leasingrückgabe.</p>
+                </article>
+                <article class="card p-6 text-center">
+                    <i class="fas fa-file-invoice-dollar fa-3x corion-red mb-4"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Kostenvoranschlag</h3>
+                    <p class="text-gray-400 text-sm">Detaillierte Kostenvoranschläge zur Abrechnung von Bagatellschäden.</p>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>Suntem aici pentru a te ajuta. Ne poți contacta în orice moment:</p>
-      <div class="contact-icons">
-        <a href="tel:+4917683458274">📞 Telefon</a>
-        <a href="https://wa.me/+4917683458274">💬 WhatsApp</a>
-        <a href="mailto:contact@corion-gutachter.de">✉️ Email</a>
-      </div>
+    <section id="kontakt" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Kontakt</h2>
+            <form id="contactForm" class="max-w-xl mx-auto card p-6">
+                <label class="block mb-4">
+                    <span class="text-sm text-gray-300">Name</span>
+                    <input type="text" id="name" class="mt-1 w-full rounded-md bg-gray-700 border-gray-600 text-white" required>
+                </label>
+                <label class="block mb-4">
+                    <span class="text-sm text-gray-300">E-Mail</span>
+                    <input type="email" id="email" class="mt-1 w-full rounded-md bg-gray-700 border-gray-600 text-white" required>
+                </label>
+                <label class="block mb-4">
+                    <span class="text-sm text-gray-300">Nachricht</span>
+                    <textarea id="message" rows="4" class="mt-1 w-full rounded-md bg-gray-700 border-gray-600 text-white" required></textarea>
+                </label>
+                <button type="submit" class="w-full py-3 rounded-md bg-corion-red hover:bg-corion-red-dark text-white font-medium">Senden</button>
+                <div id="form-message" class="mt-4 text-center text-sm"></div>
+            </form>
+            <div class="text-center mt-8">
+                <p class="text-lg text-gray-300 mb-2"><i class="fas fa-phone-alt corion-red mr-2"></i><a href="tel:+4917683458274" class="hover:text-corion-red">+49 176 83458274</a></p>
+                <p class="text-lg text-gray-300"><i class="fas fa-envelope corion-red mr-2"></i><a href="mailto:info@corion-gutachter.de" class="hover:text-corion-red">info@corion-gutachter.de</a></p>
+            </div>
+        </div>
     </section>
-
-    <section class="partners">
-      <h2>Partenerii Noștri</h2>
-      <a href="https://corion-lackdoktor.de/" target="_blank">Corion Lackdoktor</a>
-    </section>
-  </div>
-
-  <!-- Subsol -->
-  <footer>
-    <p>&copy; 2024 Corion Gutachter. Toate drepturile rezervate.</p>
-  </footer>
-
-  <!-- Butonul de chat AI -->
-  <div class="chat-ai" onclick="showDisclaimer();">
-    <a href="https://chatgpt.com/g/g-6734a09fb57c81909a1bd6f583757b08-kfz-gutachter-assistant" target="_blank">
-      <img src="images/chat-icon.png" alt="Chat AI">
-    </a>
-  </div>
-
-  <!-- Script pentru disclaimer (poate fi mutat în main.js, dacă vrei) -->
-  <script>
-    function showDisclaimer() {
-      alert("Disclaimer: Folosirea agentului AI poate memora datele sau informațiile introduse. Acestea au caracter informativ și se recomandă consultarea cu un specialist uman. Corion GmbH nu răspunde pentru datele gestionate de terți precum OpenAI.");
-    }
-  </script>
+</main>
+<footer class="bg-gray-900 border-t border-gray-700 text-center text-sm text-gray-400 py-6">
+    &copy; <span id="currentYear"></span> Corion Gutachter
+</footer>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const btn=document.getElementById('mobile-menu-button');
+    const menu=document.getElementById('mobile-menu');
+    if(btn&&menu){btn.addEventListener('click',()=>{menu.classList.toggle('hidden');})}
+    const form=document.getElementById('contactForm');
+    const msg=document.getElementById('form-message');
+    if(form){form.addEventListener('submit',e=>{e.preventDefault();msg.textContent='Nachricht erfolgreich gesendet! (Demo)';form.reset();})}
+</script>
 </body>
 </html>
