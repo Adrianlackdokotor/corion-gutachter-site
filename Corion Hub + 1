@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corion Hub + 1 – Planul de Lansare & Scalare</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 16px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 leading-normal">
+
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+        <h1 class="text-4xl font-bold mb-6 text-center">Corion Hub + 1 – Planul de Lansare & Scalare</h1>
+
+        <img src="sandbox:/mnt/data/A_flat-style_digital_illustration_promotes_CORION_.png" alt="Poster CORION HUB+1" class="mb-8">
+
+        <div class="mb-6 bg-blue-50 p-4 border-l-4 border-blue-500 rounded">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-2">Misiune</h2>
+            <p class="text-blue-800">Democratizăm meseriile printr‑o platformă care conectează profesioniști, agenți AI și clienți, transformând expertiza în venit scalabil, cu profit reinvestit în Bitcoin și distribuit echitabil prin smart‑contract‑uri.</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">1. Principii‑cheie & Obiective</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Principiu</th>
+                    <th>Cum se reflectă în produs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><em>Ownership colectiv</em></td>
+                    <td>Fiecare contribuție (cod, mentenanță, job finalizat) = tokenizare "Contribution Unit" (CU) în SC.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><em>Gamificare</em></td>
+                    <td>Avatar Monopoly‑style, scoruri, badge‑uri.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><em>Custodie fiscal‑eficientă</em></td>
+                    <td>BTC stocat în wallet custodial al GmbH & Co KG; dividend = drept de retragere (nu eveniment impozabil până la conversie).</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><em>AI ca multiplicator</em></td>
+                    <td>Fiecare meseriaș poate lansa un agent AI fine‑tuned pe date proprii, vândut ca serviciu.</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><em>Open‑source mindset</em></td>
+                    <td>Module FE/BE open‑core; partenerii pot contribui prin PR‑uri și primesc CU‑uri.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">2. Arhitectura de ansamblu (v0.1)</h2>
+        <pre><code class="language-text">
+┌──────────────────────┐
+│   Next.js (FE)       │
+│  Tailwind + SWR      │
+└──────┬───────────────┘
+       │ REST / RPC
+┌──────▼─────────────────────────┐
+│ Supabase Edge Functions (BE)   │
+│  - Auth, RLS, RPC              │
+│  - ingest_email(), sync_job()  │
+└──────┬──────────┬──────────────┘
+       │          │
+       │          │
+┌──────▼────┐  ┌──▼────────────────────┐
+│ Postgres  │  │ Storage (S3‑like)     │
+└───────────┘  └───────────────────────┘
+       │
+┌──────▼─────────────────┐
+│ LangChain + GPT‑4o     │
+│  (AI pipelines)        │
+└──────┬─────────────────┘
+       │
+┌──────▼──────────────────────┐
+│ EVM L2 (Base) Smart Contract│
+│  - CU ERC‑1155              │
+│  - Splitter logic           │
+└─────────────────────────────┘
+        </code></pre>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">3. Schema DB (cheie)</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Tabel</th>
+                    <th>Coloane esențiale</th>
+                    <th>RLS</th>
+                    <th>Index</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>workshops</code></td>
+                    <td>id, owner\_id, name</td>
+                    <td>user\_id = auth.uid()</td>
+                    <td>PK(id)</td>
+                </tr>
+                <tr>
+                    <td><code>jobs</code></td>
+                    <td>id, workshop\_id, client\_id, status, revenue, cost</td>
+                    <td>workshop\_id in user.workshops</td>
+                    <td>idx(workshop\_id,status)</td>
+                </tr>
+                <tr>
+                    <td><code>clients</code></td>
+                    <td>id, workshop\_id, name, email</td>
+                    <td>idem</td>
+                    <td>idx(workshop\_id,name)</td>
+                </tr>
+                <tr>
+                    <td><code>vehicles</code></td>
+                    <td>id, client\_id, plate</td>
+                    <td>client.workshop\_id</td>
+                    <td>idx(plate,workshop\_id)</td>
+                </tr>
+                <tr>
+                    <td><code>attachments</code></td>
+                    <td>id, job\_id, url</td>
+                    <td>job.workshop\_id</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>cu_transactions</code></td>
+                    <td>id, user\_id, cu\_amount, job\_id</td>
+                    <td>user\_id = auth.uid()</td>
+                    <td>idx(user\_id)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">4. Smart‑Contract Design (Base L2)</h2>
+        <ul class="list-disc ml-6 mb-6">
+            <li><strong>Token**: `ContributionUnit` (ERC‑1155, decimals=0). 1 CU ≈ 1 € valoare brută aportată.</li>
+            <li><strong>Splitter</strong>
+                <ul class="list-disc ml-6">
+                    <li>60 % → <em>BTC Treasury Wallet</em></li>
+                    <li>20 % → <em>Operating Fund (EUR stablecoin)</em></li>
+                    <li>20 % → <em>Community Reward Pool</em> (redistribuit periodic pro‑rata deținere CU)</li>
+                </ul>
+            </li>
+            <li><strong>Flux payout</strong>
+                <ol class="list-decimal ml-6">
+                    <li>1. Job marcat *done* în DB.</li>
+                    <li>2. Edge function cheamă contract → mints CU & distribuie share‑urile.</li>
+                    <li>3. BTC achiziționat prin exchange‑API (DCA)</li>
+                    <li>4. Retragere: deținătorul semnează `withdraw(btc_amount)` → transfer din custodie; impozit apare doar la conversie.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-6 mb-4">4.1 Jocul Corion Hub – Cum funcționează contractul ca în Monopoly</h3>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>În Monopoly</th>
+                    <th>În Corion Hub</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Casă pe un teren</td>
+                    <td>1 <strong>Contribution Unit (CU)** primit când finalizezi o lucrare sau ajuți rețeaua</td>
+                </tr>
+                <tr>
+                    <td>Hotel (4‑5 case)</td>
+                    <td>Badge de rang (ex. *Meister Gold*) – bonus CU 5 ×</td>
+                </tr>
+                <tr>
+                    <td>Banca jocului</td>
+                    <td>Portofelul Bitcoin custodial al GmbH & Co KG</td>
+                </tr>
+                <tr>
+                    <td>Încăsare chirie</td>
+                    <td>Ceri retragere BTC în wallet‑ul tău</td>
+                </tr>
+                <tr>
+                    <td>Cărți „Șansa” / „Cufărul Comunității”</td>
+                    <td>Bonus‑uri de comunitate, airdrop de CU</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="text-xl font-semibold mt-4 mb-2">Fluxul în 4 pași simpli:</h4>
+        <ol class="list-decimal ml-6 mb-6">
+            <li><strong>Finalizezi o lucrare</strong> → primești automat 1 CU (o „casă”).</li>
+            <li><strong>Split instant**: 60 % din valoare merge în „Banca Bitcoin”, 20 % în fondul de operare, 20 % într‑un pot comun de premii.</li>
+            <li><strong>Tabla Corion</strong> (Dashboard) afișează terenurile meseriilor; casele tale apar colorate. Acum știi vizual cât de mult ai contribuit.</li>
+            <li><strong>Apasă „Încăsare”</strong> când vrei să transformi CU‑urile în BTC; impozitul apare doar când convertești BTC în euro.</li>
+        </ol>
+
+        <p class="mb-8">Pentru tine, vopsitor auto, tot ce trebuie să știi este: <strong>lucrezi → primești case → casele pot fi schimbate în bani</strong>. Restul de magie blockchain se întâmplă „sub capotă”.</p>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">5. Model Legal & Taxe (DE, 2025)</h2>
+        <ul class="list-disc ml-6 mb-6">
+            <li><strong>Vehicul**: *GmbH & Co KG</em> (persoană hibridă → flexibil dividend).</li>
+            <li><strong>Crypto Custody**: GmbH mandatată să păstreze BTC; retragere = act de dispoziție partener, impozit declarat de beneficiar.</li>
+            <li><strong>CU</strong> = creanță digitală, nu security (opinie preliminară); verificare BaFin.</li>
+            <li><strong>MiCA compliance**: listăm CU ca "utility token", KYC obligatoriu la retragere >1 000 €.</li>
+            <li><strong>TVA**: Serviciile digitale B2B cu client UE → taxare inversă.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">6. Roadmap & Milestones</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Perioadă</th>
+                    <th>Obiective</th>
+                    <th>KPI Acceptare</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0‑3 luni</td>
+                    <td>MVP tasks 1‑4 live, 10 workshop‑pilots</td>
+                    <td>30 utilizatori activi, NPS≥40</td>
+                </tr>
+                <tr>
+                    <td>3‑6 luni</td>
+                    <td>Module 5‑7 + Smart‑Contract Beta</td>
+                    <td>≥90 % precizie AI, 100 joburi procesate</td>
+                </tr>
+                <tr>
+                    <td>6‑9 luni</td>
+                    <td>Gamification + Lexoffice export; Marketplace piesă PoC</td>
+                    <td>MR Ratelogic ≥1.2</td>
+                </tr>
+                <tr>
+                    <td>9‑12 luni</td>
+                    <td>Mobile app (RN), Time\&Cost Estimator AI, extensii parteneri</td>
+                    <td>ARR ≥ 120 k€, 200 k CU mintate</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">7. Echipe & Roluri</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Echă</th>
+                    <th>Roluri</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product & Growth</td>
+                    <td>PM ×1, Designer ×1, Community Lead ×1</td>
+                </tr>
+                <tr>
+                    <td>FE</td>
+                    <td>2 dev (Next.js)</td>
+                </tr>
+                <tr>
+                    <td>BE</td>
+                    <td>2 dev (Edge Functions, SQL, LangChain)</td>
+                </tr>
+                <tr>
+                    <td>DevOps</td>
+                    <td>1 engineer (CI/CD, Vercel, observability)</td>
+                </tr>
+                <tr>
+                    <td>Web3</td>
+                    <td>1 Solidity + 1 Security Auditor (on‑demand)</td>
+                </tr>
+                <tr>
+                    <td>Legal/Tax</td>
+                    <td>Kanzlei parteneră + consultant crypto</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">8. Riscuri & Mitigări</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Risc</th>
+                    <th>Impact</th>
+                    <th>Mitigare</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Volatilitate BTC</td>
+                    <td>Scădere fond trezorerie</td>
+                    <td>Hedge <30 % în EUR‑stable</td>
+                </tr>
+                <tr>
+                    <td>BaFin clasifică CU drept security</td>
+                    <td>Regulator stoppage</td>
+                    <td>Sandbox legal, rulăm test cu <150 investori</td>
+                </tr>
+                <tr>
+                    <td>AI Hallucination</td>
+                    <td>Informații eronate clienți</td>
+                    <td>Human‑in‑the‑loop, revizuire obligatorie primele 3 luni</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="text-3xl font-bold mt-8 mb-4">9. Modul Recomandare Preț & Reward Equity</h2>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Tip</th>
+                    <th>Descriere</th>
+                    <th>KPI Acceptare</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BE‑15</td>
+                    <td>BE</td>
+                    <td>Endpoint `generate_price(job_id)` – primește input deviz, istoric, date AI; returnează recomandare €</td>
+                    <td><±5 % față de media piață</td>
+                </tr>
+                <tr>
+                    <td>AI‑1</td>
+                    <td>BE</td>
+                    <td>Model GPT‑4o fine‑tuned cu date de reparații + tarife locale</td>
+                    <td>MAE ≤ 4 €</td>
+                </tr>
+                <tr>
+                    <td>FE‑11</td>
+                    <td>FE</td>
+                    <td>UI slid‑over în Job modal: recomandare + slider de ajustare manuală</td>
+                    <td>UX rating ≥ 4/5</td>
+                </tr>
+                <tr>
+                    <td>INT‑13</td>
+                    <td>INT</td>
+                    <td>Reward mint: fiecare recomandare acceptată → `mint_CU(user_id, 1 CU)`</td>
+                    <td>≤1 s latency</td>
+                </tr>
+                <tr>
+                    <td>INT‑14</td>
+                    <td>INT</td>
+                    <td>Contribuții (cod, marketing, investiții) înregistrate în `contributions` tabel + mint CU</td>
+                    <td>100 % auditabil</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="text-xl font-semibold mt-4 mb-2">DB tabele noi</h4>
+        <ul class="list-disc ml-6 mb-4">
+            <li><code>price_recommendations(id, job_id, recommender_id, amount, accepted)</code></li>
+            <li><code>contributions(id, user_id, type, meta, cu_value, tx_hash)</code></li>
+        </ul>
+
+        <h4 class="text-xl font-semibold mt-4 mb-2">Smart‑contract update</h4>
+        <ul class="list-disc ml-6 mb-4">
+            <li>Funcție `mint_CU(address, uint256 amount)` chemabilă de Edge Function cu rol `minter`.</li>
+            <li>CU‑urile reprezintă *equity dinamic*; stoc total nelimitat → diluare adaptivă.</li>
+        </ul>
+
+        <h4 class="text-xl font-semibold mt-4 mb-2">Gamificare</h4>
+        <ul class="list-disc ml-6 mb-4">
+            <li>Badge „Gutachter Gold” după 100 recomandări validate.</li>
+            <li>Leaderboard lunar: top contributori CU.</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-6 mb-4">9.1 Modul AI Advisor Financiar & Obiective Personale</h3>
+        <p class="italic mb-4">"Lucrezi – economisești – îți îndeplinești dorințele". Un agent AI îți urmărește veniturile, cheltuielile și te sfătuiește cum să‑ți atingi obiectivele (ex.: cumpărarea unui compresor nou, vacanță cu familia) chiar dacă nu ești expert financiar.</p>
+        <table class="mb-8">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Tip</th>
+                    <th>Descriere</th>
+                    <th>KPI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AI‑2</td>
+                    <td>BE</td>
+                    <td>Pipeline LangChain + GPT‑4o, fine‑tuned pe
