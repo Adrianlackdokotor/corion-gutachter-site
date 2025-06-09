@@ -1,86 +1,1409 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Corion Gutachter oferă servicii rapide și profesioniste de evaluare a daunelor auto în Germania. Specializați în ajutor pentru clienții din Frankfurt, Hofheim, Wiesbaden și Mainz. Contactează-ne pentru consultanță gratuită și rapoarte detaliate pentru reparații auto!">
-  <meta name="keywords" content="evaluare daune auto, Germania, Frankfurt, Hofheim, Wiesbaden, Mainz, servicii auto">
-  <meta name="author" content="Corion Gutachter">
-  <title>Corion Gutachter - Evaluare Daune Auto</title>
-  <!-- Leagă fișierul extern de stiluri -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Fonturi Google (opțional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Antet -->
-  <header>
-    <img src="images/Logo.png" alt="Logo Corion Gutachter">
-    <h1>Corion Gutachter</h1>
-    <p>Servicii rapide și profesioniste de evaluare a daunelor auto în Germania. Specializați în ajutor pentru clienții din Frankfurt, Hofheim, Wiesbaden și Mainz.</p>
-    <p>📞 <a href="https://wa.me/+4917683458274" style="color: white; text-decoration: none;">+49 176 83458274</a></p>
-  </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corion Gutachter - Ihr Kfz-Sachverständiger für Frankfurt, Hofheim, Wiesbaden, Mainz</title>
+    <meta name="description" content="Corion Gutachter: Schnelle & professionelle Kfz-Gutachten (Schadengutachten, Wertgutachten) in Frankfurt, Hofheim, Wiesbaden, Mainz. Über 25 Jahre Erfahrung. KI-gestützte Analyse. Kostenlose Erstberatung. Rufen Sie uns an: +49 176 83458274">
+    <meta name="keywords" content="Kfz Gutachter Frankfurt, Kfz Gutachter Hofheim, Kfz Gutachter Wiesbaden, Kfz Gutachter Mainz, Unfallgutachten, Schadengutachten, Wertgutachten, Kfz Sachverständiger, Lackdoktor, KI-Analyse, Corion Gutachter, Fotos hochladen, Gutachter-Portal, KI Chat, Unfall Assistent">
+    <meta name="author" content="Corion Gutachter">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.corion-gutachter.de/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; 
+            color: #e5e7eb; 
+        }
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        #heroVideo {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        .hero-content-overlay {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(17, 24, 39, 0.75); 
+            padding-top: 6rem; 
+            padding-bottom: 6rem;
+        }
+        .corion-red { color: #c00000; }
+        .bg-corion-red { background-color: #c00000; }
+        .hover\:bg-corion-red-dark:hover { background-color: #a00000; }
+        .border-corion-red { border-color: #c00000; }
+        .ring-corion-red:focus {
+            --tw-ring-color: #c00000;
+        }
+        .section-title {
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            color: #ffffff;
+            margin-bottom: 1.5rem; 
+            text-align: center;
+            position: relative; 
+            z-index: 2;
+        }
+        .section-subtitle {
+            font-size: 1.25rem; 
+            color: #d1d5db; 
+            margin-bottom: 3rem; 
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative; 
+            z-index: 2;
+        }
+        .card {
+            background-color: #1f2937; 
+            border: 1px solid #374151; 
+            border-radius: 0.75rem; 
+            transition: all 0.3s ease-in-out;
+            position: relative; 
+            z-index: 1;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(192, 0, 0, 0.3), 0 4px 6px -2px rgba(192, 0, 0, 0.25);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(17, 24, 39, 0.9);
+        }
+        .modal-content {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid #c00000;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 0.75rem;
+        }
+        .modal-close {
+            color: #9ca3af;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #e5e7eb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(17, 24, 39, 0.95); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid #374151;
+        }
+        .nav-link, .nav-link-external {
+            color: #d1d5db;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active, .nav-link-external:hover {
+            color: #c00000;
+        }
+        .nav-link-external {
+            background-color: #c00000;
+            color: #ffffff;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-radius: 0.375rem; 
+        }
+        .nav-link-external:hover {
+            background-color: #a00000;
+            color: #ffffff;
+        }
+        .form-input, .form-file-input, .form-textarea {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #e5e7eb;
+        }
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: #9ca3af;
+        }
+        .form-input:focus, .form-file-input:focus, .form-textarea:focus {
+            border-color: #c00000;
+            --tw-ring-color: #c00000;
+            box-shadow: 0 0 0 2px #c00000;
+        }
+        .form-file-input::-webkit-file-upload-button {
+            background-color: #c00000;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-file-input::-webkit-file-upload-button:hover {
+            background-color: #a00000;
+        }
+        .form-file-input::-moz-file-upload-button { 
+            background-color: #c00000;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-file-input::-moz-file-upload-button:hover { 
+            background-color: #a00000;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+        }
+        .whatsapp-button:hover {
+            background-color: #1DAE52;
+        }
+        .floating-chat-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background-color: #c00000;
+            color: white;
+            width: 3.5rem; 
+            height: 3.5rem; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .floating-chat-button:hover {
+            background-color: #a00000;
+            transform: scale(1.1);
+        }
+        .hero-button-secondary {
+            background-color: #ffffff;
+            color: #c00000;
+        }
+        .hero-button-secondary:hover {
+            background-color: #e5e7eb;
+        }
+        .gemini-button {
+            background-color: #8b5cf6; 
+            color: white;
+        }
+        .gemini-button:hover {
+            background-color: #7c3aed;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #c00000;
+            border-radius: 50%;
+            width: 24px; 
+            height: 24px; 
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-  <!-- Meniu de navigare -->
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="servicii.html">Servicii</a>
-    <a href="blog.html">Blog</a>
-    <a href="formular.html">Formular</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+        #chatModal .modal-content {
+            max-width: 500px;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        #chatHeader {
+            background-color: #374151;
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+        }
+        #chatTitle {
+            font-weight: 600;
+        }
+        #chatMessages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .chat-message {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .chat-message.user {
+            background-color: #c00000;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .chat-message.assistant {
+            background-color: #374151;
+            color: #e5e7eb;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+        .chat-message.typing-indicator {
+            align-self: flex-start;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        #chatInputContainer {
+            display: flex;
+            padding: 0.75rem;
+            border-top: 1px solid #374151;
+        }
+        #chatInput {
+            flex-grow: 1;
+            border-radius: 0.375rem 0 0 0.375rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        #sendChatMessageButton {
+            border-radius: 0 0.375rem 0.375rem 0;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .content-sections-bg {
+            background-image: url('uploaded:Corion Gutachter Background V1.jpeg-fe1f390c-14b3-4f59-a7c3-0499fc370386');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; 
+            position: relative;
+        }
+        .content-sections-bg > .container { 
+            position: relative;
+            z-index: 1;
+        }
+        .markdown-output ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .markdown-output li {
+            margin-bottom: 0.25rem;
+        }
+        .markdown-output strong {
+            font-weight: 600;
+            color: #ffffff;
+        }
+    </style>
 
-  <!-- Conținut principal -->
-  <div class="container">
-    <section class="intro">
-      <h2>De ce să alegi Corion Gutachter?</h2>
-      <p>Oferim servicii de evaluare completă a daunelor auto, raportare detaliată și consultanță gratuită pentru clienții noștri. Suntem dedicați excelenței și promptitudinii.</p>
-    </section>
-
-    <section class="services">
-      <h2>Serviciile Noastre</h2>
-      <ul>
-        <li><a href="evaluare-daune.html">Evaluare daune auto pentru companii de asigurări</a></li>
-        <li><a href="raport-reparatii.html">Raport detaliat pentru reparații auto</a></li>
-        <li><a href="consultanta-daune.html">Consultanță gratuită pentru daune</a></li>
-      </ul>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>Suntem aici pentru a te ajuta. Ne poți contacta în orice moment:</p>
-      <div class="contact-icons">
-        <a href="tel:+4917683458274">📞 Telefon</a>
-        <a href="https://wa.me/+4917683458274">💬 WhatsApp</a>
-        <a href="mailto:contact@corion-gutachter.de">✉️ Email</a>
-      </div>
-    </section>
-
-    <section class="partners">
-      <h2>Partenerii Noștri</h2>
-      <a href="https://corion-lackdoktor.de/" target="_blank">Corion Lackdoktor</a>
-    </section>
-  </div>
-
-  <!-- Subsol -->
-  <footer>
-    <p>&copy; 2024 Corion Gutachter. Toate drepturile rezervate.</p>
-  </footer>
-
-  <!-- Butonul de chat AI -->
-  <div class="chat-ai" onclick="showDisclaimer();">
-    <a href="https://chatgpt.com/g/g-6734a09fb57c81909a1bd6f583757b08-kfz-gutachter-assistant" target="_blank">
-      <img src="images/chat-icon.png" alt="Chat AI">
-    </a>
-  </div>
-
-  <!-- Script pentru disclaimer (poate fi mutat în main.js, dacă vrei) -->
-  <script>
-    function showDisclaimer() {
-      alert("Disclaimer: Folosirea agentului AI poate memora datele sau informațiile introduse. Acestea au caracter informativ și se recomandă consultarea cu un specialist uman. Corion GmbH nu răspunde pentru datele gestionate de terți precum OpenAI.");
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutomotiveBusiness",
+      "name": "Corion Gutachter",
+      "alternateName": "Corion Kfz-Sachverständigenbüro & Lackdoktor",
+      "description": "Corion Gutachter bietet schnelle und professionelle Kfz-Schadengutachten und Fahrzeugbewertungen in Frankfurt, Hofheim, Wiesbaden und Mainz. Über 25 Jahre Erfahrung in Karosserie & Lack, KI-gestützte Analyse. Kostenlose Erstberatung.",
+      "url": "https://www.corion-gutachter.de/",
+      "logo": "https://www.corion-gutachter.de/logo-corion-gutachter-transparent.png",
+      "image": "https://www.corion-gutachter.de/images/kfz-gutachter-corion.jpg",
+      "telephone": "+4917683458274",
+      "email": "info@corion-gutachter.de",
+      "priceRange": "€€",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Frankfurt am Main",
+          "addressRegion": "HE",
+          "addressCountry": "DE",
+          "description": "Haupttätigkeitsgebiet Frankfurt"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Hofheim am Taunus",
+          "addressRegion": "HE",
+          "addressCountry": "DE",
+          "description": "Haupttätigkeitsgebiet Hofheim"
+        },
+         {
+          "@type": "PostalAddress",
+          "addressLocality": "Wiesbaden",
+          "addressRegion": "HE",
+          "addressCountry": "DE",
+          "description": "Haupttätigkeitsgebiet Wiesbaden"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Mainz",
+          "addressRegion": "RP",
+          "addressCountry": "DE",
+          "description": "Haupttätigkeitsgebiet Mainz"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Frankfurt am Main" },
+        { "@type": "City", "name": "Hofheim am Taunus" },
+        { "@type": "City", "name": "Wiesbaden" },
+        { "@type": "City", "name": "Mainz" },
+        { "@type": "AdministrativeArea", "name": "Rhein-Main-Gebiet" }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Ihr Corion Gutachter Team",
+        "jobTitle": "Zertifizierte Kfz-Sachverständige & Lackdoktor",
+        "description": "Engagiertes Team von zertifizierten Kfz-Sachverständigen bei Corion Gutachter, spezialisiert auf Unfallgutachten, Wertgutachten und KI-gestützte Schadensanalyse."
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Kfz-Gutachten Dienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Schadengutachten",
+              "name": "Kfz-Schadengutachten (Unfallgutachten)",
+              "description": "Detaillierte und rechtssichere Gutachten zur Feststellung von Unfallschäden (inkl. versteckter Schäden) und zur Schadensregulierung mit Versicherungen. KI-gestützte Analyse.",
+              "provider": {"@id": "https://www.corion-gutachter.de/#organization"}
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Fahrzeugbewertung",
+              "name": "Kfz-Wertgutachten (Restwert-/Marktwertgutachten)",
+              "description": "Professionelle Ermittlung des aktuellen Marktwertes Ihres Fahrzeugs (Gebrauchtwagen, Unfallwagen, Oldtimer) für Kauf, Verkauf oder Leasingrückgabe.",
+              "provider": {"@id": "https://www.corion-gutachter.de/#organization"}
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Digitale Schadensanalyse",
+              "name": "Digitale & KI-gestützte Schadensanalyse",
+              "description": "Aufspüren von Rahmenverziehungen, Strukturschäden und unauffälligen Lackmängeln mittels moderner digitaler Dokumentation und KI-Verfahren.",
+              "provider": {"@id": "https://www.corion-gutachter.de/#organization"}
+            }
+          },
+           {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "Kostenlose Erstberatung Kfz Gutachten",
+              "name": "Kostenlose Erstberatung",
+              "description": "Unverbindliche und kostenfreie Erstberatung zu Ihrem Schadenfall oder Bewertungsanliegen.",
+              "provider": {"@id": "https://www.corion-gutachter.de/#organization"}
+            }
+          }
+        ]
+      },
+       "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.corion-gutachter.de/#kontakt",
+          "inLanguage": "de",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/IOSPlatform",
+            "http://schema.org/AndroidPlatform"
+          ]
+        },
+        "name": "Gutachten anfragen"
+      },
+      "sameAs": [
+      ],
+      "@id": "https://www.corion-gutachter.de/#organization"
     }
-  </script>
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.corion-gutachter.de/",
+      "name": "Corion Gutachter",
+      "publisher": {
+        "@type": "AutomotiveBusiness",
+        "name": "Corion Gutachter",
+         "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.corion-gutachter.de/logo-corion-gutachter-transparent.png"
+          }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.corion-gutachter.de/suche?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.corion-gutachter.de/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Leistungen",
+            "item": "https://www.corion-gutachter.de/#leistungen"
+        },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Über Uns",
+            "item": "https://www.corion-gutachter.de/#ueber-uns"
+        },{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "KI-Unfall-Assistent",
+            "item": "https://www.corion-gutachter.de/#unfall-assistent"
+        },{
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Blog",
+            "item": "https://www.corion-gutachter.de/#blog"
+        },{
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Kontakt",
+            "item": "https://www.corion-gutachter.de/#kontakt"
+        },{
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Gutachter-Portal",
+            "item": "https://app.beispiel-gutachter-domain.de" 
+        }]
+    }
+    </script>
+</head>
+<body class="antialiased">
+
+    <header class="sticky-nav shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" title="Corion Gutachter Startseite">
+                        <img class="h-12 md:h-16 w-auto" src="uploaded:+1CorionGutachter_On_Transparent (High).jpg-537b0546-072d-4d92-9505-00c43b0baa71" alt="Corion Gutachter Logo">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <nav class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm">Start</a>
+                        <a href="#leistungen" class="nav-link px-3 py-2 rounded-md text-sm">Leistungen</a>
+                        <a href="#ueber-uns" class="nav-link px-3 py-2 rounded-md text-sm">Über Uns</a>
+                        <a href="#unfall-assistent" class="nav-link px-3 py-2 rounded-md text-sm">KI-Unfall-Assistent</a>
+                        <a href="#standorte" class="nav-link px-3 py-2 rounded-md text-sm">Standorte</a>
+                        <a href="#blog" class="nav-link px-3 py-2 rounded-md text-sm">Blog</a>
+                        <a href="#kontakt" class="nav-link px-3 py-2 rounded-md text-sm">Kontakt</a>
+                        <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link-external text-sm ml-2" title="Externes Gutachter-Portal öffnen">
+                            Gutachter-Portal <i class="fas fa-external-link-alt fa-xs ml-1"></i>
+                        </a>
+                    </nav>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-corion-red" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Hauptmenü öffnen</span>
+                        <i class="fas fa-bars fa-fw text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base">Start</a>
+                <a href="#leistungen" class="nav-link block px-3 py-2 rounded-md text-base">Leistungen</a>
+                <a href="#ueber-uns" class="nav-link block px-3 py-2 rounded-md text-base">Über Uns</a>
+                <a href="#unfall-assistent" class="nav-link block px-3 py-2 rounded-md text-base">KI-Unfall-Assistent</a>
+                <a href="#standorte" class="nav-link block px-3 py-2 rounded-md text-base">Standorte</a>
+                <a href="#blog" class="nav-link block px-3 py-2 rounded-md text-base">Blog</a>
+                <a href="#kontakt" class="nav-link block px-3 py-2 rounded-md text-base">Kontakt</a>
+                <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link block px-3 py-2 rounded-md text-base corion-red hover:bg-gray-700" title="Externes Gutachter-Portal öffnen">
+                    Gutachter-Portal <i class="fas fa-external-link-alt fa-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative text-white min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
+            <div class="hero-video-container">
+                <video autoplay muted loop playsinline id="heroVideo" poster="https://placehold.co/1920x1080/1f2937/374151?text=Video+L%C3%A4dt...">
+                    <source src="https://static.videezy.com/system/resources/previews/000/044/297/original/DSC_6459_PART_1_OB_1.mp4" type="video/mp4">
+                    Ihr Browser unterstützt das Video-Tag nicht.
+                </video>
+            </div>
+            <div class="hero-content-overlay w-full">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+                        <span class="block">Corion Gutachter: Ihr Partner für</span>
+                        <span class="block corion-red mt-2">Kfz-Gutachten im Rhein-Main-Gebiet</span>
+                    </h1>
+                    <p class="mt-6 max-w-md mx-auto text-lg sm:text-xl md:mt-8 md:max-w-3xl text-gray-200">
+                        Schnell, professionell und unabhängig. Wir erstellen Schadengutachten und Wertgutachten für Ihr Fahrzeug in Frankfurt, Hofheim, Wiesbaden & Mainz.
+                    </p>
+                    <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                        <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                            <a href="#leistungen" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-corion-red hover:bg-corion-red-dark md:py-4 md:text-lg md:px-10 shadow-lg">
+                                Unsere Leistungen
+                            </a>
+                            <a href="#kontakt" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md hero-button-secondary md:py-4 md:text-lg md:px-10 shadow-lg">
+                                Direkt anfragen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="leistungen" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="section-title">Unsere Gutachter-Leistungen</h2>
+                    <p class="section-subtitle">Professionelle Kfz-Gutachten für jede Situation – verlassen Sie sich auf unsere Expertise und Erfahrung.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                            <i class="fas fa-car-crash fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Unfall- & Schadensgutachten</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Präzise Gutachten zur Beweissicherung und Schadensregulierung, auch bei versteckten Schäden dank KI-Analyse. Von Versicherungen anerkannt.
+                        </p>
+                    </article>
+                    <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                            <i class="fas fa-search-dollar fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Restwert-/Marktwertgutachten</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Marktgerechte Wertermittlung für Gebrauchtwagen, Unfallwagen und Oldtimer. Fundierte Basis für Kauf, Verkauf oder Versicherung.
+                        </p>
+                    </article>
+                    <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                            <i class="fas fa-microchip fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Digitale & KI-Analyse</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                           Aufspüren von Rahmenverziehungen, Strukturschäden und Lackmängeln durch modernste digitale Dokumentation und KI-gestützte Verfahren.
+                        </p>
+                    </article>
+                    <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                           <i class="fas fa-tools fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Karosserie & Lack</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Expertise aus über 25 Jahren Erfahrung in Karosserie- & Lackierarbeiten für eine umfassende Schadensbeurteilung und Werterhaltung.
+                        </p>
+                    </article>
+                     <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                           <i class="fas fa-comments-dollar fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Kostenlose Erstberatung</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Unverbindliche und kostenfreie Erstberatung zu Ihrem Schadenfall oder Bewertungsanliegen. Wir klären Ihre Fragen und zeigen Lösungswege auf.
+                        </p>
+                    </article>
+                     <article class="card p-6">
+                        <div class="flex-shrink-0 mb-4 text-center">
+                           <i class="fas fa-file-invoice-dollar fa-3x corion-red"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3 text-center">Kostenvoranschläge</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Erstellung qualifizierter Kostenvoranschläge für Reparaturen, ideal auch zur Abrechnung von Bagatellschäden direkt mit der Versicherung.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="ueber-uns" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                            Über <span class="corion-red">Corion Gutachter</span> & den Lackdoktor
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-300">
+                            Mit über 25 Jahren Erfahrung in der Karosserie- und Autolackierbranche und drei Jahren als zertifizierter KFZ-Gutachter (Marke „Lackdoktor“) erstelle ich präzise Unfall- und Schadensgutachten, die selbst versteckte Schäden zuverlässig erkennen. Dank digitaler Dokumentation und KI-gestützter Analyseverfahren biete ich Ihnen faire Restwert- und Marktwertgutachten sowie eine transparente Schadensermittlung, die weit über den ersten Blick hinausgeht.
+                        </p>
+                        <h3 class="mt-8 text-2xl font-semibold text-white">Unsere Kernkompetenzen:</h3>
+                        <ul class="mt-4 space-y-3 text-gray-300 list-none pl-0">
+                            <li class="flex items-start">
+                                <i class="fas fa-car-side fa-fw corion-red mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong>Karosserie- & Lackierarbeiten:</strong> Modernste Techniken zur nachhaltigen Reparatur und Wiederherstellung des Originalzustands.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate fa-fw corion-red mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong>Zertifizierte KFZ-Gutachten:</strong> Unfall- und Schadensbewertungen, die von Versicherungen und Gerichten anerkannt sind.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-robot fa-fw corion-red mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong>Digitale & KI-gestützte Analyse:</strong> Aufspüren von Rahmenverziehungen, Strukturschäden und unauffälligen Lackmängeln.</span>
+                            </li>
+                            <li class="flex items-start">
+                               <i class="fas fa-balance-scale-right fa-fw corion-red mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong>Restwert-/Marktwertgutachten:</strong> Marktgerechte Wertermittlung für Gebrauchtwagen, Unfallwagen und Oldtimer.</span>
+                            </li>
+                        </ul>
+                         <p class="mt-6 text-lg text-gray-300">
+                            Vertrauen Sie auf Corion Gutachter und den Lackdoktor – für klare, rechtssichere und umfassend geprüfte Fahrzeugbewertungen.
+                        </p>
+                    </div>
+                    <div class="mt-10 lg:mt-0">
+                        <img class="rounded-lg shadow-xl w-full h-auto object-cover" src="https://placehold.co/600x700/1f2937/c00000?text=Corion+Gutachter+Expertise" alt="Corion Gutachter Expertise in Karosserie und Lack">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="unfall-assistent" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="section-title">✨ KI-Unfall-Assistent</h2>
+                    <p class="section-subtitle">Beschreiben Sie kurz Ihren Unfall, und unser KI-Assistent gibt Ihnen eine allgemeine Checkliste mit ersten Schritten.<br>
+                        <span class="text-sm text-amber-400">Hinweis: Dies ist keine Rechtsberatung. Kontaktieren Sie uns für eine professionelle Begutachtung.</span>
+                    </p>
+                </div>
+                <div class="mt-8 max-w-2xl mx-auto card p-6 md:p-8">
+                    <div>
+                        <label for="accidentDescription" class="block text-sm font-medium text-gray-300 mb-1">Kurze Unfallbeschreibung:</label>
+                        <textarea id="accidentDescription" name="accidentDescription" rows="4" class="form-textarea py-3 px-4 block w-full shadow-sm rounded-md" placeholder="z.B. Auffahrunfall bei niedriger Geschwindigkeit, Blechschaden am Heck, keine Verletzten."></textarea>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button id="getAccidentAdviceButton" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 gemini-button">
+                            <i class="fas fa-tasks mr-2"></i> Ratgeber erhalten
+                        </button>
+                    </div>
+                </div>
+                <div id="accidentAdviceLoader" class="hidden loader mx-auto mt-6"></div>
+                <div id="accidentAdviceError" class="hidden text-center text-red-400 my-4 p-4 card"></div>
+                <div id="accidentAdviceResult" class="mt-8 p-6 card hidden">
+                    <h4 class="text-xl font-semibold text-white mb-4">Allgemeine Checkliste nach einem Unfall:</h4>
+                    <div id="accidentAdviceContent" class="text-gray-300 markdown-output"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="standorte" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center">
+                    <h2 class="section-title">Für Sie vor Ort</h2>
+                    <p class="section-subtitle">Corion Gutachter ist Ihr regionaler Partner im Rhein-Main-Gebiet. Wir sind schnell bei Ihnen in:</p>
+                </div>
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4 card"> 
+                        <i class="fas fa-map-marker-alt fa-3x corion-red mb-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Frankfurt am Main</h3>
+                    </div>
+                     <div class="p-4 card"> 
+                        <i class="fas fa-map-marker-alt fa-3x corion-red mb-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Hofheim am Taunus</h3>
+                    </div>
+                     <div class="p-4 card"> 
+                        <i class="fas fa-map-marker-alt fa-3x corion-red mb-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Wiesbaden</h3>
+                    </div>
+                     <div class="p-4 card"> 
+                        <i class="fas fa-map-marker-alt fa-3x corion-red mb-3"></i>
+                        <h3 class="text-xl font-semibold text-white">Mainz</h3>
+                    </div>
+                </div>
+                <p class="mt-8 text-center text-gray-200 relative z-10">... und Umgebung. Kontaktieren Sie uns für eine Terminvereinbarung.</p> 
+            </div>
+        </section>
+
+        <section id="blog" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="section-title">Aktuelles & Wissenswertes aus unserem Blog</h2>
+                    <p class="section-subtitle">Informieren Sie sich über Neuigkeiten, Tipps und wichtige Aspekte rund um Kfz-Gutachten und Fahrzeugbewertung.</p>
+                </div>
+                
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
+                    <article class="card p-0 overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=Unfallgutachten+Prozess" alt="Prozess eines Unfallgutachtens" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-3">Wann ist ein Schadengutachten nach einem Unfall sinnvoll?</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed flex-grow">Auch bei vermeintlich kleinen Schäden kann ein unabhängiges Gutachten entscheidend sein, um Ihre Ansprüche vollständig geltend zu machen...</p>
+                            <a href="#blog-artikel-1" class="mt-4 inline-block text-corion-red hover:underline font-semibold self-start">Weiterlesen &raquo;</a>
+                        </div>
+                    </article>
+                    <article class="card p-0 overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=KI+Fahrzeugbewertung" alt="KI in der Fahrzeugbewertung" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-3">Die Bedeutung der KI in der modernen Fahrzeugbewertung</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed flex-grow">Wie künstliche Intelligenz hilft, versteckte Mängel aufzudecken und präzisere Wertgutachten zu erstellen...</p>
+                            <a href="#blog-artikel-2" class="mt-4 inline-block text-corion-red hover:underline font-semibold self-start">Weiterlesen &raquo;</a>
+                        </div>
+                    </article>
+                    <article class="card p-0 overflow-hidden flex flex-col">
+                         <img src="https://placehold.co/600x400/374151/e5e7eb?text=Lackpflege+Tipps" alt="Tipps zur Lackpflege" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-3">Tipps vom Lackdoktor: Lackpflege und Werterhalt</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed flex-grow">Erfahren Sie, wie Sie den Lack Ihres Fahrzeugs optimal schützen und so den Wert langfristig erhalten können...</p>
+                            <a href="#blog-artikel-3" class="mt-4 inline-block text-corion-red hover:underline font-semibold self-start">Weiterlesen &raquo;</a>
+                        </div>
+                    </article>
+                </div>
+                 <div class="mt-12 text-center">
+                    <a href="#alle-blogbeitraege" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-corion-red hover:bg-corion-red-dark md:py-4 md:text-lg md:px-10 shadow-lg">
+                        Alle Blogbeiträge anzeigen (Platzhalter)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-16 md:py-24 content-sections-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="section-title">Nehmen Sie Kontakt auf</h2>
+                    <p class="section-subtitle">Wir sind für Sie da! Schildern Sie uns Ihr Anliegen – wir beraten Sie gerne kostenlos und unverbindlich.</p>
+                </div>
+                <div class="mt-12 max-w-3xl mx-auto card p-8 md:p-10">
+                    <form id="contactForm" action="#" method="POST" enctype="multipart/form-data">
+                        <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300">Vollständiger Name</label>
+                                <div class="mt-1">
+                                    <input type="text" name="name" id="name" autocomplete="name" required class="form-input py-3 px-4 block w-full shadow-sm rounded-md">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300">E-Mail-Adresse</label>
+                                <div class="mt-1">
+                                    <input id="email" name="email" type="email" autocomplete="email" required class="form-input py-3 px-4 block w-full shadow-sm rounded-md">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="phone" class="block text-sm font-medium text-gray-300">Telefonnummer</label>
+                                <div class="mt-1">
+                                    <input type="text" name="phone" id="phone" autocomplete="tel" class="form-input py-3 px-4 block w-full shadow-sm rounded-md">
+                                </div>
+                            </div>
+                             <div class="sm:col-span-2">
+                                <label for="subject" class="block text-sm font-medium text-gray-300">Betreff</label>
+                                <div class="mt-1">
+                                    <input type="text" name="subject" id="subject" required class="form-input py-3 px-4 block w-full shadow-sm rounded-md">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="message" class="block text-sm font-medium text-gray-300">Ihre Nachricht</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4" required class="form-input py-3 px-4 block w-full shadow-sm rounded-md"></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="carPhotos" class="block text-sm font-medium text-gray-300">Fotos vom Fahrzeug (optional)</label>
+                                <div class="mt-1">
+                                    <input type="file" name="carPhotos[]" id="carPhotos" multiple accept="image/jpeg, image/png, image/webp" class="form-file-input block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-corion-red file:text-white hover:file:bg-corion-red-dark cursor-pointer">
+                                </div>
+                                <div id="fileList" class="mt-2 text-xs text-gray-400"></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                             <label class="inline-flex items-center">
+                                <input type="checkbox" name="privacy" id="privacy" required class="rounded h-4 w-4 border-gray-600 text-corion-red focus:ring-corion-red bg-gray-700">
+                                <span class="ml-2 text-sm text-gray-400">Ich habe die <a href="#" id="openDatenschutzModalFromForm" class="corion-red hover:underline">Datenschutzerklärung</a> gelesen und stimme zu.</span>
+                            </label>
+                        </div>
+                        <div class="mt-8 sm:col-span-2 text-center">
+                            <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-corion-red hover:bg-corion-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-corion-red">
+                                Nachricht senden
+                            </button>
+                        </div>
+                    </form>
+                    <div id="form-message" class="mt-4 text-center text-sm"></div>
+                </div>
+                <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Direkter Draht zu uns:</h3>
+                    <p class="text-lg text-gray-300 mb-2">
+                        <i class="fas fa-phone-alt fa-fw corion-red mr-2"></i>Telefon: <a href="tel:+4917683458274" class="hover:text-corion-red transition-colors">+49 176 83458274</a>
+                    </p>
+                    <p class="text-lg text-gray-300 mb-2">
+                        <i class="fas fa-envelope fa-fw corion-red mr-2"></i>E-Mail: <a href="mailto:info@corion-gutachter.de" class="hover:text-corion-red transition-colors">info@corion-gutachter.de</a>
+                    </p>
+                    <p class="text-lg text-gray-300 mb-6">
+                        <i class="fab fa-whatsapp fa-fw corion-red mr-2"></i>WhatsApp: <a href="https://wa.me/4917683458274" target="_blank" rel="noopener noreferrer" class="hover:text-corion-red transition-colors">Chat starten</a>
+                    </p>
+                    <a href="https://wa.me/4917683458274?text=Hallo%20Corion%20Gutachter,%20ich%20habe%20eine%20Anfrage." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium whatsapp-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-green-500">
+                        <i class="fab fa-whatsapp fa-lg mr-2"></i> Direkt per WhatsApp kontaktieren
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-700">
+        <div class="container mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; <span id="currentYear"></span> Corion Gutachter. Alle Rechte vorbehalten.</p>
+            <p class="mt-1">
+                <a href="#" id="openImpressumModal" class="hover:text-corion-red transition-colors">Impressum</a> | 
+                <a href="#" id="openDatenschutzModal" class="hover:text-corion-red transition-colors">Datenschutz</a>
+            </p>
+        </div>
+    </footer>
+
+    <button id="openChatModalButton" class="floating-chat-button" title="Chat starten / Fragen stellen">
+        <i class="fas fa-comments fa-lg"></i>
+    </button>
+
+    <div id="impressumModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeImpressumModal">&times;</span>
+            <h3 class="text-2xl font-semibold mb-4 corion-red">Impressum</h3>
+            <p class="text-left text-sm leading-relaxed">
+                <strong>Corion Gutachter</strong><br>
+                (Platzhalter für Inhaber/Rechtsform)<br>
+                (Platzhalter für Straße und Hausnummer)<br>
+                (Platzhalter für PLZ und Ort)<br><br>
+                <strong>Kontakt:</strong><br>
+                Telefon: +49 176 83458274<br>
+                E-Mail: info@corion-gutachter.de<br><br>
+                <strong>Umsatzsteuer-ID:</strong><br>
+                (Platzhalter für USt-IdNr. gemäß §27a Umsatzsteuergesetz)<br><br>
+                <strong>Zuständige Kammer (falls zutreffend):</strong><br>
+                (Platzhalter für zuständige Kammer)<br><br>
+                <strong>Berufsbezeichnung:</strong><br>
+                Kfz-Sachverständiger (verliehen in Deutschland, Platzhalter)<br><br>
+                <strong>Berufshaftpflichtversicherung (Angaben gemäß DL-InfoV):</strong><br>
+                (Name und Anschrift des Versicherers, räumlicher Geltungsbereich)<br><br>
+                <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+                (Name und Anschrift des Verantwortlichen)<br><br>
+                Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="corion-red hover:underline">https://ec.europa.eu/consumers/odr</a><br>
+                Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+            </p>
+             <p class="text-xs mt-6 text-gray-500">Dies ist ein Musterimpressum. Bitte ersetzen Sie die Platzhalter durch Ihre korrekten Daten.</p>
+        </div>
+    </div>
+
+    <div id="datenschutzModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeDatenschutzModal">&times;</span>
+            <h3 class="text-2xl font-semibold mb-4 corion-red">Datenschutzerklärung</h3>
+            <div class="text-left text-sm leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
+                <p>Stand: <span id="dataPolicyDate"></span></p>
+                <p>Wir legen größten Wert auf den Schutz Ihrer Daten und die Wahrung Ihrer Privatsphäre. Nachfolgend informieren wir Sie deshalb über die Erhebung und Verwendung persönlicher Daten bei Nutzung unserer Webseite.</p>
+                <h4 class="font-semibold mt-3 mb-1 text-white">Verantwortliche Stelle</h4>
+                <p>(Name und Kontaktdaten des Verantwortlichen für die Datenverarbeitung einfügen)</p>
+                <h4 class="font-semibold mt-3 mb-1 text-white">Datenerfassung auf unserer Website</h4>
+                <p><strong>Cookies:</strong> Unsere Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. (Weitere Details zu verwendeten Cookies und deren Zweck)...</p>
+                <p><strong>Server-Log-Dateien:</strong> Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage, IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Grundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen gestattet.</p>
+                <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt somit ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). (Weitere Details zur Speicherdauer etc.)...</p>
+                <h4 class="font-semibold mt-3 mb-1 text-white">Ihre Rechte als Betroffener</h4>
+                <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. (Weitere Ausführungen zu Betroffenenrechten)...</p>
+                <p class="mt-4"><em>(Dies ist ein stark gekürztes Muster. Eine vollständige, rechtskonforme Datenschutzerklärung muss individuell erstellt werden und alle Aspekte der Datenverarbeitung auf Ihrer Webseite abdecken. Konsultieren Sie hierfür einen Fachanwalt oder Datenschutzbeauftragten.)</em></p>
+            </div>
+            <p class="text-xs mt-6 text-gray-500">Dies ist eine Muster-Datenschutzerklärung. Bitte erstellen Sie eine vollständige und rechtskonforme Datenschutzerklärung.</p>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <div id="chatHeader">
+                <span id="chatTitle">Corion Gutachter KI-Assistent</span>
+                <span class="modal-close" id="closeChatModal">&times;</span>
+            </div>
+            <div id="chatMessages">
+            </div>
+            <div id="chatInputContainer">
+                <input type="text" id="chatInput" placeholder="Stellen Sie Ihre Frage..." class="form-input">
+                <button id="sendChatMessageButton" class="bg-corion-red hover:bg-corion-red-dark text-white font-semibold">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        async function callGeminiApi(promptText, isJsonOutput = false, jsonSchema = null) {
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            let payload = {
+                contents: [{ role: "user", parts: [{ text: promptText }] }]
+            };
+
+            if (isJsonOutput && jsonSchema) {
+                payload.generationConfig = {
+                    responseMimeType: "application/json",
+                    responseSchema: jsonSchema
+                };
+            }
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorBody = await response.text();
+                    console.error("API Error Response:", errorBody);
+                    throw new Error(`API-Fehler: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error("Unerwartete API-Antwortstruktur:", result);
+                    throw new Error("Ungültige oder leere API-Antwort.");
+                }
+            } catch (error) {
+                console.error("Fehler beim Aufruf der Gemini API:", error);
+                throw error; 
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentYearSpan = document.getElementById('currentYear');
+            const dataPolicyDateSpan = document.getElementById('dataPolicyDate');
+            
+            const impressumModal = document.getElementById('impressumModal');
+            const datenschutzModal = document.getElementById('datenschutzModal');
+            const openImpressumModalBtn = document.getElementById('openImpressumModal');
+            const closeImpressumModalBtn = document.getElementById('closeImpressumModal');
+            const openDatenschutzModalBtn = document.getElementById('openDatenschutzModal');
+            const closeDatenschutzModalBtn = document.getElementById('closeDatenschutzModal');
+            const openDatenschutzModalFromFormBtn = document.getElementById('openDatenschutzModalFromForm');
+
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('form-message');
+            const heroVideo = document.getElementById('heroVideo');
+            const carPhotosInput = document.getElementById('carPhotos');
+            const fileListDiv = document.getElementById('fileList');
+
+            const chatModal = document.getElementById('chatModal');
+            const openChatModalButton = document.getElementById('openChatModalButton');
+            const closeChatModalButton = document.getElementById('closeChatModal');
+            const chatMessagesContainer = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendChatMessageButton = document.getElementById('sendChatMessageButton');
+            
+            let chatHistory = []; 
+
+            const initialChatPrompt = `Du bist ein freundlicher und professioneller Chat-Assistent für Corion Gutachter, ein Kfz-Sachverständigenbüro in Deutschland, das in Frankfurt, Hofheim, Wiesbaden und Mainz tätig ist. Deine Aufgabe ist es, Kundenfragen zu beantworten und nützliche Informationen zu geben.
+Corion Gutachter bietet folgende Hauptleistungen an:
+- Unfall- & Schadensgutachten (auch mit KI-Analyse zur Erkennung versteckter Schäden)
+- Restwert-/Marktwertgutachten (für Gebrauchtwagen, Unfallwagen, Oldtimer)
+- Digitale & KI-gestützte Schadensanalyse (Rahmenverziehungen, Strukturschäden, Lackmängel)
+- Expertise in Karosserie & Lack (über 25 Jahre Erfahrung)
+- Kostenlose Erstberatung
+- Kostenvoranschläge
+
+Deine Antworten sollten:
+- Informativ und präzise sein.
+- In klarem und verständlichem Deutsch verfasst sein.
+- Einen professionellen und hilfsbereiten Ton haben.
+- Auf die spezifischen Fragen des Nutzers eingehen.
+- Falls eine Frage unklar ist, stelle eine klärende Gegenfrage.
+- Verweise bei Bedarf auf die Möglichkeit, das Kontaktformular zu nutzen oder direkt anzurufen (+49 176 83458274) für komplexe Anliegen oder Terminvereinbarungen.
+- Gib keine Rechtsberatung, sondern verweise bei Rechtsfragen an einen Anwalt.
+- Erfinde keine Informationen, die du nicht aus diesem Kontext oder allgemeinem Wissen über Kfz-Gutachten ableiten kannst.
+Beginne das Gespräch mit einer freundlichen Begrüßung und frage, wie du helfen kannst.`;
+
+            // KI Unfall-Assistent Elements
+            const getAccidentAdviceButton = document.getElementById('getAccidentAdviceButton');
+            const accidentDescriptionTextarea = document.getElementById('accidentDescription');
+            const accidentAdviceLoader = document.getElementById('accidentAdviceLoader');
+            const accidentAdviceError = document.getElementById('accidentAdviceError');
+            const accidentAdviceResultDiv = document.getElementById('accidentAdviceResult');
+            const accidentAdviceContentDiv = document.getElementById('accidentAdviceContent');
+
+
+            if (heroVideo) {
+                heroVideo.play().catch(error => {
+                    console.warn("Video autoplay was prevented:", error);
+                });
+            }
+
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+            if (dataPolicyDateSpan) {
+                 const today = new Date();
+                 const day = String(today.getDate()).padStart(2, '0');
+                 const month = String(today.getMonth() + 1).padStart(2, '0');
+                 const year = today.getFullYear();
+                 dataPolicyDateSpan.textContent = day + '.' + month + '.' + year;
+            }
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const headerOffset = document.querySelector('.sticky-nav').offsetHeight || 80;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
+                            });
+                        }
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                           mobileMenu.classList.add('hidden');
+                           mobileMenuButton.setAttribute('aria-expanded', 'false');
+                           const icon = mobileMenuButton.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                            }
+                        }
+                        document.querySelectorAll('.nav-link:not(.nav-link-external)').forEach(l => l.classList.remove('active', 'corion-red'));
+                        if (!this.classList.contains('nav-link-external')) {
+                           this.classList.add('active', 'corion-red');
+                        }
+                    }
+                });
+            });
+            
+            function openModal(modal) {
+                if(modal) modal.style.display = "block";
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal(modal) {
+                if(modal) modal.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+
+            if(openImpressumModalBtn && impressumModal) openImpressumModalBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(impressumModal);});
+            if(closeImpressumModalBtn && impressumModal) closeImpressumModalBtn.addEventListener('click', () => closeModal(impressumModal));
+            
+            if(openDatenschutzModalBtn && datenschutzModal) openDatenschutzModalBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(datenschutzModal);});
+            if(openDatenschutzModalFromFormBtn && datenschutzModal) openDatenschutzModalFromFormBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(datenschutzModal);});
+            if(closeDatenschutzModalBtn && datenschutzModal) closeDatenschutzModalBtn.addEventListener('click', () => closeModal(datenschutzModal));
+
+            window.addEventListener('click', (event) => {
+                if (event.target == impressumModal) closeModal(impressumModal);
+                if (event.target == datenschutzModal) closeModal(datenschutzModal);
+                if (event.target == chatModal) closeModal(chatModal);
+            });
+            
+            window.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    if(impressumModal && impressumModal.style.display === 'block') closeModal(impressumModal);
+                    if(datenschutzModal && datenschutzModal.style.display === 'block') closeModal(datenschutzModal);
+                    if(chatModal && chatModal.style.display === 'block') closeModal(chatModal);
+                }
+            });
+
+            if (carPhotosInput && fileListDiv) {
+                carPhotosInput.addEventListener('change', function() {
+                    fileListDiv.innerHTML = ''; 
+                    if (this.files && this.files.length > 0) {
+                        const ul = document.createElement('ul');
+                        ul.classList.add('list-disc', 'list-inside');
+                        for (let i = 0; i < this.files.length; i++) {
+                            const li = document.createElement('li');
+                            li.textContent = this.files[i].name;
+                            ul.appendChild(li);
+                        }
+                        fileListDiv.appendChild(ul);
+                    } else {
+                        fileListDiv.textContent = 'Keine Dateien ausgewählt.';
+                    }
+                });
+            }
+
+            if (contactForm && formMessage) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    const privacy = document.getElementById('privacy').checked;
+                    const carPhotos = document.getElementById('carPhotos').files;
+
+                    formMessage.textContent = ''; 
+                    formMessage.className = 'mt-4 text-center text-sm';
+
+                    if (!name || !email || !subject || !message) {
+                        formMessage.textContent = 'Bitte füllen Sie alle Pflichtfelder aus.';
+                        formMessage.classList.add('text-red-400');
+                        return;
+                    }
+                    if (!privacy) {
+                        formMessage.textContent = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+                        formMessage.classList.add('text-red-400');
+                        return;
+                    }
+                    
+                    console.log("Formulardaten:");
+                    console.log("Name:", name);
+                    console.log("Email:", email);
+                    console.log("Betreff:", subject);
+                    console.log("Nachricht:", message);
+                    if (carPhotos.length > 0) {
+                        console.log("Hochgeladene Dateien:");
+                        for (let i = 0; i < carPhotos.length; i++) {
+                            console.log(`- ${carPhotos[i].name} (${carPhotos[i].size} bytes)`);
+                        }
+                    }
+
+                    formMessage.textContent = 'Vielen Dank! Ihre Nachricht wird gesendet... (Demo)';
+                    formMessage.classList.add('text-green-400');
+                    
+                    setTimeout(() => {
+                         formMessage.textContent = 'Nachricht erfolgreich gesendet! (Dies ist eine Demo)';
+                         contactForm.reset();
+                         if (fileListDiv) fileListDiv.innerHTML = ''; 
+                    }, 2000);
+                });
+            }
+            
+            const sections = document.querySelectorAll('main section[id]');
+            const headerHeight = document.querySelector('.sticky-nav') ? document.querySelector('.sticky-nav').offsetHeight : 80;
+
+            function updateActiveNavLink() {
+                let currentSectionId = 'home';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - headerHeight - 50)) { 
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-link:not(.nav-link-external)').forEach(link => {
+                    link.classList.remove('active', 'corion-red');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active', 'corion-red');
+                    }
+                });
+            }
+            window.addEventListener('scroll', updateActiveNavLink);
+            updateActiveNavLink(); 
+
+
+            // Chat Modal Logic
+            if (openChatModalButton && chatModal) {
+                openChatModalButton.addEventListener('click', async (e) => {
+                    e.preventDefault(); 
+                    openModal(chatModal);
+                    if (chatMessagesContainer.children.length === 0) { 
+                        addMessageToChat("...", "typing-indicator"); 
+                        try {
+                            const firstAiResponse = await callGeminiApi(initialChatPrompt);
+                            removeTypingIndicator();
+                            addMessageToChat(firstAiResponse, "assistant");
+                            chatHistory.push({ role: "model", parts: [{ text: firstAiResponse }] });
+                        } catch(error) {
+                            removeTypingIndicator();
+                            addMessageToChat("Entschuldigung, ich bin gerade nicht erreichbar. Bitte versuchen Sie es später erneut.", "assistant", true);
+                        }
+                    }
+                });
+            }
+            if (closeChatModalButton && chatModal) {
+                closeChatModalButton.addEventListener('click', () => closeModal(chatModal));
+            }
+
+            function addMessageToChat(text, sender, isError = false) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('chat-message', sender);
+                if (isError) messageElement.classList.add('text-red-400');
+                messageElement.innerHTML = text.replace(/\n/g, '<br>');
+
+                chatMessagesContainer.appendChild(messageElement);
+                chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight; 
+            }
+            
+            function addTypingIndicator() {
+                const typingElement = document.createElement('div');
+                typingElement.classList.add('chat-message', 'typing-indicator');
+                typingElement.innerHTML = '<div class="loader"></div>';
+                chatMessagesContainer.appendChild(typingElement);
+                chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+            }
+
+            function removeTypingIndicator() {
+                const indicator = chatMessagesContainer.querySelector('.typing-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+
+            async function handleSendMessage() {
+                const userMessage = chatInput.value.trim();
+                if (userMessage === "") return;
+
+                addMessageToChat(userMessage, "user");
+                chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                chatInput.value = "";
+                addTypingIndicator();
+
+                try {
+                    let promptForApi = initialChatPrompt + "\n\nBisheriger Chatverlauf:\n";
+                    chatHistory.slice(-6).forEach(entry => { 
+                        promptForApi += `${entry.role === 'user' ? 'Kunde' : 'Assistent'}: ${entry.parts[0].text}\n`;
+                    });
+                    promptForApi += `\nAktuelle Frage des Kunden: "${userMessage}"\nAntworte jetzt auf diese Frage.`;
+                    
+                    const aiResponse = await callGeminiApi(promptForApi);
+                    removeTypingIndicator();
+                    addMessageToChat(aiResponse, "assistant");
+                    chatHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+
+                } catch (error) {
+                    removeTypingIndicator();
+                    addMessageToChat("Es gab ein Problem bei der Verbindung zum KI-Assistenten. Bitte versuchen Sie es später erneut.", "assistant", true);
+                }
+            }
+
+            if (sendChatMessageButton && chatInput) {
+                sendChatMessageButton.addEventListener('click', handleSendMessage);
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleSendMessage();
+                    }
+                });
+            }
+            
+            // KI Unfall-Assistent Logic
+            if (getAccidentAdviceButton) {
+                getAccidentAdviceButton.addEventListener('click', async () => {
+                    const description = accidentDescriptionTextarea.value.trim();
+                    if (description === "") {
+                        accidentAdviceError.textContent = "Bitte geben Sie eine kurze Beschreibung des Unfalls ein.";
+                        accidentAdviceError.classList.remove('hidden');
+                        accidentAdviceResultDiv.classList.add('hidden');
+                        return;
+                    }
+
+                    accidentAdviceLoader.classList.remove('hidden');
+                    accidentAdviceError.classList.add('hidden');
+                    accidentAdviceResultDiv.classList.add('hidden');
+                    getAccidentAdviceButton.disabled = true;
+
+                    try {
+                        const prompt = `Sie sind ein hilfreicher KI-Assistent für Corion Gutachter. Ein Nutzer hat einen Unfall beschrieben. Ihre Aufgabe ist es, eine allgemeine Checkliste mit Schritten zu erstellen, die nach einem Unfall zu beachten sind, basierend auf der folgenden Kurzbeschreibung. Geben Sie keine Rechtsberatung. Betonen Sie, dass dies allgemeine Ratschläge sind und bei Fahrzeugschäden immer ein unabhängiger Kfz-Sachverständiger wie Corion Gutachter kontaktiert werden sollte. Die Checkliste sollte klar, prägnant und für Laien verständlich sein. Fügen Sie einen deutlichen Hinweis hinzu, dass diese Checkliste keine Rechtsberatung darstellt und eine professionelle Begutachtung durch einen Sachverständigen unerlässlich ist.
+Nutzerbeschreibung des Unfalls: "${description}"
+Generieren Sie eine Checkliste im Markdown-Format (z.B. mit Spiegelstrichen oder Nummerierungen für Hauptpunkte und Unterpunkte).`;
+                        
+                        const responseText = await callGeminiApi(prompt);
+                        
+                        // Basic Markdown to HTML (ul, li, strong)
+                        let htmlResponse = responseText
+                            .replace(/^-\s*(.+)$/gm, '<li>$1</li>') // Unordered list items
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                            .replace(/\n/g, '<br>');
+                        
+                        // Wrap list items in <ul> if not already
+                        if (htmlResponse.includes('<li>')) {
+                           if (!htmlResponse.trim().startsWith('<ul>')) {
+                                htmlResponse = '<ul>' + htmlResponse + '</ul>';
+                           }
+                        }
+
+
+                        accidentAdviceContentDiv.innerHTML = htmlResponse;
+                        accidentAdviceResultDiv.classList.remove('hidden');
+                        accidentAdviceResultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    } catch (error) {
+                        accidentAdviceError.textContent = `Fehler beim Abrufen des Ratgebers: ${error.message}`;
+                        accidentAdviceError.classList.remove('hidden');
+                    } finally {
+                        accidentAdviceLoader.classList.add('hidden');
+                        getAccidentAdviceButton.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
