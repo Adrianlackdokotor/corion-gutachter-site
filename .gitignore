@@ -1,0 +1,4 @@
+uploads/
+chat_logs/
+*.log
+.cache/
