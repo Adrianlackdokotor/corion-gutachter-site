@@ -1,0 +1,87 @@
+
+Creează o nouă pagină React la ruta /gutachter care recreează complet site-ul Corion Gutachter (birou de expertiză auto Kfz-Sachverständigenbüro). Pagina trebuie integrată cu backend-ul de parteneriat și CRM existent din proiect. Toate textele sunt în germană. Comentariile în cod pot fi în română.
+
+DESIGN (respectă exact aceste valori):
+
+Culoare brand: #c00000 (Corion Red), hover: #a00000
+Background pagină: #111827, carduri: #1f2937, borduri: #374151
+Text principal: #e5e7eb, text secundar: #d1d5db, text slab: #9ca3af
+Font: Inter (sau Poppins/Open Sans existente în proiect)
+Carduri: border-radius: 0.75rem, hover effect translateY(-5px) cu box-shadow: 0 10px 15px rgba(192, 0, 0, 0.3)
+Navigație sticky cu backdrop-filter: blur(8px), background rgba(17, 24, 39, 0.95)
+Icoane: Lucide React (nu Font Awesome)
+STRUCTURA PAGINII /gutachter (single page cu scroll la secțiuni):
+
+1. Hero Section
+
+Video background (placeholder video, autoplay, muted, loop) cu overlay dark rgba(17, 24, 39, 0.75)
+Titlu: „Corion Gutachter: Ihr Partner für Kfz-Gutachten im Rhein-Main-Gebiet"
+Subtitlu: „Schnell, professionell und unabhängig. Wir erstellen Schadengutachten und Wertgutachten für Ihr Fahrzeug in Frankfurt, Hofheim, Wiesbaden & Mainz."
+2 CTA butoane: „Unsere Leistungen" (scroll #leistungen) și „Direkt anfragen" (scroll #kontakt)
+2. Leistungen Section — 6 carduri servicii, grid responsive (3 col desktop, 2 tabletă, 1 mobil):
+
+Unfall- & Schadensgutachten — „Präzise Gutachten zur Beweissicherung und Schadensregulierung, auch bei versteckten Schäden dank KI-Analyse. Von Versicherungen anerkannt."
+Restwert-/Marktwertgutachten — „Marktgerechte Wertermittlung für Gebrauchtwagen, Unfallwagen und Oldtimer. Fundierte Basis für Kauf, Verkauf oder Versicherung."
+Digitale & KI-Analyse — „Aufspüren von Rahmenverziehungen, Strukturschäden und Lackmängeln durch modernste digitale Dokumentation und KI-gestützte Verfahren."
+Karosserie & Lack — „Expertise aus über 25 Jahren Erfahrung in Karosserie- & Lackierarbeiten für eine umfassende Schadensbeurteilung und Werterhaltung."
+Kostenlose Erstberatung — „Unverbindliche und kostenfreie Erstberatung zu Ihrem Schadenfall oder Bewertungsanliegen. Wir klären Ihre Fragen und zeigen Lösungswege auf."
+Kostenvoranschläge — „Erstellung qualifizierter Kostenvoranschläge für Reparaturen, ideal auch zur Abrechnung von Bagatellschäden direkt mit der Versicherung."
+3. Über Uns Section — layout 65% text / 35% imagine placeholder:
+
+Titlu: „Über Corion Gutachter & den Lackdoktor"
+Text: „Mit über 25 Jahren Erfahrung in der Karosserie- und Autolackierbranche und drei Jahren als zertifizierter KFZ-Gutachter (Marke Lackdoktor) erstelle ich präzise Unfall- und Schadensgutachten..."
+4 competențe cu bullet points: Karosserie- & Lackierarbeiten, Zertifizierte KFZ-Gutachten, Digitale & KI-gestützte Analyse, Restwert-/Marktwertgutachten
+4. KI-Unfall-Assistent Section:
+
+Textarea: „Beschreiben Sie kurz Ihren Unfall"
+Buton: „Ratgeber erhalten" — trimite la endpoint-ul GPT existent (/api/ai/chat sau creează /api/gutachter/unfall-assistent)
+Afișează rezultatul AI ca checklist formatat
+Notă sub formular: „Hinweis: Dies ist keine Rechtsberatung. Kontaktieren Sie uns für eine professionelle Begutachtung."
+5. Standorte Section — 4 carduri locații cu icon MapPin:
+
+Frankfurt am Main, Hofheim am Taunus, Wiesbaden, Mainz
+Fiecare cu link WhatsApp: wa.me/4917683458274
+Google Maps embed opțional
+6. Blog Preview Section — 3 carduri articole statice:
+
+„Wann ist ein Schadengutachten nach einem Unfall sinnvoll?"
+„Die Bedeutung der KI in der modernen Fahrzeugbewertung"
+„Tipps vom Lackdoktor: Lackpflege und Werterhalt"
+Fiecare cu imagine placeholder, data, excerpt, buton „Weiterlesen"
+7. Kontakt Section — formular + info contact:
+
+Câmpuri: Name, E-Mail, Telefon, Betreff, Nachricht
+Upload fotografii (opțional, acceptă JPG, PNG, WEBP, PDF, max 25MB)
+Checkbox GDPR: „Ich habe die Datenschutzerklärung gelesen und stimme zu"
+Buton: „Nachricht senden"
+Formularul trimite datele prin POST la backend — creează un nou repair_request cu requestType: "gutachten" în baza de date
+Trimite email de confirmare prin Resend (integrarea existentă)
+Pe dreapta: Telefon +49 176 83458274, Email info@corion-gutachter.de, WhatsApp link
+8. Footer — copyright, linkuri Impressum & Datenschutz (modale)
+
+9. Floating Chat Button — buton rotund fix dreapta-jos, #c00000, deschide AIChatWidget existent
+
+INTEGRARE BACKEND PARTENERIAT:
+
+Adaugă câmp requestType la schema repairRequests (valori: "repair", "gutachten", "kostenvoranschlag") dacă nu există
+Formularul de contact creează automat un repair_request cu requestType: "gutachten"
+Cererile Gutachten apar în Admin Dashboard și pot fi atribuite partenerilor
+Link „Gutachter-Portal" din navigație duce la /partner (portalul partener existent)
+KI-Unfall-Assistent folosește endpoint-ul GPT existent din proiect
+NAVIGAȚIE:
+
+Adaugă „Gutachter" în header-ul principal al site-ului
+Pagina are sub-navigație internă (smooth scroll) între secțiunile paginii
+SEO:
+
+Title: „Corion Gutachter - Ihr Kfz-Sachverständiger | Frankfurt, Hofheim, Wiesbaden, Mainz"
+JSON-LD Schema: AutomotiveBusiness cu 4 locații
+Open Graph tags complete
+Date contact: Telefon +49 176 83458274, Email info@corion-gutachter.de, Program Lu-Vi 08:00-18:00, Sâ 09:00-14:00
+MOBILE:
+
+Design responsive mobile-first
+Sticky footer pe mobil cu butoane „Anrufen" și „WhatsApp"
+Hamburger menu funcțional
+Acesta este prompt-ul complet. Îl poți copia și folosi direct. Vrei să îl implementez eu acum în proiect?
+

@@ -2,3 +2,5 @@ uploads/
 chat_logs/
 *.log
 .cache/
+node_modules/
+dist/
