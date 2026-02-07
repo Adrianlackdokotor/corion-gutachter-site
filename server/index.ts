@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { setupRoutes } from "./routes.js";
 import { initDB } from "./db.js";
+import { registerOrchestratorRoutes, initOrchestratorDB } from "./orchestrator/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +15,9 @@ app.use(express.json());
 
 async function main() {
   await initDB();
+  await initOrchestratorDB();
   setupRoutes(app);
+  registerOrchestratorRoutes(app);
 
   if (process.env.NODE_ENV === "production") {
     const distPath = path.resolve(__dirname, "../dist/public");

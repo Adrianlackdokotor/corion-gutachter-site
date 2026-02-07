@@ -11,6 +11,7 @@ import FooterSection from "@/components/gutachter/FooterSection";
 import FloatingButtons from "@/components/gutachter/FloatingButtons";
 import MobileStickyFooter from "@/components/gutachter/MobileStickyFooter";
 import JsonLdSchema from "@/components/gutachter/JsonLdSchema";
+import CoraChat from "@/components/gutachter/CoraChat";
 
 export default function GutachterPage() {
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function GutachterPage() {
       </main>
       <FooterSection />
       <FloatingButtons />
+      <CoraChat />
       <MobileStickyFooter />
     </div>
   );
