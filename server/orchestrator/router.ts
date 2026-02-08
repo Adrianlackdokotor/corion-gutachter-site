@@ -97,7 +97,7 @@ export function registerOrchestratorRoutes(app: Express) {
   app.post("/api/orchestrator/chat/stream", async (req: Request, res: Response) => {
     let clientDisconnected = false;
 
-    req.on("close", () => {
+    res.on("close", () => {
       clientDisconnected = true;
     });
 

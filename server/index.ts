@@ -13,6 +13,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/favicon.ico", (_req, res) => res.status(204).end());
+
 async function main() {
   await initDB();
   await initOrchestratorDB();
