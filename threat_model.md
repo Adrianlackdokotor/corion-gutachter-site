@@ -19,6 +19,7 @@ There is no end-user login system in the current application. Most server routes
 - **AI provider budget and service availability** — public endpoints invoke OpenAI and Gemini-backed models. Abuse can directly increase operating cost and degrade service.
 - **Application secrets** — `DATABASE_URL`, AI integration credentials, and GA4 API secret. Compromise would expose stored data or enable third-party abuse.
 - **Analytics integrity** — server-side GA4 tracking should reflect genuine site actions and should not become an unbounded abuse channel.
+- **Browser-side lead form state** — the public request form previews uploaded file names and images in the browser before submission. Those preview paths run in the origin of the main site and can expose typed contact details or selected files if attacker-controlled values reach unsafe DOM sinks.
 
 ## Trust Boundaries
 
@@ -26,13 +27,14 @@ There is no end-user login system in the current application. Most server routes
 - **Express to PostgreSQL** — the server stores repair requests and chat history in the database. Any access-control failure at the API layer can expose or destroy stored customer data.
 - **Express to external AI services** — `server/routes.ts` and `server/orchestrator/router.ts` send user-supplied text to external model APIs. These calls spend tokens and can amplify attacker-controlled load.
 - **Express to GA4 Measurement Protocol** — `/api/track-event` forwards selected client-supplied values to Google Analytics using a server-held secret. This boundary must prevent misuse and avoid exposing the secret.
+- **Browser DOM to user-selected local files** — `formular.html` reads selected accident-photo files with `FileReader` and renders upload metadata back into the page. File names and preview metadata must be treated as untrusted even though the file chooser is local to the victim.
 - **Public vs administrative/business-only data** — the public website is intentionally open, but lead data and stored conversations are not public content and require explicit server-side protection.
 - **Current production vs dormant code** — static HTML routes and the Express APIs registered in `server/index.ts` are in scope. Legacy PHP files (`process-form.php`, `save-chat.php`) and currently unregistered modules under `server/replit_integrations/` are usually out of scope unless future code makes them reachable in production.
 
 ## Scan Anchors
 
 - **Production entry points:** `server/index.ts`, `server/routes.ts`, `server/orchestrator/router.ts`, static HTML files explicitly routed by `server/index.ts`, and the React app served from `/gutachter`.
-- **Highest-risk code areas:** `server/routes.ts` (lead intake, public data readback, GA4 forwarding), `server/orchestrator/router.ts` and `server/orchestrator/storage.ts` (public AI chat plus transcript storage), and client components that render AI output (`client/src/components/gutachter/UnfallAssistentSection.tsx`, static `index.html`).
+- **Highest-risk code areas:** `server/routes.ts` (legacy public AI endpoint, lead intake, public data readback, GA4 forwarding), `server/orchestrator/router.ts` and `server/orchestrator/storage.ts` (public AI chat plus transcript storage), `formular.html` (client-side upload preview DOM manipulation), and client/browser code that renders AI output (`client/src/components/gutachter/UnfallAssistentSection.tsx`, static `index.html`).
 - **Public surfaces:** all currently registered `/api/*` routes are publicly reachable; there is no authenticated user or admin session layer.
 - **Usually ignore unless reachability changes:** `process-form.php`, `save-chat.php`, `uploads/`, `chat_logs/`, and `server/replit_integrations/*` routes not registered by `server/index.ts`.
 
@@ -68,13 +70,14 @@ Required guarantees:
 
 ### Denial of Service
 
-Several public endpoints trigger paid or computationally expensive work, especially the accident assistant and CORA chat. Without request throttling, quotas, payload limits, or timeouts, an attacker can drive token spend, database growth, and long-lived streaming connections.
+Several public endpoints trigger paid or computationally expensive work, especially the legacy accident assistant and CORA chat. Without request throttling, quotas, payload limits, or timeouts, an attacker can drive token spend, database growth, and long-lived streaming connections.
 
 Required guarantees:
 - Public AI endpoints MUST enforce rate limits or equivalent abuse controls.
 - Request sizes and conversation history windows MUST be bounded deliberately.
 - External API calls SHOULD use timeouts and graceful failure handling.
 - Stored chat and lead data SHOULD have retention or growth controls appropriate to business need.
+- Legacy public AI routes MUST not be materially weaker than the orchestrator routes on rate limiting and quota enforcement.
 
 ### Elevation of Privilege
 
@@ -83,3 +86,12 @@ Because there is no authenticated privilege model, the main elevation risk is ex
 Required guarantees:
 - Internal/business-only data access MUST be separated from public website functionality.
 - Sensitive routes MUST not rely on route naming, hidden frontend links, or same-origin assumptions for protection.
+
+### Browser-side Injection
+
+The application contains public browser code that transforms user-controlled or model-controlled data into HTML for display. Even when no server-side account system exists, unsafe DOM insertion can let attacker-supplied values execute script in the site origin and access typed contact details, selected files, or active conversation state.
+
+Required guarantees:
+- User-controlled strings such as uploaded file names MUST be rendered with `textContent`/escaped output rather than `innerHTML`.
+- AI/model output rendered in the browser MUST remain plain text or be sanitized with a strict allowlist before insertion into the DOM.
+- Static pages SHOULD avoid introducing new `innerHTML` sinks unless the source data is clearly non-user-controlled.
