@@ -1,0 +1,121 @@
+Integrează cele 6 imagini de servicii încărcate în Replit:
+
+* `Service Card 1 (Unfallgutachten:Schadengutachten).png`
+* `Service Card 2 (Wertgutachten).png`
+* `Service Card 3 (KI Analyse).png`
+* `Service Card 4 (Karosserie & Lack : Smart Repair).png`
+* `Service Card 5 (Erstberatung).png`
+* `Service Card 6 (Kostenvoranschlag).png`
+
+Obiectiv:
+Înlocuiește toate placeholder-ele din cardurile de servicii cu imaginile reale, optimizate SEO, în `index.html` și `servicii.html`.
+
+1. Mută imaginile din `attached_assets/` în:
+   `assets/images/services/`
+
+2. Redenumește SEO-friendly și creează WebP:
+
+* `unfallgutachten-schadengutachten-kfz-gutachter-frankfurt-hofheim.jpg`
+
+* `unfallgutachten-schadengutachten-kfz-gutachter-frankfurt-hofheim.webp`
+
+* `wertgutachten-fahrzeugbewertung-kfz-gutachter-deutschland.jpg`
+
+* `wertgutachten-fahrzeugbewertung-kfz-gutachter-deutschland.webp`
+
+* `ki-analyse-fahrzeug-schaden-erkennung-kfz-gutachter.jpg`
+
+* `ki-analyse-fahrzeug-schaden-erkennung-kfz-gutachter.webp`
+
+* `karosserie-lack-smart-repair-unfallschaden-reparatur.jpg`
+
+* `karosserie-lack-smart-repair-unfallschaden-reparatur.webp`
+
+* `erstberatung-kfz-gutachter-telefonische-beratung.jpg`
+
+* `erstberatung-kfz-gutachter-telefonische-beratung.webp`
+
+* `kostenvoranschlag-auto-reparatur-kfz-gutachter.jpg`
+
+* `kostenvoranschlag-auto-reparatur-kfz-gutachter.webp`
+
+3. Optimizează imaginile:
+
+* format final: 800x500 px
+* crop inteligent, fără deformare
+* păstrează subiectul principal vizibil
+* JPG sub 220KB
+* WebP sub 140KB
+* strip metadata
+
+4. Actualizează `index.html`:
+   În secțiunea `Leistungen` / service cards, înlocuiește toate placeholder-ele cu `<picture>` WebP + JPG fallback.
+
+Folosește aceste alt/title:
+
+Unfallgutachten / Schadengutachten:
+alt="Unfallgutachten und Schadengutachten vom Kfz Gutachter in Frankfurt und Hofheim"
+title="Kfz Gutachter für Unfallgutachten und Schadengutachten"
+
+Wertgutachten:
+alt="Wertgutachten und Fahrzeugbewertung durch Kfz Gutachter in Deutschland"
+title="Wertgutachten Fahrzeugbewertung Deutschland"
+
+KI Analyse:
+alt="KI Analyse zur Erkennung von Unfallschäden am Fahrzeug"
+title="KI Schadenanalyse für Fahrzeugbewertung"
+
+Karosserie & Lack:
+alt="Karosserie Lack Reparatur und Smart Repair nach Unfallschaden"
+title="Karosserie und Lack Smart Repair"
+
+Erstberatung:
+alt="Telefonische Erstberatung durch Kfz Gutachter nach Unfall"
+title="Kostenlose Erstberatung Kfz Gutachter"
+
+Kostenvoranschlag:
+alt="Kostenvoranschlag für Auto Reparatur und Kfz Schadenbewertung"
+title="Kostenvoranschlag Auto Reparatur Kfz Gutachter"
+
+5. Actualizează `servicii.html`:
+   Folosește aceleași imagini în secțiunile serviciilor relevante.
+   Dacă pagina are doar 4 servicii, integrează primele 4 în secțiunile existente și adaugă două blocuri noi pentru:
+
+* `Erstberatung`
+* `Kostenvoranschlag`
+
+6. Context SEO:
+   La fiecare card/serviciu, păstrează textul existent, dar îmbunătățește natural cu termeni:
+
+* Kfz Gutachter
+* Unfallgutachten
+* Schadengutachten
+* Frankfurt
+* Hofheim
+* Rhein-Main
+* Ersteinschätzung
+* Kostenvoranschlag
+  Fără keyword stuffing.
+
+7. CSS:
+   Asigură că imaginile din carduri au:
+
+* border-radius consistent
+* object-fit: cover
+* aspect-ratio: 16/10 sau width/height 800x500
+* loading lazy
+* fără layout shift
+
+8. Actualizează `assets/images/README.md`:
+   Mută toate cele 6 imagini services la `Imagini reale disponibile ✅`.
+   Menționează că secțiunea `services/` nu mai are placeholder activ pentru cele 6 carduri.
+
+9. Verificare finală:
+
+* rulează preview
+* verifică homepage
+* verifică servicii.html
+* confirmă că nu mai există placeholder în cardurile de servicii
+* confirmă fișierele create și dimensiunile finale
+
+Nu modifica funnel-ul, CTA-urile, culorile de brand sau structura generală. Doar integrează imaginile reale, SEO și documentația.

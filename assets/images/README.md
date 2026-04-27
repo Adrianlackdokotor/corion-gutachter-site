@@ -23,16 +23,17 @@ assets/images/
       Pas 3: Gutachten erhalten, clientul primește și înțelege raportul final de daună
 ```
 
+  services/ — TOATE IMAGINILE REALE ✅
+    unfallgutachten-schadengutachten-kfz-gutachter-frankfurt-hofheim.jpg/.webp ← 73KB/43KB ✅ REAL
+    wertgutachten-fahrzeugbewertung-kfz-gutachter-deutschland.jpg/.webp        ← 79KB/50KB ✅ REAL
+    ki-analyse-fahrzeug-schaden-erkennung-kfz-gutachter.jpg/.webp              ← 55KB/30KB ✅ REAL
+    karosserie-lack-smart-repair-unfallschaden-reparatur.jpg/.webp             ← 58KB/31KB ✅ REAL
+    erstberatung-kfz-gutachter-telefonische-beratung.jpg/.webp                 ← 56KB/29KB ✅ REAL
+    kostenvoranschlag-auto-reparatur-kfz-gutachter.jpg/.webp                   ← 67KB/38KB ✅ REAL
+
 ## Imagini necesare (placeholder activ) ⏳
 
 ```
-  services/
-    unfallgutachten-auto-schaden-bewertung.jpg/.webp    ← Card Schadengutachten (800×500px)
-    wertgutachten-auto-bewertung-deutschland.jpg/.webp  ← Card Wertgutachten (800×500px)
-    ki-analyse-fahrzeug-schaden-erkennung.jpg/.webp     ← Card KI-Analyse (800×500px)
-    karosserie-lack-reparatur-smart-repair.jpg/.webp    ← Card Karosserie & Lack (800×500px)
-    erstberatung-kfz-gutachter-kostenlos.jpg/.webp      ← Card Erstberatung (800×500px)
-    kostenvoranschlag-auto-reparatur-gutachter.jpg/.webp← Card Kostenvoranschlag (800×500px)
 
 
   blog/

@@ -126,6 +126,7 @@ favicon.svg                     # Favicon SVG cu logo Corion
 `.c-hero`, `.c-trust-bar`, `.c-trust-badge`, `.c-img-card`, `.c-step`, `.c-testimonial`, `.c-sticky-cta`, `.btn`, `.card`, `.form-input`
 
 ## Recent Changes
+- 2026-04-27: Integrated all 6 service card images — 800x500 JPG+WebP, SEO-optimized names; index.html all 6 cards updated; servicii.html 4 existing sections updated + 2 new sections added (Erstberatung + Kostenvoranschlag); no more placeholder images in services/; README.md updated
 - 2026-04-27: Integrated Step 3 real photo — converted to step3-unfallgutachten-erhalten-kfz-gutachter-bericht-deutschland.jpg (25KB) + .webp (16KB); integrated in "3 Schritte" Step 3 card in index.html; added "Ihr fertiges Gutachten" info block in formular.html; all 3 Schritte now have real photos; no more placeholders in steps/
 - 2026-04-27: Integrated Step 2 real photo — converted to step2-beratung-kfz-gutachter-ersteinschaetzung-unfallschaden.jpg (19KB) + .webp (11KB); integrated in "3 Schritte" Step 2 card in index.html (updated alt/title/h3/p); added contextual info block in formular.html below upload zone; README.md updated
 - 2026-04-27: Integrated Step 1 real photo — converted to step1-unfall-auto-fotos-hochladen-kfz-gutachter.jpg (25KB) + .webp (17KB); integrated in "3 Schritte" Step 1 card in index.html with SEO alt/title; updated card title + description
