@@ -19,6 +19,8 @@ assets/images/
       Pas 1: Benutzer fotografiert Unfallschaden mit Smartphone für Kfz Gutachter
     step2-beratung-kfz-gutachter-ersteinschaetzung-unfallschaden.jpg/.webp ← 19KB/11KB ✅ REAL
       Pas 2: Beratung / Ersteinschätzung, Gutachter verifică pozele și discută telefonic cu clientul
+    step3-unfallgutachten-erhalten-kfz-gutachter-bericht-deutschland.jpg/.webp ← 25KB/16KB ✅ REAL
+      Pas 3: Gutachten erhalten, clientul primește și înțelege raportul final de daună
 ```
 
 ## Imagini necesare (placeholder activ) ⏳
@@ -32,8 +34,6 @@ assets/images/
     erstberatung-kfz-gutachter-kostenlos.jpg/.webp      ← Card Erstberatung (800×500px)
     kostenvoranschlag-auto-reparatur-gutachter.jpg/.webp← Card Kostenvoranschlag (800×500px)
 
-  steps/
-    step3-unfallgutachten-erstellen-bericht.jpg/.webp     ← Pas 3 (400×300px) — placeholder activ
 
   blog/
     blog-kfz-gutachter-ratgeber-wissen-deutschland.jpg/.webp   ← Hero Blog (1920×600px)
