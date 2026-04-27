@@ -53,6 +53,21 @@ app.get("/ro/servicii", (_req, res) => {
 app.get("/ro/faq", (_req, res) => {
   res.sendFile(path.join(projectRoot, "ro", "faq.html"));
 });
+app.get("/ro/frankfurt", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "frankfurt.html"));
+});
+app.get("/ro/wiesbaden", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "wiesbaden.html"));
+});
+app.get("/ro/mainz", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "mainz.html"));
+});
+app.get("/ro/hofheim", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "hofheim.html"));
+});
+app.get("/ro/accident-germania-ce-fac", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "accident-germania-ce-fac.html"));
+});
 
 async function main() {
   await initDB();

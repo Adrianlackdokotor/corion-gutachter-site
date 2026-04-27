@@ -1,0 +1,96 @@
+We already have the Romanian funnel foundation implemented:
+- /ro, /ro/servicii, /ro/faq
+- hreflang + canonical across DE + RO
+- sitemap.xml including DE + RO + hreflang links
+- robots.txt allowing /ro/
+- language switcher DE | RO on DE pages and RO pages
+- FAQ JSON-LD on /ro/faq
+- legal disclaimer in RO on all RO pages
+- WhatsApp link EXACT = wa.me/4917683458274
+- tracking hooks already present: whatsapp_click_ro + lead_form_submit_ro
+- German version stays intact
+
+Next iteration: expand RO funnel with LOCAL landing pages + panic guide, without breaking existing implementation.
+
+1) Create Romanian city landing pages:
+- /ro/frankfurt
+- /ro/wiesbaden
+- /ro/mainz
+- /ro/hofheim
+
+Each city page must be conversion-focused and match existing design (logo/colors/components), with:
+- Hero:
+  Headline: “Ai avut accident în [City]? Te ajutăm în limba română.”
+  Subheadline: “Gutachten independent și sprijin pentru despăgubiri în Germania.”
+- Primary CTA above the fold: WhatsApp with EXACT link wa.me/4917683458274
+  (reuse existing CTA button styling + existing tracking hook naming conventions)
+- Secondary CTA: “Ce fac imediat după accident?”
+- 3-step flow:
+  1) Trimiți poze pe WhatsApp
+  2) Primești o primă evaluare
+  3) Facem Gutachten și te ghidăm mai departe
+- “Drepturile tale” section (short, practical, conversion-oriented), including:
+  - poți alege Gutachter-ul dacă nu ești vinovat
+  - nu semna documente pe care nu le înțelegi
+  - fă poze și notează datele celuilalt șofer
+  - dacă sunt răniți sau situație neclară, sună la poliție/112
+- Legal disclaimer (same as existing): “Informațiile de pe această pagină au caracter general și nu reprezintă consultanță juridică.”
+
+SEO requirements per city page:
+- unique <title> and meta description using query combinations, for example:
+  “Gutachter român Frankfurt | Accident Germania”
+  “expert auto român Wiesbaden”
+  “unfallgutachten românesc Mainz”
+  “schadengutachten Hofheim român”
+- H1 must include “accident Germania” and/or “Gutachter român” + city
+- Add alt text in RO for any images used on RO pages
+- Add LocalBusiness or Service JSON-LD where it makes sense (do not fake addresses; keep it correct and compliant)
+
+2) Create Romanian panic guide landing page:
+- /ro/accident-germania-ce-fac
+
+Purpose: rank for immediate help searches and convert to WhatsApp.
+Structure:
+- H1: “Accident în Germania, ce fac? Ghid rapid în limba română”
+- Emergency box (visually highlighted):
+  “Dacă sunt persoane rănite, pericol, foc sau blocaj grav, sună imediat la 112.”
+- Checklist of steps (very simple, practical)
+- CTA right after the checklist: WhatsApp exact link (existing styling + tracking hook)
+- Add SEO-targeted headings and paragraphs for queries like:
+  accident Germania ce fac, ce fac după accident auto Germania, sun la 112 accident Germania,
+  am avut accident în Germania, nu înțeleg documentele după accident Germania,
+  despăgubiri accident Germania
+- FAQ section (conversion-oriented, short answers)
+- Add FAQPage JSON-LD for this guide page too (similar to /ro/faq but with this page’s questions)
+- Legal disclaimer (same as existing)
+
+3) Internal linking (RO only):
+- From /ro/ homepage, add internal links to:
+  /ro/accident-germania-ce-fac
+  /ro/frankfurt
+  /ro/wiesbaden
+  /ro/mainz
+  /ro/hofheim
+- From /ro/faq, add links to the guide page and city pages where relevant.
+
+4) Update sitemap.xml:
+Add the new RO URLs with correct <loc>, lastmod, and hreflang pairs.
+
+5) Keep tracking hooks consistent:
+- Keep whatsapp_click_ro on RO WhatsApp CTAs.
+- Keep lead_form_submit_ro on RO form submissions.
+- If you add new RO forms, reuse the same naming convention; no real GA4 ID.
+
+6) Don’t claim unverifiable “first/only” marketing statements.
+Use safe trust language:
+- “Sprijin în limba română pentru accidente auto în Rhein-Main.”
+- “Ajutăm cu evaluare independentă și pașii pentru despăgubiri.”
+
+Definition of done:
+- /ro/frankfurt, /ro/wiesbaden, /ro/mainz, /ro/hofheim, /ro/accident-germania-ce-fac load with correct status
+- WhatsApp CTA visible above the fold on each new page
+- unique meta titles/descriptions and headings in RO
+- internal linking works
+- sitemap includes new pages
+- German pages still unchanged
+- existing chat remains integrated and functional

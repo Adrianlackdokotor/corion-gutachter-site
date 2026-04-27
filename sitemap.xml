@@ -40,7 +40,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- ═══ Pagini române ═════════════════════════════════════ -->
+  <!-- ═══ Pagini române – principale ═══════════════════════ -->
 
   <url>
     <loc>https://www.corion-gutachter.de/ro/</loc>
@@ -67,6 +67,55 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- ═══ Ghid urgență ══════════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.corion-gutachter.de/ro/accident-germania-ce-fac</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.corion-gutachter.de/ro/accident-germania-ce-fac"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══ Pagini orașe RO ═══════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.corion-gutachter.de/ro/frankfurt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.corion-gutachter.de/ro/frankfurt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.corion-gutachter.de/ro/hofheim</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.corion-gutachter.de/ro/hofheim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.corion-gutachter.de/ro/wiesbaden</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.corion-gutachter.de/ro/wiesbaden"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.corion-gutachter.de/ro/mainz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.corion-gutachter.de/ro/mainz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
 </urlset>
