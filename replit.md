@@ -6,7 +6,7 @@ Platforma web a firmei **Corion Gutachter** — un birou de expertiză auto (Kfz
 ## Current State
 - **Phase:** Scaling & Integration (Multi-Agent System)
 - **Stack:** React + TypeScript + Vite (frontend), Express (backend), PostgreSQL (database)
-- **AI:** OpenAI via Replit AI Integrations (gpt-4o-mini)
+- **AI:** Google Gemini via Replit AI Integrations (gemini-2.5-flash)
 - **Port:** 5000 (Express + Vite middleware)
 
 ## Architecture
