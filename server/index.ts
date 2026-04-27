@@ -68,6 +68,9 @@ app.get("/ro/hofheim", (_req, res) => {
 app.get("/ro/accident-germania-ce-fac", (_req, res) => {
   res.sendFile(path.join(projectRoot, "ro", "accident-germania-ce-fac.html"));
 });
+app.get("/ro/blog/plata-fictiva-abtretung-germania", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "blog", "plata-fictiva-abtretung-germania.html"));
+});
 
 async function main() {
   await initDB();

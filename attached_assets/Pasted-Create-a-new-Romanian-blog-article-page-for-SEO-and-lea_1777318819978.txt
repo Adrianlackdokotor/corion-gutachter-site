@@ -1,0 +1,201 @@
+Create a new Romanian blog article page for SEO and lead generation.
+
+Route:
+- /ro/blog/plata-fictiva-abtretung-germania
+
+Goal:
+Educate Romanian-speaking drivers in Germany about “fiktive Abrechnung” (plată fictivă) and “Abtretung” after an accident, while generating trust and leads.
+
+IMPORTANT:
+- Do not modify existing pages.
+- Use the same design system, layout, fonts, colors, and components.
+- Include WhatsApp CTA using the exact link: wa.me/4917683458274
+- Include legal disclaimer at the end:
+„Informațiile de pe această pagină au caracter general și nu reprezintă consultanță juridică.”
+
+---
+
+## CONTENT STRUCTURE
+
+### 1. SEO
+
+Title:
+„Plată fictivă (fiktive Abrechnung) sau Abtretung în Germania – avantaje, riscuri și ce trebuie să știi”
+
+Meta description:
+„Afla când merită plata fictivă după un accident în Germania și ce riscuri există dacă mașina nu este reparată conform Gutachten.”
+
+H1:
+„Plată fictivă sau Abtretung după accident în Germania – ghid complet în română”
+
+Use keywords naturally:
+- plata fictiva Germania
+- fiktive Abrechnung Germania
+- Abtretung accident Germania
+- despăgubiri accident Germania
+- Gutachter român
+
+---
+
+### 2. INTRO (hook)
+
+Explain clearly:
+După un accident în Germania, ai mai multe opțiuni:
+- să repari mașina prin Abtretung (asigurarea plătește direct)
+- sau să alegi plata fictivă și să primești banii
+
+Add emotional angle:
+„Mulți români aleg plata fictivă pentru a economisi bani, dar nu știu ce riscuri apar pe termen lung.”
+
+---
+
+### 3. CE ESTE PLATA FICTIVĂ
+
+Explain simple:
+- Primești suma calculată în Gutachten
+- Nu ești obligat să repari mașina
+
+Clarify:
+- TVA nu se plătește dacă nu faci reparația
+- suma poate fi mai mică decât factura reală
+
+---
+
+### 4. AVANTAJE PLATĂ FICTIVĂ
+
+List clearly:
+- Poți repara mai ieftin (service independent, piese second hand, smart repair)
+- Poți păstra diferența de bani
+- Flexibilitate totală
+
+Add real-life angle:
+„În multe cazuri, diferența poate fi de sute sau chiar mii de euro.”
+
+---
+
+### 5. RISCURI PLATĂ FICTIVĂ (IMPORTANT – HIGH TRUST SECTION)
+
+Explain clearly and profesionally:
+
+Main risk:
+Dacă mașina nu este reparată corect („nicht sach- und fachgerecht”), apar probleme la accidente viitoare.
+
+Include technical detail (IMPORTANT):
+- stratul de vopsea este verificat
+- valori uzuale:
+  - ~2 mm pentru piese demontabile
+  - ~3 mm pentru piese nedemontabile
+
+Explain consequence:
+Dacă aceste valori sunt depășite sau reparația nu este conformă Gutachten:
+- la un accident viitor, asigurarea poate considera dauna ca fiind existentă anterior
+- poate reduce sau chiar refuza plata despăgubirii
+
+Explain in simple Romanian:
+„Chiar dacă nu ești vinovat la următorul accident, riști să nu primești despăgubiri complete.”
+
+---
+
+### 6. CE ESTE ABTRETUNG
+
+Explain:
+- cedezi dreptul de plată către service sau Gutachter
+- asigurarea plătește direct către ei
+- tu nu trebuie să avansezi bani
+
+---
+
+### 7. AVANTAJE ABTRETUNG
+
+- reparația se face conform Gutachten
+- nu ai risc la accidente viitoare
+- nu te ocupi de discuții cu asigurarea
+- totul este “sach- und fachgerecht”
+
+---
+
+### 8. COMPARAȚIE CLARĂ (VERY IMPORTANT)
+
+Create a visual comparison block:
+
+Plată fictivă:
++ bani în mână
++ flexibilitate
+- risc la reparații neconforme
+- risc la accidente viitoare
+
+Abtretung:
++ siguranță juridică
++ reparație corectă
+- fără profit direct
+
+---
+
+### 9. CÂND ESTE RECOMANDAT FIECARE
+
+Plată fictivă:
+- daune mici
+- zgârieturi, smart repair
+
+Abtretung:
+- daune mari
+- elemente structurale
+- mașini mai noi sau leasing
+
+---
+
+### 10. CTA (IMPORTANT)
+
+Add strong CTA section:
+
+Headline:
+„Nu ești sigur ce variantă este mai bună pentru tine?”
+
+Text:
+„Trimite-ne poze pe WhatsApp și îți explicăm exact ce opțiuni ai.”
+
+Button:
+WhatsApp (existing styling + tracking hook whatsapp_click_ro)
+
+---
+
+### 11. FAQ SECTION
+
+Add 4–5 questions:
+- Pot păstra toți banii din plata fictivă?
+- Ce se întâmplă dacă repar mașina mai ieftin?
+- Poate asigurarea verifica reparația?
+- Este legală plata fictivă în Germania?
+- Ce variantă recomandați?
+
+Add FAQPage JSON-LD.
+
+---
+
+### 12. INTERNAL LINKING
+
+Add links to:
+- /ro/accident-germania-ce-fac
+- /ro/frankfurt
+- /ro/servicii
+
+---
+
+### 13. STYLE
+
+- Romanian language
+- simple, clar, fără jargon excesiv
+- ton de încredere, nu agresiv
+- fără promisiuni exagerate
+
+---
+
+### 14. DEFINITION OF DONE
+
+- Page loads: /ro/blog/plata-fictiva-abtretung-germania
+- SEO title + meta + H1 corect
+- WhatsApp CTA vizibil
+- FAQ schema inclus
+- Internal links funcționale
+- Design identic cu restul site-ului
+- Nu afectează paginile existente
