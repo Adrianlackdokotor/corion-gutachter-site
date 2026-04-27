@@ -1,46 +1,55 @@
-# Imagini Corion Gutachter
+# Imagini Corion Gutachter — Structură SEO
 
-Pune imaginile reale (din Figma sau fotografii) în subdirectoarele de mai jos.
+Toate imaginile folosesc nume SEO-optimizate cu keyword-uri pentru Kfz Gutachter / Frankfurt / Hofheim.
 
-## Structura
+## Imagini reale disponibile ✅
 
 ```
 assets/images/
-  hero.jpg / hero.webp          ← Hero principal (1920×1080px)
-  team.jpg / team.webp          ← Poza echipei (600×700px)
+  hero/
+    hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.jpg   ← 210KB  ✅ REAL
+    hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.webp  ← 118KB  ✅ REAL
 
-  services/
-    unfallgutachten.jpg/.webp   ← Card Schadengutachten (800×500px)
-    wertgutachten.jpg/.webp     ← Card Wertgutachten (800×500px)
-    ki-analyse.jpg/.webp        ← Card KI-Analyse (800×500px)
-    karosserie.jpg/.webp        ← Card Karosserie & Lack (800×500px)
-    erstberatung.jpg/.webp      ← Card Erstberatung (800×500px)
-    kostenvoranschlag.jpg/.webp ← Card Kostenvoranschlag (800×500px)
-    hero-services.jpg/.webp     ← Hero pagina Servicii (1920×600px)
-
-  steps/
-    step1-fotos.jpg/.webp       ← Pas 1: Fotos hochladen (400×300px)
-    step2-beratung.jpg/.webp    ← Pas 2: Beratung (400×300px)
-    step3-gutachten.jpg/.webp   ← Pas 3: Gutachten erhalten (400×300px)
-
-  blog/
-    hero-blog.jpg/.webp         ← Hero pagina Blog (1920×600px)
-    unfallgutachten-prozess.jpg/.webp ← Articol 1 (800×400px)
-    ki-fahrzeugbewertung.jpg/.webp    ← Articol 2 (800×400px)
-    lackpflege-tipps.jpg/.webp        ← Articol 3 (600×400px)
+  team/
+    team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg  ← 70KB   ✅ REAL
+    team-kfz-gutachter-beratung-unfallschaden-deutschland.webp ← 43KB   ✅ REAL
 ```
 
-## Pâna ce imaginile reale sunt disponibile
+## Imagini necesare (placeholder activ) ⏳
 
-Fiecare `<picture>` element are `onerror` fallback la `placehold.co` — pagina funcționează complet și fără imagini reale.
+```
+  services/
+    unfallgutachten-auto-schaden-bewertung.jpg/.webp    ← Card Schadengutachten (800×500px)
+    wertgutachten-auto-bewertung-deutschland.jpg/.webp  ← Card Wertgutachten (800×500px)
+    ki-analyse-fahrzeug-schaden-erkennung.jpg/.webp     ← Card KI-Analyse (800×500px)
+    karosserie-lack-reparatur-smart-repair.jpg/.webp    ← Card Karosserie & Lack (800×500px)
+    erstberatung-kfz-gutachter-kostenlos.jpg/.webp      ← Card Erstberatung (800×500px)
+    kostenvoranschlag-auto-reparatur-gutachter.jpg/.webp← Card Kostenvoranschlag (800×500px)
 
-## Format recomandat
+  steps/
+    step1-unfall-auto-fotos-hochladen-gutachter.jpg/.webp ← Pas 1 (400×300px)
+    step2-beratung-kfz-gutachter-deutschland.jpg/.webp    ← Pas 2 (400×300px)
+    step3-unfallgutachten-erstellen-bericht.jpg/.webp     ← Pas 3 (400×300px)
 
-1. Exportă din Figma ca **JPG** (quality 85%)
-2. Convertește la **WebP** cu [Squoosh](https://squoosh.app/) (quality 82%)
-3. Pune ambele fișiere (.jpg și .webp) în folderul corespunzător
+  blog/
+    blog-kfz-gutachter-ratgeber-wissen-deutschland.jpg/.webp   ← Hero Blog (1920×600px)
+    unfallgutachten-prozess-deutschland.jpg/.webp              ← Articol 1 (600×400px)
+    ki-fahrzeugbewertung-auto-schaden.jpg/.webp                ← Articol 2 (600×400px)
+    lackpflege-tipps-auto-schutz-deutschland.jpg/.webp         ← Articol 3 (600×400px)
+```
+
+## Pâna ce imaginile lipsă sunt disponibile
+
+Fiecare `<picture>` element are `onerror` fallback la `placehold.co` — pagina funcționează complet.
+
+## Format recomandat pentru imagini noi
+
+1. Export din Figma/cameră ca **JPG** (quality 85%)
+2. Convertește la **WebP**: `magick input.jpg -quality 78 -strip output.webp`
+3. Pune ambele fișiere în folderul corespunzător cu numele exact din lista de mai sus
 
 ## Lazy Loading
 
-Toate imaginile de mai jos hero au `loading="lazy"` — se încarcă automat.
-Hero-ul principal are `loading="eager" fetchpriority="high"` pentru performanță LCP.
+- Hero: `loading="eager" fetchpriority="high"` (LCP optimization)
+- Toate celelalte: `loading="lazy"` (performance)
+- Toate au `width` + `height` setate explicit (elimină CLS)

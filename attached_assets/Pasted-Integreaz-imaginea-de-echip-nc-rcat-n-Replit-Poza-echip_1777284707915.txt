@@ -1,0 +1,101 @@
+Integrează imaginea de echipă încărcată în Replit: `Poză echipă.png`.
+
+Obiectiv:
+Această imagine trebuie să fie folosită în secțiunea „Über uns / Vertrauen / Team” pentru a crește încrederea și conversia.
+
+---
+
+1. RENAME + STRUCTURE (SEO IMPORTANT)
+
+Mută imaginea din `attached_assets/` în:
+`assets/images/team/`
+
+Redenumește fișierul:
+
+team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg
+și creează și versiunea:
+team-kfz-gutachter-beratung-unfallschaden-deutschland.webp
+
+---
+
+2. INTEGRARE HTML (index.html)
+
+Găsește secțiunea:
+„Über uns” sau „Warum Corion Gutachter”
+
+Înlocuiește placeholder-ul cu:
+
+<picture>
+  <source srcset="/assets/images/team/team-kfz-gutachter-beratung-unfallschaden-deutschland.webp" type="image/webp">
+  <img 
+    src="/assets/images/team/team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg"
+    alt="Kfz Gutachter erklärt einem Kunden den Unfallschaden am Fahrzeug in Deutschland"
+    title="Kfz Gutachter Beratung nach Unfall in Frankfurt Hofheim Deutschland"
+    loading="lazy"
+    width="600"
+    height="700"
+  >
+</picture>
+
+---
+
+3. CONTEXT SEO (FOARTE IMPORTANT)
+
+Adaugă deasupra imaginii:
+
+<h2>Kfz Gutachter mit persönlicher Beratung in Frankfurt und Hofheim</h2>
+
+Sub imagine adaugă un text scurt:
+
+<p>
+Nach einem Unfall ist es wichtig, einen erfahrenen und unabhängigen Kfz Gutachter an Ihrer Seite zu haben. 
+Wir erklären Ihnen den Schaden verständlich und begleiten Sie Schritt für Schritt durch den gesamten Prozess – 
+von der ersten Einschätzung bis zum fertigen Gutachten.
+</p>
+
+---
+
+4. DESIGN + CRO (CONVERSIE)
+
+* imaginea trebuie să fie pe partea dreaptă (desktop)
+* textul pe partea stângă
+* pe mobil imaginea apare sub text
+* folosește clasa existentă `.c-img-card` sau `.card`
+* adaugă ușor shadow + border radius
+
+---
+
+5. PERFORMANȚĂ
+
+* optimizează imaginea sub 200KB
+* păstrează WebP + JPG fallback
+* nu rupe layout-ul existent
+
+---
+
+6. UPDATE DOCUMENTAȚIE
+
+Actualizează:
+`assets/images/README.md`
+
+Adaugă:
+
+team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg/.webp
+← Imagine echipă / consultanță client (600×700px)
+
+---
+
+7. FINAL CHECK
+
+* verifică în preview că imaginea apare corect
+* confirmă path-ul final
+* confirmă că nu mai există placeholder în acea secțiune
+
+---
+
+GOAL FINAL:
+
+Imaginea trebuie să transmită:
+"Consultanță reală, încredere și expertiză după accident"
+
+Nu doar estetic — ci conversie.

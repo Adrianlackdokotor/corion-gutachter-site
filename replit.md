@@ -126,6 +126,7 @@ favicon.svg                     # Favicon SVG cu logo Corion
 `.c-hero`, `.c-trust-bar`, `.c-trust-badge`, `.c-img-card`, `.c-step`, `.c-testimonial`, `.c-sticky-cta`, `.btn`, `.card`, `.form-input`
 
 ## Recent Changes
+- 2026-04-27: Integrated real team photo — converted to team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg (70KB) + .webp (43KB), integrated in Über uns section with SEO h2/p context, image right / text left layout
 - 2026-04-27: SEO image optimization — renamed all image refs to keyword-rich names (Unfallgutachten/Frankfurt/Deutschland), hero PNG converted to JPG (210KB) + WebP (118KB) via ImageMagick, SEO alt+title on all images, <picture> with WebP+JPG in index.html/servicii.html/blog.html
 - 2026-04-27: Integrated real Corion Gutachter logo — copied to assets/brand/logo-corion-gutachter.jpg, `.nav-logo-link`/`.nav-logo-img` CSS classes in shared CSS (30px mobile / 40px desktop), applied to all 5 HTML pages
 - 2026-04-27: Static HTML pages rewrite — trust bar, 3 Schritte, testimoniale, sticky mobile CTA, picture/WebP lazy loading
