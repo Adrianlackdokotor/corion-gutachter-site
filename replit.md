@@ -126,6 +126,7 @@ favicon.svg                     # Favicon SVG cu logo Corion
 `.c-hero`, `.c-trust-bar`, `.c-trust-badge`, `.c-img-card`, `.c-step`, `.c-testimonial`, `.c-sticky-cta`, `.btn`, `.card`, `.form-input`
 
 ## Recent Changes
+- 2026-04-27: Integrated real Corion Gutachter logo — copied to assets/brand/logo-corion-gutachter.jpg, `.nav-logo-link`/`.nav-logo-img` CSS classes in shared CSS (30px mobile / 40px desktop), applied to all 5 HTML pages
 - 2026-04-27: Static HTML pages rewrite — trust bar, 3 Schritte, testimoniale, sticky mobile CTA, picture/WebP lazy loading
 - 2026-04-27: Created `assets/corion-shared.css` (CSS partajat, variabile brand, componente)
 - 2026-04-27: Created `assets/icons/` (shield, check, clock, map SVGs), `favicon.svg`
