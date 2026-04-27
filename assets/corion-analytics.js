@@ -1,13 +1,14 @@
-/* Corion Gutachter — Analytics + Cookie Consent
-   GA4 Measurement ID: G-RYF77GKESM
-   Respects EU/German cookie law: consent denied until user accepts.
+/* Corion Gutachter — Analytics + Cookie Consent + Conversion Tracking
+   GA4 Measurement ID : G-RYF77GKESM  (client-side only — no secret exposed)
+   Server-side MP     : POST /api/track-event  (secret stays on server)
+   EU/DE cookie law   : consent denied until user clicks "Akzeptieren".
 */
 
-// 1. Bootstrap dataLayer + gtag immediately (needed before any inline scripts)
+// ─── 1. Bootstrap dataLayer + gtag (must run before any inline scripts) ────
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
-// 2. Set consent denied by default (Consent Mode v2)
+// ─── 2. Consent Mode v2 — everything denied by default ─────────────────────
 gtag('consent', 'default', {
   'ad_storage':              'denied',
   'analytics_storage':       'denied',
@@ -16,26 +17,78 @@ gtag('consent', 'default', {
   'security_storage':        'granted'
 });
 
-// 3. Language detection
+// ─── 3. Language detection ─────────────────────────────────────────────────
 window.currentLanguage = location.pathname.startsWith('/ro') ? 'ro' : 'de';
 
-// 4. GA initialization (called only after user consent)
+// ─── 4. GA initialization (only after user consent) ───────────────────────
 window.trackGaEventInitialized = false;
 window.initializeAndMarkGA = function() {
   if (window.trackGaEventInitialized) return;
-  // Dynamically load the GA script (respects consent)
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RYF77GKESM';
   document.head.appendChild(s);
-  // Grant analytics consent
   gtag('consent', 'update', { 'analytics_storage': 'granted' });
   gtag('js', new Date());
   gtag('config', 'G-RYF77GKESM', { 'anonymize_ip': true });
   window.trackGaEventInitialized = true;
 };
 
-// 5. Helper for manual GA event calls (fires only after consent)
+// ─── 5. Client ID helper (reads _ga cookie → localStorage fallback) ────────
+function _getClientId() {
+  try {
+    var gaCookie = document.cookie.split('; ').filter(function(c) {
+      return c.indexOf('_ga=') === 0;
+    })[0];
+    if (gaCookie) {
+      var parts = gaCookie.split('=')[1].split('.');
+      if (parts.length >= 4) return parts[2] + '.' + parts[3];
+    }
+  } catch(e) {}
+  var stored = localStorage.getItem('_corion_cid');
+  if (!stored) {
+    stored = 'fb.' + Date.now() + '.' + Math.random().toString(36).substring(2);
+    localStorage.setItem('_corion_cid', stored);
+  }
+  return stored;
+}
+
+// ─── 6. trackConversion — calls gtag + backend Measurement Protocol ─────────
+//   Fires ONLY when user has accepted cookies.
+//   API Secret never leaves the server — frontend sends to /api/track-event.
+window.trackConversion = function(eventName, params) {
+  if (localStorage.getItem('cookieConsent') !== 'granted') return;
+  params = params || {};
+
+  var payload = {
+    event_name: eventName,
+    client_id:  _getClientId(),
+    language:   window.currentLanguage,
+    page_path:  location.pathname,
+    lead_type:  params.lead_type || '',
+    source:     params.source    || 'website'
+  };
+
+  // 6a. Client-side gtag event
+  if (window.trackGaEventInitialized) {
+    gtag('event', eventName, {
+      language:  payload.language,
+      page_path: payload.page_path,
+      lead_type: payload.lead_type,
+      source:    payload.source
+    });
+  }
+
+  // 6b. Server-side Measurement Protocol (secret stays on server)
+  fetch('/api/track-event', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload),
+    keepalive: true
+  }).catch(function() {});  // silent fail — never block UX
+};
+
+// ─── 7. Backward-compat: trackGaEvent (used by older inline onclick attrs) ──
 window.trackGaEvent = function(eventName, params) {
   if (!window.trackGaEventInitialized) return;
   gtag('event', eventName, Object.assign(
@@ -44,56 +97,96 @@ window.trackGaEvent = function(eventName, params) {
   ));
 };
 
-// 6. Intercept dataLayer.push → forward events to GA automatically
-//    (picks up whatsapp_click_ro / lead_form_submit_ro from RO page onclick handlers)
+// ─── 8. dataLayer.push interception (picks up RO page trackEvent calls) ─────
 (function() {
   var _orig = dataLayer.push;
   dataLayer.push = function() {
     var result = _orig.apply(dataLayer, arguments);
-    if (!window.trackGaEventInitialized) return result;
     for (var i = 0; i < arguments.length; i++) {
       var obj = arguments[i];
-      // Only plain {event:...} objects, not gtag's Arguments objects
       if (obj && typeof obj === 'object' && !obj.callee && obj.event) {
-        gtag('event', obj.event, Object.assign(
-          { page_path: location.pathname, language: window.currentLanguage },
-          obj
-        ));
+        // Map legacy event names to conversion tracker
+        var name = obj.event;
+        var leadType = '';
+        if (name === 'whatsapp_click_ro') { name = 'whatsapp_click'; leadType = 'whatsapp'; }
+        if (name === 'lead_form_submit_ro') { name = 'lead_form_submit'; leadType = 'form'; }
+        window.trackConversion(name, { lead_type: leadType, source: obj.source || 'website' });
       }
     }
     return result;
   };
 })();
 
-// 7. Auto-init if user already consented in a previous session
+// ─── 9. Auto-init if user already consented in a previous session ────────────
 if (localStorage.getItem('cookieConsent') === 'granted') {
   window.initializeAndMarkGA();
 }
 
-// 8. Cookie banner + WhatsApp click tracking (after DOM is ready)
+// ─── 10. DOM-ready: event delegation + cookie banner ─────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Generic WhatsApp click tracking for all pages
+  // ── Click delegation: WhatsApp, Phone, Maps, Photo Upload ─────────────────
   document.addEventListener('click', function(e) {
-    var link = e.target.closest('a[href*="wa.me"]');
-    if (link) {
-      window.trackGaEvent('whatsapp_click_ro', { language: window.currentLanguage });
+    var el = e.target;
+
+    // WhatsApp links
+    var waLink = el.closest('a[href*="wa.me"]');
+    if (waLink) {
+      window.trackConversion('whatsapp_click', { lead_type: 'whatsapp' });
+      return;
+    }
+
+    // Phone links  (tel: hrefs + sticky phone buttons)
+    var telLink = el.closest('a[href^="tel:"]');
+    if (telLink) {
+      window.trackConversion('phone_click', { lead_type: 'phone' });
+      return;
+    }
+
+    // Google Maps links
+    var mapsLink = el.closest('a[href*="google.com/maps"]');
+    if (mapsLink) {
+      window.trackConversion('maps_click', { lead_type: 'maps' });
+      return;
+    }
+
+    // Photo upload labels / buttons (file inputs, camera labels)
+    var uploadEl = el.closest(
+      'label[for*="hoto"], label[for*="Upload"], label[for*="upload"], ' +
+      'button[data-track="photo"], label[aria-label*="oto"]'
+    );
+    if (uploadEl) {
+      window.trackConversion('photo_upload_click', { lead_type: 'photo_upload' });
+      return;
     }
   });
 
-  // Skip banner if user already decided
-  if (localStorage.getItem('cookieConsent')) return;
+  // ── Form submit delegation: contact / lead forms ───────────────────────────
+  document.addEventListener('submit', function(e) {
+    var form = e.target;
+    if (!form || form.tagName !== 'FORM') return;
+    // Exclude search or trivial forms by checking for meaningful fields
+    var hasInput = form.querySelector('input[type="text"], input[type="email"], textarea');
+    if (hasInput) {
+      window.trackConversion('lead_form_submit', { lead_type: 'form' });
+    }
+  });
+
+  // ── Cookie banner ──────────────────────────────────────────────────────────
+  if (localStorage.getItem('cookieConsent')) return;  // already decided
 
   var isRo = window.currentLanguage === 'ro';
 
   var banner = document.createElement('div');
   banner.id = 'corion-cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', isRo ? 'Consimțământ cookie' : 'Cookie-Einwilligung');
   banner.style.cssText = [
     'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:10000',
     'background:#1f2937', 'border-top:2px solid #c00000',
     'padding:14px 20px', 'display:flex', 'flex-wrap:wrap',
     'align-items:center', 'justify-content:space-between', 'gap:10px',
-    'font-family:Inter,sans-serif'
+    'font-family:Inter,sans-serif', 'box-shadow:0 -2px 12px rgba(0,0,0,.5)'
   ].join(';');
 
   var msg = document.createElement('p');

@@ -63,6 +63,80 @@ export function setupRoutes(app: Express) {
     }
   });
 
+  // ── GA4 Measurement Protocol — server-side conversion tracking ──────────────
+  const GA4_ALLOWED_EVENTS = new Set([
+    "whatsapp_click",
+    "phone_click",
+    "lead_form_submit",
+    "maps_click",
+    "photo_upload_click",
+  ]);
+
+  app.post("/api/track-event", async (req: Request, res: Response) => {
+    try {
+      const { event_name, client_id, language, page_path, lead_type, source } = req.body;
+
+      if (!GA4_ALLOWED_EVENTS.has(event_name)) {
+        return res.status(400).json({ status: "error", message: "Invalid event_name" });
+      }
+
+      const safeClientId =
+        client_id && typeof client_id === "string" && client_id.trim().length > 0
+          ? client_id.trim()
+          : `srv.${Date.now()}.${Math.random().toString(36).substring(2)}`;
+
+      const safeLanguage = language === "ro" || language === "de" ? language : "unknown";
+      const safePath     = typeof page_path  === "string" ? page_path  : "/";
+      const safeLeadType = typeof lead_type  === "string" ? lead_type  : "";
+      const safeSource   = typeof source     === "string" ? source     : "website";
+
+      const measurementId = process.env.GA4_MEASUREMENT_ID;
+      const apiSecret     = process.env.GA4_API_SECRET;
+
+      if (!measurementId || !apiSecret) {
+        if (process.env.NODE_ENV !== "production") {
+          console.log("[GA4 MP] Skipped — GA4_MEASUREMENT_ID or GA4_API_SECRET not set");
+        }
+        return res.json({ status: "ok", note: "GA4 not configured" });
+      }
+
+      const payload = {
+        client_id: safeClientId,
+        events: [
+          {
+            name: event_name,
+            params: {
+              language:  safeLanguage,
+              page_path: safePath,
+              lead_type: safeLeadType,
+              source:    safeSource,
+            },
+          },
+        ],
+      };
+
+      const gaUrl = `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`;
+
+      const gaResponse = await fetch(gaUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (process.env.NODE_ENV !== "production") {
+        console.log(`[GA4 MP] ${event_name} lang=${safeLanguage} → HTTP ${gaResponse.status}`);
+      }
+
+      res.json({ status: "ok" });
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("[GA4 MP] Error:", error);
+      }
+      // Never crash the app — fail silently from the client's perspective
+      res.json({ status: "ok", note: "tracking failed silently" });
+    }
+  });
+
   app.get("/api/repair-requests", async (_req: Request, res: Response) => {
     try {
       const result = await pool.query("SELECT * FROM repair_requests ORDER BY created_at DESC LIMIT 100");
