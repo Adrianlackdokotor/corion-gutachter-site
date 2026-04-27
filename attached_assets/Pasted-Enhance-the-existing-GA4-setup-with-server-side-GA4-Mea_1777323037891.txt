@@ -1,0 +1,170 @@
+Enhance the existing GA4 setup with server-side GA4 Measurement Protocol tracking for conversion events.
+
+IMPORTANT SECURITY RULES:
+- GA4 Measurement ID and API Secret are already stored in Replit Secrets.
+- Use only:
+  process.env.GA4_MEASUREMENT_ID
+  process.env.GA4_API_SECRET
+- NEVER expose the API Secret in frontend code.
+- Do not hardcode the API Secret anywhere.
+- Do not ask for the values again.
+
+Current setup:
+- GA4 client-side tracking already exists.
+- Cookie consent already exists.
+- Keep existing gtag/page_view tracking.
+- Server-side tracking is only for important conversion events.
+
+--------------------------------------------------
+1) Create backend endpoint
+
+Create:
+
+POST /api/track-event
+
+Accept JSON:
+{
+  "event_name": "whatsapp_click",
+  "client_id": "string",
+  "language": "ro",
+  "page_path": "/ro/",
+  "lead_type": "whatsapp",
+  "source": "website"
+}
+
+Allowed event_name values only:
+- whatsapp_click
+- phone_click
+- lead_form_submit
+- maps_click
+- photo_upload_click
+
+Validate:
+- event_name must be in the allowed list
+- client_id must exist, otherwise generate a safe fallback UUID on the server
+- page_path must be a string
+- language should be "ro" or "de", fallback to "unknown"
+- lead_type and source are optional strings
+
+Send to GA4 Measurement Protocol:
+
+https://www.google-analytics.com/mp/collect?measurement_id=${GA4_MEASUREMENT_ID}&api_secret=${GA4_API_SECRET}
+
+Payload:
+{
+  "client_id": client_id,
+  "events": [
+    {
+      "name": event_name,
+      "params": {
+        "language": language,
+        "page_path": page_path,
+        "lead_type": lead_type,
+        "source": source
+      }
+    }
+  ]
+}
+
+Implementation notes:
+- Use server-side fetch.
+- Return JSON success/error response.
+- Do not crash the app if GA4 request fails.
+- Add console logs only in development mode.
+
+--------------------------------------------------
+2) Frontend integration
+
+Update existing analytics/tracking helper so conversion events call BOTH:
+- existing client-side gtag event, if consent accepted
+- backend POST /api/track-event, if consent accepted
+
+Do not track anything before cookie consent is accepted.
+
+Create or update a helper function like:
+
+trackConversion(eventName, params)
+
+It should:
+- check cookie consent accepted
+- get client_id from GA cookie if possible, otherwise localStorage UUID
+- detect language:
+  - paths starting with /ro = ro
+  - otherwise de
+- include:
+  {
+    event_name: eventName,
+    client_id,
+    language,
+    page_path: window.location.pathname,
+    lead_type,
+    source: "website"
+  }
+
+--------------------------------------------------
+3) Track these user actions
+
+Attach tracking to:
+
+WhatsApp buttons/links:
+- event_name: whatsapp_click
+- lead_type: whatsapp
+
+Phone links/buttons:
+- event_name: phone_click
+- lead_type: phone
+
+Lead/contact form submit:
+- event_name: lead_form_submit
+- lead_type: form
+
+Google Maps / Recenzii link:
+- event_name: maps_click
+- lead_type: maps
+
+Photo upload / “Foto senden” / “Foto per WhatsApp senden” buttons:
+- event_name: photo_upload_click
+- lead_type: photo_upload
+
+Important:
+If a “Foto per WhatsApp senden” button also opens WhatsApp, track both only if they are meaningfully separate actions. Otherwise prefer:
+- photo_upload_click for upload/photo buttons
+- whatsapp_click for normal WhatsApp contact buttons
+
+--------------------------------------------------
+4) GDPR / Cookie consent
+
+Respect existing cookie banner:
+- If user clicks “Akzeptieren”, enable tracking.
+- If user clicks “Ablehnen”, do not send gtag events and do not call /api/track-event.
+- Persist consent state as currently implemented.
+- Do not create new cookies unnecessarily.
+
+--------------------------------------------------
+5) Keep existing GA4
+
+Do not remove existing:
+- gtag script
+- page_view tracking
+- cookie consent logic
+- existing event hooks
+
+Only enhance them with Measurement Protocol for conversions.
+
+--------------------------------------------------
+6) Testing / Definition of done
+
+Test:
+- App starts without errors.
+- POST /api/track-event works with valid event.
+- Invalid event_name returns 400.
+- No GA4 API secret is visible in frontend bundle or browser source.
+- No tracking fires before cookie acceptance.
+- After cookie acceptance:
+  - WhatsApp click sends whatsapp_click
+  - Phone click sends phone_click
+  - Form submit sends lead_form_submit
+  - Maps link sends maps_click
+  - Photo upload button sends photo_upload_click
+- German and Romanian pages still work.
+- Existing CORA chat remains unchanged.

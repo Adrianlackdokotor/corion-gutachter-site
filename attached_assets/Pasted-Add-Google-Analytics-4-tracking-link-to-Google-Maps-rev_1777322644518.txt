@@ -1,0 +1,85 @@
+Add Google Analytics 4 tracking + link to Google Maps reviews.
+
+### 1) Add Google Maps / Recenzii link (site → Google)
+Add a footer link (or main menu link) with label:
+- RO: “Google Maps / Recenzii”
+URL:
+https://www.google.com/maps/place/Corion+Gutachter+Evalu%C4%83ri+Daune+Auto+Rom%C3%A2ni+Germania/@50.0720921,8.3785348,17z/data=!3m1!4b1!4m6!3m5!1s0x47bda31063796dbb:0x43e79d61a7f5f652!8m2!3d50.0720921!4d8.3811097!16s%2Fg%2F11wpbcc1l4
+Open in new tab (target="_blank"), rel="noopener".
+
+### 2) GA4 tracking (Measurement ID: G-RYF77GKESM)
+GA4 should respect cookie consent (EU/Germany):
+- On page load: set consent denied and do not send events.
+- When user clicks “Akzeptieren” on cookie banner: load GA script + set consent granted + send pageview.
+- If “Ablehnen”: do nothing.
+
+Add to the main HTML template/head (so it exists on all pages: DE + RO), and ensure it loads only once:
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYF77GKESM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default: consent denied until user accepts cookies
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'security_storage': 'granted'
+  });
+
+  function initializeGA(){
+    // set consent granted only after user accepts cookies
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-RYF77GKESM', { 'anonymize_ip': true });
+  }
+
+  // generic helper used by existing tracking hooks
+  window.trackGaEvent = function(eventName, params = {}){
+    // only fire after GA is initialized and with consent granted
+    if (!window.trackGaEventInitialized) return;
+    gtag('event', eventName, {
+      page_path: location.pathname,
+      ...params
+    });
+  };
+
+  // register init flag once GA is initialized
+  window.trackGaEventInitialized = false;
+  window.initializeAndMarkGA = function(){
+    initializeGA();
+    window.trackGaEventInitialized = true;
+  }
+</script>
+
+### 3) Wire cookie banner to GA init
+- When user clicks cookie “Akzeptieren” button: call `window.initializeAndMarkGA()`.
+- Ensure “Ablehnen” does not load GA or send events.
+
+### 4) Wire existing tracking hooks to GA events
+Existing hooks already prepared: whatsapp_click_ro + lead_form_submit_ro.
+Map them:
+
+- WhatsApp CTA click:
+  call `trackGaEvent('whatsapp_click_ro', { language: currentLanguage })`
+
+- RO lead form submit:
+  call `trackGaEvent('lead_form_submit_ro', { language: 'ro' })`
+
+Also add language detection:
+- for RO pages, currentLanguage='ro'
+- for DE pages, currentLanguage='de'
+
+### 5) Definition of done
+- Footer link “Google Maps / Recenzii” opens correct Maps listing
+- GA4 measurement ID is G-RYF77GKESM
+- GA loads only after cookie “Akzeptieren”
+- Events fire:
+  - whatsapp_click_ro
+  - lead_form_submit_ro
+- Anonymize IP enabled
+- No errors, German pages remain unchanged
