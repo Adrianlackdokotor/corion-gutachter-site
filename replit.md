@@ -126,6 +126,7 @@ favicon.svg                     # Favicon SVG cu logo Corion
 `.c-hero`, `.c-trust-bar`, `.c-trust-badge`, `.c-img-card`, `.c-step`, `.c-testimonial`, `.c-sticky-cta`, `.btn`, `.card`, `.form-input`
 
 ## Recent Changes
+- 2026-04-27: Integrated 3 real blog images — blog-unfallgutachten-prozess (71KB/46KB), blog-ki-fahrzeugbewertung (57KB/36KB), blog-lackpflege-tipps (73KB/50KB); blog.html updated articles 1+2 + new article 3 (Lackpflege) added; index.html blog preview section all 3 cards updated; all placeholder images + onerror + min-height hacks removed from blog section
 - 2026-04-27: Replaced Karosserie & Lack card image with real workshop photo — karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.jpg (56KB) + .webp (29KB); updated alt/title SEO + card description in index.html + servicii.html
 - 2026-04-27: Integrated all 6 service card images — 800x500 JPG+WebP, SEO-optimized names; index.html all 6 cards updated; servicii.html 4 existing sections updated + 2 new sections added (Erstberatung + Kostenvoranschlag); no more placeholder images in services/; README.md updated
 - 2026-04-27: Integrated Step 3 real photo — converted to step3-unfallgutachten-erhalten-kfz-gutachter-bericht-deutschland.jpg (25KB) + .webp (16KB); integrated in "3 Schritte" Step 3 card in index.html; added "Ihr fertiges Gutachten" info block in formular.html; all 3 Schritte now have real photos; no more placeholders in steps/

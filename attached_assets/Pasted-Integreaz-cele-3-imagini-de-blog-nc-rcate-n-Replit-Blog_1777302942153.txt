@@ -1,0 +1,85 @@
+Integrează cele 3 imagini de blog încărcate în Replit:
+
+* `Blog Article 1 (Unfallgutachten Prozess).png`
+* `Blog Article 2 (KI Fahrzeugbewertung).png`
+* `Blog Article 3 (Lackpflege Tipps).png`
+
+Obiectiv:
+Înlocuiește placeholder-ele din `blog.html` și `index.html` / Blog Preview cu imaginile reale, optimizate SEO.
+
+1. Mută imaginile din `attached_assets/` în:
+   `assets/images/blog/`
+
+2. Redenumește SEO-friendly și creează WebP:
+
+* `blog-unfallgutachten-prozess-schadenaufnahme-begutachtung-deutschland.jpg`
+
+* `blog-unfallgutachten-prozess-schadenaufnahme-begutachtung-deutschland.webp`
+
+* `blog-ki-fahrzeugbewertung-schadenanalyse-kfz-gutachter.jpg`
+
+* `blog-ki-fahrzeugbewertung-schadenanalyse-kfz-gutachter.webp`
+
+* `blog-lackpflege-tipps-corion-lackdoktor-oldtimer-politur.jpg`
+
+* `blog-lackpflege-tipps-corion-lackdoktor-oldtimer-politur.webp`
+
+3. Optimizează imaginile:
+
+* Blog preview/card: 800×400 px
+* Blog hero dacă este nevoie: crop 1920×600 px doar pentru imaginea principală
+* JPG sub 220KB
+* WebP sub 140KB
+* fără deformare
+* crop inteligent pe elementul principal
+
+4. Actualizează `blog.html`:
+   Folosește `<picture>` cu WebP + JPG fallback pentru fiecare articol.
+
+Alt/title SEO:
+
+Articol 1:
+alt="Unfallgutachten Prozess mit Schadenaufnahme Begutachtung Erstellung und Übersendung in Deutschland"
+title="Unfallgutachten Prozess vom Kfz Gutachter erklärt"
+
+Articol 2:
+alt="KI Fahrzeugbewertung und Schadenanalyse durch Kfz Gutachter"
+title="KI Schadenanalyse und Fahrzeugbewertung"
+
+Articol 3:
+alt="Lackpflege Tipps und Fahrzeugaufbereitung bei Corion Lackdoktor"
+title="Lackpflege und Werterhalt für Fahrzeuge"
+
+5. Actualizează `index.html`, secțiunea Blog Preview:
+   Folosește aceleași 3 imagini pentru cardurile de blog, dacă există preview pe homepage.
+
+6. Context SEO:
+   Pentru titlurile articolelor folosește sau păstrează:
+
+* `Unfallgutachten Prozess: Von der Schadenaufnahme bis zum Gutachten`
+* `KI Fahrzeugbewertung: Digitale Schadenanalyse verständlich erklärt`
+* `Lackpflege Tipps: So bleibt der Fahrzeuglack länger geschützt`
+
+Adaugă descrieri scurte, naturale, cu termeni:
+
+* Kfz Gutachter
+* Unfallgutachten
+* Schadenaufnahme
+* KI Schadenanalyse
+* Fahrzeugbewertung
+* Lackpflege
+* Corion Lackdoktor
+* Deutschland / Frankfurt / Hofheim
+
+Fără keyword stuffing.
+
+7. Actualizează `assets/images/README.md`:
+   Mută cele 3 imagini blog la `Imagini reale disponibile ✅`.
+   Menționează că `blog/` nu mai are placeholder activ pentru cele 3 articole.
+
+8. Verificare finală:
+
+* preview `blog.html`
+* preview homepage secțiunea Blog
+* confirmă imaginile, dimensiunile finale, alt/title și fișierele modificate.
+* nu modifica funnel-ul, CTA-urile, culorile sau structura generală.

@@ -32,6 +32,12 @@ assets/images/
     erstberatung-kfz-gutachter-telefonische-beratung.jpg/.webp                 ← 56KB/29KB ✅ REAL
     kostenvoranschlag-auto-reparatur-kfz-gutachter.jpg/.webp                   ← 67KB/38KB ✅ REAL
 
+ blog/ — TOATE IMAGINILE REALE ✅
+    blog-unfallgutachten-prozess-schadenaufnahme-begutachtung-deutschland.jpg/.webp ← 71KB/46KB ✅ REAL
+    blog-ki-fahrzeugbewertung-schadenanalyse-kfz-gutachter.jpg/.webp               ← 57KB/36KB ✅ REAL
+    blog-lackpflege-tipps-corion-lackdoktor-oldtimer-politur.jpg/.webp             ← 73KB/50KB ✅ REAL
+    (blog.html: 3 articole cu imagini reale; index.html blog preview: 3 carduri cu imagini reale)
+
 ## Imagini necesare (placeholder activ) ⏳
 
 ```
