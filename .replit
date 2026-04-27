@@ -46,3 +46,7 @@ run = ["php", "-S", "0.0.0.0:5000"]
 
 [userenv.shared]
 GA4_MEASUREMENT_ID = "G-RYF77GKESM"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 120000
