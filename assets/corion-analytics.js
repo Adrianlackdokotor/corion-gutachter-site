@@ -53,14 +53,23 @@ function _getClientId() {
   return stored;
 }
 
-// ─── 6. trackConversion — calls gtag + backend Measurement Protocol ─────────
+// ─── 6. Analytics token — injected into HTML by the server ───────────────────
+// A unique single-use token is embedded in the page HTML at serve time.
+// It is bound to the requesting IP + User-Agent and consumed on first use.
+// No public endpoint exists to request tokens; only page loads obtain one.
+function _getNonce() {
+  var token = window.__CORION_ANALYTICS_TOKEN || null;
+  return Promise.resolve(token);
+}
+
+// ─── 7. trackConversion — calls gtag + backend Measurement Protocol ─────────
 //   Fires ONLY when user has accepted cookies.
 //   API Secret never leaves the server — frontend sends to /api/track-event.
 window.trackConversion = function(eventName, params) {
   if (localStorage.getItem('cookieConsent') !== 'granted') return;
   params = params || {};
 
-  var payload = {
+  var clientPayload = {
     event_name: eventName,
     client_id:  _getClientId(),
     language:   window.currentLanguage,
@@ -69,26 +78,29 @@ window.trackConversion = function(eventName, params) {
     source:     params.source    || 'website'
   };
 
-  // 6a. Client-side gtag event
+  // 7a. Client-side gtag event
   if (window.trackGaEventInitialized) {
     gtag('event', eventName, {
-      language:  payload.language,
-      page_path: payload.page_path,
-      lead_type: payload.lead_type,
-      source:    payload.source
+      language:  clientPayload.language,
+      page_path: clientPayload.page_path,
+      lead_type: clientPayload.lead_type,
+      source:    clientPayload.source
     });
   }
 
-  // 6b. Server-side Measurement Protocol (secret stays on server)
-  fetch('/api/track-event', {
-    method:  'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify(payload),
-    keepalive: true
-  }).catch(function() {});  // silent fail — never block UX
+  // 7b. Server-side Measurement Protocol (secret stays on server; nonce proves origin)
+  _getNonce().then(function(token) {
+    if (!token) return;
+    fetch('/api/track-event', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(Object.assign({}, clientPayload, { nonce: token })),
+      keepalive: true
+    }).catch(function() {});  // silent fail — never block UX
+  }).catch(function() {});
 };
 
-// ─── 7. Backward-compat: trackGaEvent (used by older inline onclick attrs) ──
+// ─── 8. Backward-compat: trackGaEvent (used by older inline onclick attrs) ──
 window.trackGaEvent = function(eventName, params) {
   if (!window.trackGaEventInitialized) return;
   gtag('event', eventName, Object.assign(
@@ -97,7 +109,7 @@ window.trackGaEvent = function(eventName, params) {
   ));
 };
 
-// ─── 8. dataLayer.push interception (picks up RO page trackEvent calls) ─────
+// ─── 9. dataLayer.push interception (picks up RO page trackEvent calls) ─────
 (function() {
   var _orig = dataLayer.push;
   dataLayer.push = function() {
@@ -117,12 +129,12 @@ window.trackGaEvent = function(eventName, params) {
   };
 })();
 
-// ─── 9. Auto-init if user already consented in a previous session ────────────
+// ─── 10. Auto-init if user already consented in a previous session ────────────
 if (localStorage.getItem('cookieConsent') === 'granted') {
   window.initializeAndMarkGA();
 }
 
-// ─── 10. DOM-ready: event delegation + cookie banner ─────────────────────────
+// ─── 11. DOM-ready: event delegation + cookie banner ─────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
 
   // ── Click delegation: WhatsApp, Phone, Maps, Photo Upload ─────────────────

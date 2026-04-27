@@ -1,4 +1,5 @@
 import type { Express, Request, Response } from "express";
+import { validateAndConsumeToken } from "./analytics-token.js";
 import { pool } from "./db.js";
 import OpenAI from "openai";
 
@@ -42,6 +43,10 @@ export function setupRoutes(app: Express) {
         return res.status(400).json({ status: "error", message: "Bitte geben Sie eine Beschreibung ein." });
       }
 
+      if (description.length > 2000) {
+        return res.status(400).json({ status: "error", message: "Beschreibung ist zu lang (max. 2000 Zeichen)." });
+      }
+
       const systemPrompt = `Sie sind ein hilfreicher KI-Assistent für Corion Gutachter, ein unabhängiges Kfz-Sachverständigenbüro mit Standorten in Frankfurt, Hofheim, Wiesbaden und Mainz. Ein Nutzer hat einen Unfall beschrieben. Erstellen Sie eine allgemeine Checkliste mit Schritten, die nach einem Unfall zu beachten sind. Geben Sie keine Rechtsberatung. Betonen Sie, dass dies allgemeine Ratschläge sind und bei Fahrzeugschäden immer ein unabhängiger Kfz-Sachverständiger wie Corion Gutachter kontaktiert werden sollte. Die Checkliste sollte klar, prägnant und für Laien verständlich sein. Verwenden Sie Markdown-Format mit Aufzählungszeichen.`;
 
       const response = await openai.chat.completions.create({
@@ -74,7 +79,15 @@ export function setupRoutes(app: Express) {
 
   app.post("/api/track-event", async (req: Request, res: Response) => {
     try {
-      const { event_name, client_id, language, page_path, lead_type, source } = req.body;
+      const { event_name, client_id, language, page_path, lead_type, source, nonce } = req.body;
+
+      // Token is a single-use random value embedded in first-party HTML by the server
+      // at page-serve time. No public endpoint issues tokens; direct API callers
+      // cannot obtain a valid token without loading a page. Each token is consumed
+      // (deleted from the server store) on first use to prevent replay.
+      if (!validateAndConsumeToken(nonce, req)) {
+        return res.status(403).json({ status: "error", message: "Invalid or missing token" });
+      }
 
       if (!GA4_ALLOWED_EVENTS.has(event_name)) {
         return res.status(400).json({ status: "error", message: "Invalid event_name" });
