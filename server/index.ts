@@ -32,7 +32,7 @@ app.use(
       }
     },
     methods: ["GET", "POST", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "x-admin-key"],
     credentials: false,
   })
 );
