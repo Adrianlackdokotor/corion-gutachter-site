@@ -1,0 +1,58 @@
+Integrează imaginea încărcată în Replit: `Taking photos of car damage to send to a Kfz Gutachter.png`.
+
+Obiectiv:
+Această imagine trebuie folosită pentru secțiunea „3 Schritte”, Pasul 1: Fotos hochladen. Imaginea arată exact acțiunea de conversie: clientul face poze la dauna auto și le trimite către Kfz Gutachter.
+
+1. Mută imaginea din `attached_assets/` în:
+   `assets/images/steps/`
+
+2. Redenumește imaginea SEO-friendly:
+   `step1-unfall-auto-fotos-hochladen-kfz-gutachter.jpg`
+
+Creează și versiunea WebP:
+`step1-unfall-auto-fotos-hochladen-kfz-gutachter.webp`
+
+3. Optimizează dimensiunea:
+
+* format final recomandat: 400x300 px pentru cardul din „3 Schritte”
+* păstrează proporțiile cât mai bine, fără deformare
+* dacă imaginea originală este verticală, crop inteligent pe zona principală: telefon + daună auto
+* JPG sub 160KB
+* WebP sub 100KB
+
+4. Actualizează `index.html` în secțiunea „3 Schritte” / „Fotos hochladen”.
+   Înlocuiește placeholder-ul pentru Pasul 1 cu:
+
+<picture>
+  <source srcset="/assets/images/steps/step1-unfall-auto-fotos-hochladen-kfz-gutachter.webp" type="image/webp">
+  <img
+    src="/assets/images/steps/step1-unfall-auto-fotos-hochladen-kfz-gutachter.jpg"
+    alt="Auto Schaden fotografieren und Fotos an Kfz Gutachter in Deutschland senden"
+    title="Fotos vom Unfallschaden hochladen für Kfz Gutachten"
+    loading="lazy"
+    width="400"
+    height="300"
+  >
+</picture>
+
+5. Adaugă context SEO lângă imagine, fără să strici designul:
+   Titlu card:
+   `1. Fotos vom Unfallschaden hochladen`
+
+Text card:
+`Fotografieren Sie den Schaden mit dem Smartphone und senden Sie uns die Bilder direkt online oder per WhatsApp. So erhalten Sie schnell eine erste Einschätzung.`
+
+6. Dacă imaginea apare și în `formular.html`, folosește-o și acolo ca imagine de suport pentru upload foto, cu același WebP + JPG fallback.
+
+7. Actualizează `assets/images/README.md`:
+   Mută Pasul 1 din „placeholder activ” la „imagini reale disponibile” și notează:
+   `step1-unfall-auto-fotos-hochladen-kfz-gutachter.jpg/.webp ← Pas 1: Fotos hochladen, client fotografiază dauna auto cu smartphone`
+
+8. Nu modifica funnel-ul, CTA-urile sau textele principale ale site-ului. Schimbă doar imaginea și textul scurt al cardului dacă este necesar.
+
+La final confirmă:
+
+* fișierele create,
+* dimensiunile finale,
+* paginile actualizate,
+* dacă mai există placeholder pentru Pasul 1.

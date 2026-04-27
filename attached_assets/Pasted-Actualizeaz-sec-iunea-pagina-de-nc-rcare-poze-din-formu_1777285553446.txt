@@ -1,0 +1,89 @@
+Actualizează secțiunea/pagina de încărcare poze din `formular.html` astfel încât experiența după upload să arate și să funcționeze ca în mockup-ul încărcat: `Taking photos of car damage to send to a Kfz Gutachter.png`.
+
+Obiectiv:
+După ce clientul încarcă o poză, trebuie să vadă o confirmare clară, premium și mobile-first:
+„Foto erfolgreich hochgeladen”, previzualizare poză, numele fișierului, data/ora uploadului, următorul pas și butoane de acțiune.
+
+Cerințe funcționale:
+
+1. În formularul de upload poze, după selectarea/încărcarea unei imagini, afișează un card de confirmare.
+2. Cardul trebuie să includă:
+
+   * icon check mare
+   * titlu: `Foto erfolgreich hochgeladen`
+   * text: `Vielen Dank! Ihr Foto wurde sicher übermittelt.`
+   * preview imagine uploadată
+   * secțiune: `Übermitteltes Foto`
+   * numele fișierului uploadat
+   * data și ora uploadului în format german, ex: `Hochgeladen am 24.04.2026 um 14:38 Uhr`
+   * box informativ: `Wie geht es weiter?`
+   * text: `Unser Gutachter prüft Ihr Foto und meldet sich in der Regel innerhalb von 24 Stunden bei Ihnen.`
+3. Adaugă două butoane:
+
+   * Primary roșu: `Weitere Fotos hochladen`
+   * Secondary dark/outline: `Zurück zum Formular` sau `Zurück zur Anfrage`
+4. Butonul `Weitere Fotos hochladen` trebuie să deschidă din nou selectorul de fișiere și să permită adăugarea mai multor poze.
+5. Dacă se încarcă mai multe imagini, afișează lista lor cu status check verde.
+6. Păstrează uploadul existent, nu rupe backend-ul sau formularul actual.
+
+Cerințe design:
+
+1. Stil dark premium, compatibil cu identitatea Corion:
+
+   * background: dark navy / black
+   * card: dark gradient
+   * accent roșu Corion pentru buton principal
+   * border subtil gri/albastru închis
+   * icon check verde sau violet discret
+2. Mobile-first:
+
+   * pe mobil cardul să arate ca un ecran de aplicație
+   * imaginea preview să fie mare, cu border-radius
+   * butoanele full width
+3. Desktop:
+
+   * păstrează cardul centrat, max-width 620–720px
+4. Logo-ul Corion Gutachter trebuie să rămână vizibil sus.
+5. Adaugă microcopy de încredere:
+
+   * `Ihre Bilder werden nur zur Schadenbewertung verwendet.`
+   * `Sichere Übermittlung Ihrer Anfrage.`
+
+Cerințe SEO/UX:
+
+1. Pentru imaginea statică de suport, dacă este folosită, folosește:
+   `assets/images/steps/step1-unfall-auto-fotos-hochladen-kfz-gutachter.webp`
+2. Alt text:
+   `Auto Schaden Foto erfolgreich an Kfz Gutachter übermittelt`
+3. Nu afișa text fals în preview dacă utilizatorul încarcă poza reală; folosește preview-ul real din browser.
+4. Dacă nu există imagine uploadată, păstrează starea inițială cu drag & drop/upload.
+
+Cerințe tehnice:
+
+1. Folosește JavaScript simplu, compatibil cu pagina statică.
+2. Creează funcții clare:
+
+   * `handlePhotoUpload`
+   * `renderUploadSuccess`
+   * `formatGermanDateTime`
+3. Adaugă CSS în `assets/corion-shared.css`, cu clase reutilizabile:
+
+   * `.upload-success-card`
+   * `.upload-preview-image`
+   * `.upload-status-row`
+   * `.upload-next-step`
+   * `.upload-action-buttons`
+4. Nu modifica restul funnel-ului.
+5. Testează în preview:
+
+   * upload o imagine
+   * apare confirmarea
+   * butonul pentru alte poze funcționează
+   * layout-ul mobil arată bine.
+
+La final confirmă:
+
+* ce fișiere ai modificat,
+* ce clase CSS ai adăugat,
+* dacă uploadul multiplu funcționează,
+* dacă preview-ul imaginii reale apare corect.

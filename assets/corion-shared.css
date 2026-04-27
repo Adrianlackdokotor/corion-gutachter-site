@@ -657,6 +657,134 @@ img, picture, video {
 .whatsapp-button { background-color: var(--clr-success); color: white; }
 .whatsapp-button:hover { background-color: #1DAE52; }
 .gemini-button { background-color: #8b5cf6; color: white; }
+
+/* ── Upload Success Card ─────────────────────────────────── */
+.upload-success-card {
+  background: linear-gradient(135deg, #0d1520 0%, #111827 100%);
+  border: 1px solid rgba(55,65,81,.7);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.upload-success-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(37,211,102,.08);
+  border: 1px solid rgba(37,211,102,.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: var(--sp-3);
+}
+.upload-success-card__check {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.15);
+  border: 2px solid #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #25D366;
+  font-size: 1rem;
+}
+.upload-success-card__title {
+  font-weight: 700;
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 2px;
+}
+.upload-success-card__sub {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.upload-preview-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(55,65,81,.6);
+  margin-bottom: var(--sp-2);
+}
+.upload-section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+}
+.upload-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(55,65,81,.4);
+  font-size: 0.82rem;
+  color: #d1d5db;
+}
+.upload-status-row:last-child { border-bottom: none; }
+.upload-status-row .fa-check-circle { color: #25D366; flex-shrink: 0; }
+.upload-status-row .upload-fname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.upload-status-row .upload-fsize { color: #6b7280; font-size: 0.75rem; flex-shrink: 0; }
+.upload-datetime {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+.upload-next-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(31,41,55,.8);
+  border: 1px solid rgba(55,65,81,.5);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: var(--sp-2) 0;
+}
+.upload-next-step i {
+  color: #6b7280;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.upload-next-step__title {
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  margin: 0 0 3px;
+}
+.upload-next-step__text {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.upload-trust {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: var(--sp-2);
+}
+.upload-trust span {
+  font-size: 0.72rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.upload-trust span i { color: #25D366; font-size: 0.65rem; }
+.upload-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 480px) {
+  .upload-action-buttons { flex-direction: row; }
+  .upload-action-buttons .btn { flex: 1; justify-content: center; }
+}
 .gemini-button:hover { background-color: #7c3aed; }
 .hero-button-secondary { background-color: var(--clr-white); color: var(--clr-accent); }
 .hero-button-secondary:hover { background-color: #e5e7eb; }
