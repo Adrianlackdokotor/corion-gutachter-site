@@ -359,13 +359,27 @@
 
             /* Dateiliste */
             var listEl = document.getElementById('uploadFileList');
-            listEl.innerHTML = files.map(function(f) {
-                return '<div class="upload-status-row">' +
-                    '<i class="fas fa-check-circle"></i>' +
-                    '<span class="upload-fname">' + f.name + '</span>' +
-                    '<span class="upload-fsize">' + (f.size / 1024 / 1024).toFixed(1) + ' MB</span>' +
-                    '</div>';
-            }).join('');
+            listEl.innerHTML = '';
+            files.forEach(function(f) {
+                var row = document.createElement('div');
+                row.className = 'upload-status-row';
+
+                var icon = document.createElement('i');
+                icon.className = 'fas fa-check-circle';
+                row.appendChild(icon);
+
+                var nameSpan = document.createElement('span');
+                nameSpan.className = 'upload-fname';
+                nameSpan.textContent = f.name;
+                row.appendChild(nameSpan);
+
+                var sizeSpan = document.createElement('span');
+                sizeSpan.className = 'upload-fsize';
+                sizeSpan.textContent = (f.size / 1024 / 1024).toFixed(1) + ' MB';
+                row.appendChild(sizeSpan);
+
+                listEl.appendChild(row);
+            });
 
             /* Datum/Zeit */
             document.getElementById('uploadDateTime').textContent = formatGermanDateTime(new Date());
