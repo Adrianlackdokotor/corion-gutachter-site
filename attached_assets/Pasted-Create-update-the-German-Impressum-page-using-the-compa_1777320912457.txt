@@ -1,0 +1,94 @@
+Create/update the German Impressum page using the company data below.
+
+Goal:
+Make a clean, professional, legally structured Impressum page for the website.
+
+Important:
+- Keep the existing site design, header, footer, colors and buttons.
+- Do not modify unrelated pages.
+- Make sure the Impressum link in the footer opens this page.
+- Route/page: /impressum or /impressum.html, depending on the current project structure.
+- Use German language.
+
+Company data:
+
+Corion GmbH
+Nassaustraße 41
+65719 Hofheim am Taunus
+Deutschland
+
+Kontakt:
+Telefon: +49 176 83458274
+E-Mail: coriongmbh@gmail.com
+
+Geschäftsführer:
+Adrian Apostol
+
+Handelsregister:
+Registernummer: HRB 128302
+Registergericht: Amtsgericht Frankfurt am Main
+
+Rechtsform:
+Gesellschaft mit beschränkter Haftung (GmbH)
+
+Umsatzsteuer-ID:
+USt-IdNr.: DE355599761
+
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+Adrian Apostol
+Nassaustraße 41
+65719 Hofheim am Taunus
+
+Add the following sections:
+
+1. Impressum
+Angaben gemäß § 5 TMG
+
+2. Kontakt
+
+3. Geschäftsführung
+
+4. Handelsregister
+
+5. Umsatzsteuer-ID
+
+6. EU-Streitschlichtung
+Text:
+Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+https://ec.europa.eu/consumers/odr
+
+Unsere E-Mail-Adresse finden Sie oben im Impressum.
+
+7. Verbraucherstreitbeilegung / Universalschlichtungsstelle
+Text:
+Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+
+8. Haftungsausschluss
+Text:
+Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+
+9. Hinweis zu KI-Assistenten
+Text:
+Unsere Website kann KI-gestützte Assistenten verwenden. Die bereitgestellten Informationen dienen ausschließlich allgemeinen Informationszwecken und ersetzen keine verbindliche Beratung, kein verbindliches Angebot und keine vertragliche Vereinbarung. Für verbindliche Angebote, Kostenvoranschläge und Termine kontaktieren Sie uns bitte direkt telefonisch oder per E-Mail.
+
+Remove overly long or duplicated AGB text from the Impressum page if it currently appears there. The Impressum should be clear, compact and professional.
+
+Design requirements:
+- Use cards or sections with clear headings.
+- Mobile friendly.
+- CTA at bottom:
+  “Bereit für ein Angebot?”
+  Button: “Foto per WhatsApp senden”
+  Use existing WhatsApp link: wa.me/4917683458274
+
+SEO:
+- title: “Impressum | Corion GmbH”
+- meta description: “Impressum der Corion GmbH, Nassaustraße 41, 65719 Hofheim am Taunus.”
+- canonical for the Impressum page.
+
+Definition of done:
+- Impressum page loads correctly.
+- Footer Impressum link works.
+- Data is exactly as provided above.
+- No duplicated long AGB section.
+- Layout matches the rest of the website.

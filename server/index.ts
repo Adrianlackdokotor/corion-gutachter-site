@@ -71,6 +71,9 @@ app.get("/ro/accident-germania-ce-fac", (_req, res) => {
 app.get("/ro/blog/plata-fictiva-abtretung-germania", (_req, res) => {
   res.sendFile(path.join(projectRoot, "ro", "blog", "plata-fictiva-abtretung-germania.html"));
 });
+app.get(["/impressum", "/impressum.html"], (_req, res) => {
+  res.sendFile(path.join(projectRoot, "impressum.html"));
+});
 
 async function main() {
   await initDB();
