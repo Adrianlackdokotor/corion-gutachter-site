@@ -1,0 +1,120 @@
+Optimizează toate imaginile din proiect pentru SEO (Google + AI search).
+
+Obiectiv:
+Imaginile trebuie să contribuie activ la ranking pentru:
+
+* Kfz Gutachter
+* Unfallgutachten
+* Schadengutachten
+* Gutachter Frankfurt / Hofheim / Wiesbaden / Mainz
+
+1. RENAME IMAGES (IMPORTANT)
+   Redenumește imaginile din assets/images folosind keyword-uri reale:
+
+Hero:
+hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.jpg
+hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.webp
+
+Team:
+team-kfz-gutachter-auto-bewertung-deutschland.jpg
+
+Steps:
+step1-unfall-auto-fotos-hochladen-gutachter.jpg
+step2-beratung-kfz-gutachter-deutschland.jpg
+step3-unfallgutachten-erstellen-bericht.jpg
+
+Services:
+unfallgutachten-auto-schaden-bewertung.jpg
+wertgutachten-auto-bewertung-deutschland.jpg
+ki-analyse-fahrzeug-schaden-erkennung.jpg
+karosserie-lack-reparatur-smart-repair.jpg
+kostenvoranschlag-auto-reparatur-gutachter.jpg
+
+Blog:
+unfallgutachten-prozess-deutschland.jpg
+ki-fahrzeugbewertung-auto-schaden.jpg
+
+2. UPDATE HTML (CRITICAL)
+   În toate paginile (index.html, servicii.html, blog.html):
+
+Pentru fiecare imagine:
+
+* folosește <picture> cu WebP + fallback JPG
+* adaugă loading="lazy"
+* adaugă width și height pentru CLS
+
+Exemplu:
+
+<picture>
+  <source srcset="/assets/images/hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.webp" type="image/webp">
+  <img 
+    src="/assets/images/hero-kfz-gutachter-unfallgutachten-frankfurt-hofheim.jpg"
+    alt="Kfz Gutachter fotografiert Unfallschaden am Auto in Frankfurt Hofheim Deutschland"
+    loading="eager"
+    width="1920"
+    height="1080"
+  >
+</picture>
+
+3. ALT TEXT SEO (FOARTE IMPORTANT)
+   Adaugă alt text optimizat:
+
+Hero:
+"Kfz Gutachter fotografiert Unfallschaden am Fahrzeug in Frankfurt Hofheim Deutschland"
+
+Services:
+"Unfallgutachten Auto Schaden Bewertung Deutschland"
+"Wertgutachten Fahrzeug Bewertung Deutschland"
+"Karosserie Lack Reparatur Smart Repair Deutschland"
+
+Steps:
+"Auto Schaden Fotos hochladen für Gutachter"
+"Beratung durch Kfz Gutachter Deutschland"
+"Unfallgutachten Bericht Fahrzeug Deutschland"
+
+4. TITLE ATTRIBUTE (EXTRA SEO)
+   Adaugă title pe imagini importante:
+
+title="Unfallgutachten vom Kfz Gutachter in Frankfurt und Hofheim"
+
+5. IMAGE CONTEXT SEO (IMPORTANT)
+   Adaugă sub fiecare imagine sau în apropiere:
+
+* H2 sau H3 cu keyword relevant
+* 1-2 propoziții explicative
+
+Ex:
+
+<h2>Kfz Gutachter für Unfallgutachten in Frankfurt</h2>
+
+6. FILE STRUCTURE CLEANUP
+   Organizează imaginile:
+
+assets/images/
+hero/
+services/
+steps/
+blog/
+team/
+
+7. PERFORMANCE
+
+* menține WebP
+* optimizează dimensiunea (sub 200kb ideal)
+* fără imagini inutile
+
+8. DO NOT BREAK:
+
+* layout-ul existent
+* funnel-ul
+* CTA-urile
+
+La final:
+
+* listează toate imaginile redenumite
+* confirmă că toate paginile folosesc noile paths
+* confirmă că nu există imagini cu nume generic (ex: image1.jpg)
+
+Obiectiv final:
+Fiecare imagine trebuie să ajute Google să înțeleagă:
+"Kfz Gutachter Unfallgutachten Frankfurt Hofheim Deutschland"
