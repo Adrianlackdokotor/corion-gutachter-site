@@ -13,6 +13,12 @@ assets/images/
   team/
     team-kfz-gutachter-beratung-unfallschaden-deutschland.jpg  ← 70KB   ✅ REAL
     team-kfz-gutachter-beratung-unfallschaden-deutschland.webp ← 43KB   ✅ REAL
+
+  steps/
+    step1-unfall-auto-fotos-hochladen-kfz-gutachter.jpg/.webp  ← 25KB/17KB ✅ REAL
+      Pas 1: Benutzer fotografiert Unfallschaden mit Smartphone für Kfz Gutachter
+    step2-beratung-kfz-gutachter-ersteinschaetzung-unfallschaden.jpg/.webp ← 19KB/11KB ✅ REAL
+      Pas 2: Beratung / Ersteinschätzung, Gutachter verifică pozele și discută telefonic cu clientul
 ```
 
 ## Imagini necesare (placeholder activ) ⏳
@@ -27,9 +33,7 @@ assets/images/
     kostenvoranschlag-auto-reparatur-gutachter.jpg/.webp← Card Kostenvoranschlag (800×500px)
 
   steps/
-    step1-unfall-auto-fotos-hochladen-gutachter.jpg/.webp ← Pas 1 (400×300px)
-    step2-beratung-kfz-gutachter-deutschland.jpg/.webp    ← Pas 2 (400×300px)
-    step3-unfallgutachten-erstellen-bericht.jpg/.webp     ← Pas 3 (400×300px)
+    step3-unfallgutachten-erstellen-bericht.jpg/.webp     ← Pas 3 (400×300px) — placeholder activ
 
   blog/
     blog-kfz-gutachter-ratgeber-wissen-deutschland.jpg/.webp   ← Hero Blog (1920×600px)
