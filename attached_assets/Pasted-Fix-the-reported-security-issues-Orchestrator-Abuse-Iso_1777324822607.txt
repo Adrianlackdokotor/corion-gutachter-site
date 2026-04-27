@@ -1,0 +1,48 @@
+Fix the reported security issues (Orchestrator Abuse/Isolation + Public API Data Exposure + transcript exposure).
+
+Goals:
+1) Stop unbounded token spend / connection exhaustion on public CORA chat endpoints
+2) Stop exposing transcripts with just a session ID
+3) Stop unauthenticated access to stored lead data
+
+Apply these patches:
+
+A) Rate limiting + resource caps
+- Add a global rate limiter middleware (per IP and per session)
+- Add concurrency/queue depth limits and timeouts for AI calls
+- Add token caps:
+  - MAX_TOKENS_PER_REQUEST (e.g. 2k–4k)
+  - MAX_TOKENS_PER_SESSION_PER_DAY (quota)
+- If over quota → return 429 / “try later”
+
+B) Transcript access control (fix privacy leak)
+- Remove any endpoint that returns transcripts without authentication
+- Only allow transcript access if user is authenticated + authorized (agent/admin role)
+- Replace “session ID access” with:
+  - opaque transcript id stored server-side
+  - server-side authorization check
+- Encrypt transcripts at rest OR store only in server DB; do NOT send full transcript to untrusted clients
+- Add audit logs for transcript access
+
+C) Repair request API (data exposure)
+- If the endpoint is “submit lead”: keep it public but:
+  - validate schema, sanitize inputs
+  - never return stored lead records in responses
+  - enable rate limiting + captcha/bot protection
+  - do not log sensitive fields in plain text
+- If the endpoint exposes stored leads (GET/list):
+  - make it authenticated and role-based
+  - require JWT/API key
+  - return only minimal fields + only for authorized users
+
+D) Security hardening
+- Set strict CORS (allow only your origin)
+- Add request body size limits
+- Add input validation for all endpoints
+- Prevent unknown endpoints from responding with sensitive info
+
+Definition of done:
+- Public CORA endpoints cannot be abused for unlimited tokens or connections
+- Transcripts are not retrievable with a session ID alone
+- No unauthenticated endpoint exposes stored lead data
+- Rate limit and quota enforcement verified
