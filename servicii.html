@@ -3,157 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leistungen - Detaillierte Gutachten | Corion Gutachter</title>
-    <meta name="description" content="Entdecken Sie unsere detaillierten Kfz-Gutachter-Leistungen: Schadengutachten, Wertgutachten, KI-Analyse und mehr. Ihr Experte in Frankfurt, Wiesbaden, Mainz und Hofheim.">
+    <title>Leistungen – Detaillierte Gutachten | Corion Gutachter Frankfurt</title>
+    <meta name="description" content="Alle Kfz-Gutachter-Leistungen von Corion Gutachter: Schadengutachten, Wertgutachten, KI-Analyse, Karosserie & Lack. Ihr Experte in Frankfurt, Wiesbaden, Mainz und Hofheim.">
     <meta name="keywords" content="Leistungen Kfz Gutachter, Schadengutachten Details, Ablauf Wertgutachten, KI Schadensanalyse, Oldtimerbewertung, Kostenvoranschlag erstellen lassen">
     <meta name="author" content="Corion Gutachter">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.corion-gutachter.de/servicii.html">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/corion-shared.css">
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; 
-            color: #e5e7eb; 
-        }
-        .corion-red { color: #c00000; }
-        .bg-corion-red { background-color: #c00000; }
-        .hover\:bg-corion-red-dark:hover { background-color: #a00000; }
-        .border-corion-red { border-color: #c00000; }
-        .ring-corion-red:focus {
-            --tw-ring-color: #c00000;
-        }
-        .card {
-            background-color: #1f2937; 
-            border: 1px solid #374151; 
-            border-radius: 0.75rem; 
-            transition: all 0.3s ease-in-out;
-            position: relative; 
-            z-index: 1;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(192, 0, 0, 0.3), 0 4px 6px -2px rgba(192, 0, 0, 0.25);
-        }
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(17, 24, 39, 0.95); 
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid #374151;
-        }
-        .nav-link, .nav-link-external {
-            color: #d1d5db;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .nav-link:hover, .nav-link.active, .nav-link-external:hover {
-            color: #c00000;
-        }
-        .nav-link-external {
-            background-color: #c00000;
-            color: #ffffff;
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-radius: 0.375rem; 
-        }
-        .nav-link-external:hover {
-            background-color: #a00000;
-            color: #ffffff;
-        }
-        .floating-chat-button {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 100;
-            background-color: #c00000;
-            color: white;
-            width: 3.5rem; 
-            height: 3.5rem; 
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .floating-chat-button:hover {
-            background-color: #a00000;
-            transform: scale(1.1);
-        }
-        .content-sections-bg {
-            background-image: url('uploaded:Corion Gutachter Background V1.jpeg-fe1f390c-14b3-4f59-a7c3-0499fc370386');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed; 
-            position: relative;
-        }
-        .content-sections-bg .container { 
-            position: relative;
-            z-index: 1;
-        }
+        /* Seiten-spezifisch: Service-Sections */
         .service-section h2 {
-            font-size: 2.25rem; /* text-3xl */
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1rem;
+            font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem;
         }
-         .service-section p, .service-section ul li {
-            color: #d1d5db;
-            line-height: 1.7;
+        .service-section p, .service-section ul li {
+            color: #d1d5db; line-height: 1.7;
         }
-        .service-section ul {
-            list-style-type: none;
-            padding-left: 0;
+        .service-section ul { list-style: none; padding-left: 0; }
+        .service-section ul li {
+            padding-left: 2rem; position: relative; margin-bottom: .5rem;
         }
-         .service-section ul li {
-            padding-left: 2rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-        }
-         .service-section ul li::before {
-            content: '\f058'; /* Font Awesome check-circle */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #c00000;
+        .service-section ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; color: #c00000;
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- NAVIGATION -->
     <header class="sticky-nav shadow-lg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
                     <a href="index.html" title="Zurück zur Corion Gutachter Startseite">
-                        <img class="h-12 md:h-16 w-auto" src="uploaded:+1CorionGutachter_On_Transparent (High).jpg-537b0546-072d-4d92-9505-00c43b0baa71" alt="Corion Gutachter Logo">
+                        <img class="h-12 md:h-16 w-auto"
+                             src="uploaded:+1CorionGutachter_On_Transparent (High).jpg-537b0546-072d-4d92-9505-00c43b0baa71"
+                             alt="Corion Gutachter Logo"
+                             width="160" height="64" loading="eager">
                     </a>
                 </div>
                 <div class="hidden md:block">
-                    <nav class="ml-10 flex items-baseline space-x-4">
+                    <nav class="ml-10 flex items-baseline space-x-4" aria-label="Hauptnavigation">
                         <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm">Start</a>
                         <a href="servicii.html" class="nav-link px-3 py-2 rounded-md text-sm active corion-red">Leistungen</a>
                         <a href="index.html#ueber-uns" class="nav-link px-3 py-2 rounded-md text-sm">Über Uns</a>
                         <a href="index.html#unfall-assistent" class="nav-link px-3 py-2 rounded-md text-sm">KI-Unfall-Assistent</a>
                         <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm">Blog</a>
                         <a href="index.html#kontakt" class="nav-link px-3 py-2 rounded-md text-sm">Kontakt</a>
-                        <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link-external text-sm ml-2" title="Externes Gutachter-Portal öffnen">
+                        <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link-external text-sm ml-2">
                             Gutachter-Portal <i class="fas fa-external-link-alt fa-xs ml-1"></i>
                         </a>
                     </nav>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-corion-red" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Hauptmenü öffnen</span>
+                    <button id="mobile-menu-button" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" aria-label="Menü öffnen">
                         <i class="fas fa-bars fa-fw text-xl"></i>
                     </button>
                 </div>
@@ -167,7 +81,7 @@
                 <a href="index.html#unfall-assistent" class="nav-link block px-3 py-2 rounded-md text-base">KI-Unfall-Assistent</a>
                 <a href="blog.html" class="nav-link block px-3 py-2 rounded-md text-base">Blog</a>
                 <a href="index.html#kontakt" class="nav-link block px-3 py-2 rounded-md text-base">Kontakt</a>
-                <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link block px-3 py-2 rounded-md text-base corion-red hover:bg-gray-700" title="Externes Gutachter-Portal öffnen">
+                <a href="https://app.beispiel-gutachter-domain.de" target="_blank" rel="noopener noreferrer" class="nav-link block px-3 py-2 rounded-md text-base corion-red hover:bg-gray-700">
                     Gutachter-Portal <i class="fas fa-external-link-alt fa-xs ml-1"></i>
                 </a>
             </div>
@@ -175,117 +89,229 @@
     </header>
 
     <main>
+
+        <!-- HERO -->
+        <section class="c-hero" style="min-height:40vh;">
+            <div class="c-hero__media" aria-hidden="true">
+                <picture>
+                    <source srcset="assets/images/services/hero-services.webp" type="image/webp">
+                    <img src="assets/images/services/hero-services.jpg"
+                         alt="Kfz-Gutachter Leistungen – Corion Gutachter Frankfurt"
+                         width="1920" height="600" loading="eager" fetchpriority="high"
+                         onerror="this.style.display='none'">
+                </picture>
+            </div>
+            <div class="c-hero__overlay"></div>
+            <div class="c-hero__content">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="c-hero__eyebrow"><i class="fas fa-list-check"></i> Alle Leistungen im Überblick</span>
+                    <h1 class="c-hero__title text-white">Unsere Leistungen <span class="corion-red">im Detail</span></h1>
+                    <p class="c-hero__subtitle">Von der detaillierten Schadensanalyse bis zur präzisen Fahrzeugbewertung – professionell, schnell und rechtssicher.</p>
+                    <div class="c-hero__actions">
+                        <a href="index.html#kontakt" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kostenlos anfragen</a>
+                        <a href="tel:+4917683458274" class="btn btn-outline"><i class="fas fa-phone"></i> +49 176 83458274</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST BAR -->
+        <div class="c-trust-bar" aria-label="Vertrauenssignale">
+            <div class="c-trust-bar__inner">
+                <div class="c-trust-badge">
+                    <div class="c-trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div><div class="c-trust-badge__label">Gerichtsfest</div><div class="c-trust-badge__sub">Versicherungsanerkannt</div></div>
+                </div>
+                <div class="c-trust-badge">
+                    <div class="c-trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div><div class="c-trust-badge__label">25+ Jahre Erfahrung</div><div class="c-trust-badge__sub">Karosserie &amp; Lack Expertise</div></div>
+                </div>
+                <div class="c-trust-badge">
+                    <div class="c-trust-badge__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div><div class="c-trust-badge__label">Kostenlose Erstberatung</div><div class="c-trust-badge__sub">Schneller Termin</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICE SECTIONS -->
         <div class="content-sections-bg">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-                <header class="text-center mb-16">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white">Unsere Leistungen im Detail</h1>
-                    <p class="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">Von der detaillierten Schadensanalyse bis zur präzisen Fahrzeugbewertung – wir bieten Ihnen umfassende und professionelle Gutachter-Dienstleistungen.</p>
-                </header>
-
                 <div class="space-y-20">
 
-                    <!-- Service Section 1: Unfall- & Schadensgutachten -->
-                    <section id="schadengutachten" class="service-section card p-6 md:p-8 lg:grid lg:grid-cols-5 lg:gap-8 items-center">
+                    <!-- 1: Unfallgutachten -->
+                    <section id="unfallgutachten" class="service-section card p-6 md:p-8 lg:grid lg:grid-cols-5 lg:gap-8 items-center">
                         <div class="lg:col-span-2 mb-6 lg:mb-0">
-                            <img src="https://placehold.co/600x400/1f2937/c00000?text=Unfallgutachten" alt="Symbolbild für ein Unfallgutachten" class="rounded-lg shadow-lg w-full">
+                            <picture>
+                                <source srcset="assets/images/services/unfallgutachten.webp" type="image/webp">
+                                <img src="assets/images/services/unfallgutachten.jpg"
+                                     alt="Kfz-Schadengutachten Frankfurt | Unfallgutachten Corion Gutachter"
+                                     width="600" height="400" loading="lazy"
+                                     class="rounded-lg shadow-lg w-full img-placeholder" style="min-height:220px;"
+                                     onerror="this.src='https://placehold.co/600x400/1f2937/c00000?text=Unfallgutachten'">
+                            </picture>
                         </div>
                         <div class="lg:col-span-3">
-                            <h2>Unfall- & Schadensgutachten</h2>
-                            <p>Nach einem Verkehrsunfall sind Sie als Geschädigter auf eine schnelle und präzise Schadensfeststellung angewiesen. Unser Schadengutachten dient als rechtssichere Grundlage für die Regulierung mit der gegnerischen Versicherung und stellt sicher, dass alle Ihre Ansprüche berücksichtigt werden.</p>
+                            <h2>Unfall- &amp; Schadensgutachten</h2>
+                            <p>Nach einem Verkehrsunfall sind Sie als Geschädigter auf eine schnelle und präzise Schadensfeststellung angewiesen. Unser Schadengutachten dient als rechtssichere Grundlage für die Regulierung mit der gegnerischen Versicherung.</p>
                             <ul class="mt-4">
                                 <li><strong>Umfassende Beweissicherung</strong> des Schadensumfangs.</li>
                                 <li><strong>Detaillierte Kalkulation</strong> der Reparaturkosten nach Herstellervorgaben.</li>
-                                <li><strong>Ermittlung der Wertminderung</strong>, die Ihr Fahrzeug durch den Unfall erlitten hat.</li>
-                                <li><strong>Feststellung des Wiederbeschaffungswertes</strong> und Restwertes bei einem Totalschaden.</li>
+                                <li><strong>Ermittlung der Wertminderung</strong> durch den Unfall.</li>
+                                <li><strong>Feststellung des Wiederbeschaffungswertes</strong> bei Totalschaden.</li>
                                 <li><strong>Anerkannt bei allen Versicherungen</strong> und Gerichten.</li>
                             </ul>
+                            <a href="index.html#kontakt" class="btn btn-primary mt-6"><i class="fas fa-paper-plane mr-2"></i>Jetzt anfragen</a>
                         </div>
                     </section>
-                    
-                    <!-- Service Section 2: Restwert-/Marktwertgutachten -->
+
+                    <!-- 2: Wertgutachten -->
                     <section id="wertgutachten" class="service-section card p-6 md:p-8 lg:grid lg:grid-cols-5 lg:gap-8 items-center">
-                        <div class="lg:col-span-3 lg:order-last">
-                           <img src="https://placehold.co/600x400/1f2937/c00000?text=Wertgutachten" alt="Symbolbild für ein Wertgutachten" class="rounded-lg shadow-lg w-full">
+                        <div class="lg:col-span-3 lg:order-last mb-6 lg:mb-0">
+                            <picture>
+                                <source srcset="assets/images/services/wertgutachten.webp" type="image/webp">
+                                <img src="assets/images/services/wertgutachten.jpg"
+                                     alt="Kfz-Wertgutachten Frankfurt | Fahrzeugbewertung Corion"
+                                     width="600" height="400" loading="lazy"
+                                     class="rounded-lg shadow-lg w-full img-placeholder" style="min-height:220px;"
+                                     onerror="this.src='https://placehold.co/600x400/1f2937/c00000?text=Wertgutachten'">
+                            </picture>
                         </div>
-                        <div class="lg:col-span-2 mt-6 lg:mt-0">
+                        <div class="lg:col-span-2">
                             <h2>Restwert-/Marktwertgutachten</h2>
-                            <p>Ob beim Kauf oder Verkauf eines Gebrauchtwagens, bei der Rückgabe eines Leasingfahrzeugs oder für die Versicherungseinstufung Ihres Oldtimers – ein neutrales Wertgutachten gibt Ihnen Sicherheit und eine solide Verhandlungsbasis.</p>
+                            <p>Ob beim Kauf oder Verkauf eines Gebrauchtwagens, bei der Rückgabe eines Leasingfahrzeugs oder für die Versicherungseinstufung Ihres Oldtimers – ein neutrales Wertgutachten gibt Ihnen Sicherheit.</p>
                             <ul class="mt-4">
                                 <li><strong>Objektive Ermittlung</strong> des aktuellen Fahrzeugwerts.</li>
-                                <li><strong>Berücksichtigung aller wertbeeinflussenden Faktoren</strong> wie Zustand, Ausstattung und Marktlage.</li>
-                                <li><strong>Detaillierte Dokumentation</strong> des Fahrzeugzustands in Wort und Bild.</li>
+                                <li><strong>Berücksichtigung aller wertbeeinflussenden Faktoren</strong>.</li>
+                                <li><strong>Detaillierte Dokumentation</strong> in Wort und Bild.</li>
                                 <li><strong>Spezialgutachten für Oldtimer</strong> und Liebhaberfahrzeuge.</li>
                             </ul>
+                            <a href="index.html#kontakt" class="btn btn-primary mt-6"><i class="fas fa-paper-plane mr-2"></i>Jetzt anfragen</a>
                         </div>
                     </section>
-                    
-                    <!-- Service Section 3: KI-Analyse -->
+
+                    <!-- 3: KI-Analyse -->
                     <section id="ki-analyse" class="service-section card p-6 md:p-8 lg:grid lg:grid-cols-5 lg:gap-8 items-center">
                         <div class="lg:col-span-2 mb-6 lg:mb-0">
-                           <img src="https://placehold.co/600x400/1f2937/c00000?text=KI-Analyse" alt="Symbolbild für KI-gestützte Schadensanalyse" class="rounded-lg shadow-lg w-full">
+                            <picture>
+                                <source srcset="assets/images/services/ki-analyse.webp" type="image/webp">
+                                <img src="assets/images/services/ki-analyse.jpg"
+                                     alt="KI-gestützte Schadensanalyse Fahrzeug Frankfurt | Corion Gutachter"
+                                     width="600" height="400" loading="lazy"
+                                     class="rounded-lg shadow-lg w-full img-placeholder" style="min-height:220px;"
+                                     onerror="this.src='https://placehold.co/600x400/1f2937/c00000?text=KI-Analyse'">
+                            </picture>
                         </div>
                         <div class="lg:col-span-3">
-                            <h2>Digitale & KI-gestützte Analyse</h2>
-                            <p>Moderne Fahrzeuge sind hochkomplex. Mit bloßem Auge sind schwere Strukturschäden oder feine Lackmängel oft nicht zu erkennen. Wir setzen auf modernste digitale Verfahren und KI-gestützte Analysetools, um eine Schadensermittlung zu gewährleisten, die weit über den ersten Blick hinausgeht.</p>
+                            <h2>Digitale &amp; KI-gestützte Analyse</h2>
+                            <p>Moderne Fahrzeuge sind hochkomplex. Mit bloßem Auge sind schwere Strukturschäden oder feine Lackmängel oft nicht zu erkennen. Wir setzen auf modernste digitale Verfahren und KI-gestützte Analysetools.</p>
                             <ul class="mt-4">
-                                <li><strong>Erkennung von Rahmenverziehungen</strong> und verdeckten Strukturschäden.</li>
-                                <li><strong>Präzise Analyse von Lackschichtdicken</strong> zur Identifizierung von nachlackierten oder gespachtelten Stellen.</li>
-                                <li><strong>Objektive und reproduzierbare Messergebnisse</strong> als solide Beweisgrundlage.</li>
-                                <li><strong>Transparente Dokumentation</strong> für eine nachvollziehbare Schadensbewertung.</li>
+                                <li><strong>Erkennung von Rahmenverziehungen</strong> und Strukturschäden.</li>
+                                <li><strong>Präzise Analyse von Lackschichtdicken</strong>.</li>
+                                <li><strong>Objektive und reproduzierbare Messergebnisse</strong>.</li>
+                                <li><strong>Transparente Dokumentation</strong> als Beweisgrundlage.</li>
                             </ul>
+                            <a href="index.html#kontakt" class="btn btn-primary mt-6"><i class="fas fa-paper-plane mr-2"></i>Jetzt anfragen</a>
+                        </div>
+                    </section>
+
+                    <!-- 4: Karosserie -->
+                    <section id="karosserie" class="service-section card p-6 md:p-8 lg:grid lg:grid-cols-5 lg:gap-8 items-center">
+                        <div class="lg:col-span-3 lg:order-last mb-6 lg:mb-0">
+                            <picture>
+                                <source srcset="assets/images/services/karosserie.webp" type="image/webp">
+                                <img src="assets/images/services/karosserie.jpg"
+                                     alt="Karosserie und Lack Expertise | Corion Gutachter Frankfurt"
+                                     width="600" height="400" loading="lazy"
+                                     class="rounded-lg shadow-lg w-full img-placeholder" style="min-height:220px;"
+                                     onerror="this.src='https://placehold.co/600x400/1f2937/c00000?text=Karosserie+%26+Lack'">
+                            </picture>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <h2>Karosserie &amp; Lack</h2>
+                            <p>Über 25 Jahre Erfahrung in Karosserie- und Lackierarbeiten machen uns zu Experten in der umfassenden Schadensbeurteilung. Wir erkennen Qualitätsunterschiede, die anderen entgehen.</p>
+                            <ul class="mt-4">
+                                <li><strong>Modernste Techniken</strong> zur Reparaturbeurteilung.</li>
+                                <li><strong>Lackschichtdickenmessung</strong> zur Vorschadenserkennung.</li>
+                                <li><strong>Werterhalt-Beratung</strong> für Ihr Fahrzeug.</li>
+                            </ul>
+                            <a href="index.html#kontakt" class="btn btn-primary mt-6"><i class="fas fa-paper-plane mr-2"></i>Jetzt anfragen</a>
                         </div>
                     </section>
 
                 </div>
             </div>
         </div>
+
+        <!-- CTA Section -->
+        <section class="py-16" style="background: linear-gradient(135deg, #0d1520 0%, #1a0505 100%);">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Bereit für Ihr Gutachten?</h2>
+                <p class="text-gray-300 mb-8 max-w-xl mx-auto">Kontaktieren Sie uns jetzt für eine kostenlose und unverbindliche Erstberatung. Wir sind für Sie da.</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="index.html#kontakt" class="btn btn-primary text-lg px-10 py-4">
+                        <i class="fas fa-paper-plane mr-2"></i> Jetzt kostenlos anfragen
+                    </a>
+                    <a href="https://wa.me/4917683458274" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp text-lg px-8 py-4">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="bg-gray-900 border-t border-gray-700">
+    <footer class="bg-gray-900 border-t border-gray-700" style="padding-bottom:env(safe-area-inset-bottom);">
         <div class="container mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
             <p>&copy; <span id="currentYear"></span> Corion Gutachter. Alle Rechte vorbehalten.</p>
             <p class="mt-1">
-                <a href="index.html#impressum" class="hover:text-corion-red transition-colors">Impressum</a> | 
-                <a href="index.html#datenschutz" class="hover:text-corion-red transition-colors">Datenschutz</a>
+                <a href="index.html" class="hover:text-red-500 transition-colors">Impressum</a> |
+                <a href="index.html" class="hover:text-red-500 transition-colors">Datenschutz</a>
             </p>
         </div>
     </footer>
 
-    <button id="openChatModalButton" class="floating-chat-button" title="Chat starten / Fragen stellen">
+    <!-- Floating Chat Button -->
+    <a href="index.html#kontakt" class="floating-chat-button" title="Kontakt aufnehmen" aria-label="Kontakt">
         <i class="fas fa-comments fa-lg"></i>
-    </button>
-    
-    <!-- Chat Modal (Placeholder) -->
-    <div id="chatModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-        <!-- Chat Modal Content Here -->
-    </div>
+    </a>
 
+    <!-- Sticky Mobile CTA -->
+    <nav class="c-sticky-cta" aria-label="Schnellkontakt">
+        <a href="tel:+4917683458274" class="c-sticky-cta__btn c-sticky-cta__btn--accent" aria-label="Anrufen">
+            <span class="c-sticky-cta__icon"><i class="fas fa-phone"></i></span>
+            <span>Anrufen</span>
+        </a>
+        <a href="https://wa.me/4917683458274" target="_blank" rel="noopener noreferrer" class="c-sticky-cta__btn c-sticky-cta__btn--whatsapp" aria-label="WhatsApp">
+            <span class="c-sticky-cta__icon"><i class="fab fa-whatsapp"></i></span>
+            <span>WhatsApp</span>
+        </a>
+        <a href="index.html#kontakt" class="c-sticky-cta__btn" aria-label="Anfrage senden">
+            <span class="c-sticky-cta__icon"><i class="fas fa-paper-plane"></i></span>
+            <span>Anfrage</span>
+        </a>
+    </nav>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    const open = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!open));
+                    menu.classList.toggle('hidden');
+                    const icon = btn.querySelector('i');
+                    if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
                 });
             }
-            
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-            
-            // Logica simplificată pentru Chat Modal și alte elemente dinamice
-            // Într-o aplicație reală, acest cod ar fi partajat sau importat.
-            const openChatBtn = document.getElementById('openChatModalButton');
-            if(openChatBtn){
-                openChatBtn.addEventListener('click', () => {
-                    alert('Chat-Funktionalität wird auf der Hauptseite geladen.');
-                });
-            }
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
         });
     </script>
 </body>

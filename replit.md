@@ -92,7 +92,45 @@ Flow: User message → Intent Classification (gpt-4o-mini) → Skill Router → 
 - WhatsApp: wa.me/4917683458274
 - Standorte: Frankfurt, Hofheim, Wiesbaden, Mainz
 
+## Static HTML Pages (servite de Express la rădăcina proiectului)
+| Pagină | Rută | Conținut |
+|--------|------|---------|
+| `index.html` | `/` | Landing page principal cu Hero, Trust Bar, Leistungen (6 carduri), 3 Schritte, Über Uns, KI-Assistent, Blog, Testimoniale, Kontakt |
+| `servicii.html` | `/servicii.html` | Detalii leistungen: Unfallgutachten, Wertgutachten, KI-Analyse, Karosserie |
+| `blog.html` | `/blog.html` | Blog 2 articole + sidebar CTA + categorii |
+| `contact.html` | `/contact.html` | Kontakt cu carduri Telefon/WhatsApp/Email + formular |
+| `formular.html` | `/formular.html` | Gutachten-Anfrage cu tip selectabil + upload foto |
+
+## Assets System
+```
+assets/
+  corion-shared.css            # CSS partajat: variabile, componente, butoane
+  brand/brand-style-guide.md   # Ghid de stil complet
+  icons/                       # SVG icons: shield, check, clock, map
+  images/                      # Imagini (placeholder → real)
+    hero.jpg/.webp, team.jpg/.webp
+    services/*.jpg/.webp
+    steps/*.jpg/.webp
+    blog/*.jpg/.webp
+design/figma-exports/README.md  # Instrucțiuni export Figma + conversie WebP
+favicon.svg                     # Favicon SVG cu logo Corion
+```
+
+### Express Static Routes (server/index.ts)
+- `/assets/*` → `assets/` folder
+- `/favicon.svg` → `favicon.svg`
+- `/*.html` → fișierele HTML din rădăcină
+- `/` → `index.html`
+
+### Componente CSS Reutilizabile (assets/corion-shared.css)
+`.c-hero`, `.c-trust-bar`, `.c-trust-badge`, `.c-img-card`, `.c-step`, `.c-testimonial`, `.c-sticky-cta`, `.btn`, `.card`, `.form-input`
+
 ## Recent Changes
+- 2026-04-27: Static HTML pages rewrite — trust bar, 3 Schritte, testimoniale, sticky mobile CTA, picture/WebP lazy loading
+- 2026-04-27: Created `assets/corion-shared.css` (CSS partajat, variabile brand, componente)
+- 2026-04-27: Created `assets/icons/` (shield, check, clock, map SVGs), `favicon.svg`
+- 2026-04-27: Created `contact.html` și `formular.html` (pagini noi, complet populate)
+- 2026-04-27: Updated `server/index.ts` — Express serve assets/ + HTML statice înainte de Vite
 - 2026-02-07: Built CORA Multi-Agent Orchestrator with 4 skills, streaming SSE, PostgreSQL conversation storage
 - 2026-02-07: Created CORA chat widget (CoraChat.tsx) with real-time streaming UI
 - 2026-02-07: Integrated OpenAI via Replit AI Integrations (replaced raw fetch with SDK)

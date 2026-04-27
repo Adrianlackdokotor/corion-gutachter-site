@@ -13,7 +13,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/favicon.ico", (_req, res) => res.status(204).end());
+// Servim folderul assets/ (CSS, imagini, iconițe) și fișierele HTML statice din rădăcina proiectului
+const projectRoot = path.resolve(__dirname, "..");
+app.use("/assets", express.static(path.join(projectRoot, "assets")));
+app.use("/favicon.svg", express.static(path.join(projectRoot, "favicon.svg")));
+app.get("/favicon.ico", (_req, res) => res.sendFile(path.join(projectRoot, "favicon.svg")));
+
+// HTML pages statice (în afara React app care e la /gutachter)
+const staticHtmlPages = ["index.html", "servicii.html", "blog.html", "contact.html", "formular.html"];
+staticHtmlPages.forEach((page) => {
+  app.get(`/${page}`, (_req, res) => {
+    res.sendFile(path.join(projectRoot, page));
+  });
+});
+// Ruta root "/" serveste index.html static
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "index.html"));
+});
 
 async function main() {
   await initDB();
