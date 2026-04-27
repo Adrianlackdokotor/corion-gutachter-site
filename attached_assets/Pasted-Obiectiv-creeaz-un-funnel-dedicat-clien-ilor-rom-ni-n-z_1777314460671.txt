@@ -1,0 +1,74 @@
+Obiectiv: creează un “funnel” dedicat clienților români în zona Rhein‑Main (Frankfurt, Hofheim, Wiesbaden, Mainz) ca destinație pentru Google Ads + creștere organică, folosind asset-urile și structura existentă.
+
+1) Arhitectură / i18n
+Păstrează site-ul existent ca “variantă DE”.
+Adaugă variantă RO:
+/ro/
+/ro/servicii (mirroring /servicii.html, dar cu text RO)
+/ro/faq (întrebări scurte pentru leaduri)
+Configurează:
+hreflang: de-DE, ro-RO
+canonical corect pentru fiecare limbă
+sitemap actualizat (ambele limbi)
+robots.txt (permis indexare pentru /ro/)
+Adaugă switcher discret de limbă, de ex. DE | RO (în header + footer).
+2) Landing RO cu focus pe conversie (leaduri)
+
+Pe /ro/ fă o pagină “high-conversion” (nu doar traducere):
+
+Hero (copy RO):
+
+Headline: „Ai avut un accident în Germania? Te ajutăm în limba română.”
+Subheadline: „Gutachten / evaluare pentru despăgubiri. Rapid, corect, și fără stres.”
+CTA primar: WhatsApp (păstrează linkul actual de WhatsApp din site, fără să îl modifici aici)
+CTA secundar: “Ce fac mai departe?”
+
+Secțiune USP (3-5 bullets):
+
+„Dreptul tău: poți alege expertul (Gutachter)”
+„Evaluare recunoscută de asigurări”
+„Discutăm clar: ce plătește asigurarea”
+„Răspuns rapid pe WhatsApp”
+
+Flow în 3 pași (mirroring secțiunea actuală, dar RO):
+
+Trimiți poze cu mașina (WhatsApp)
+Primești evaluare (rapid)
+Facem Gutachten & continuăm procesul
+
+Secțiune “Drepturile tale” (pentru conversie & SEO):
+Explică foarte scurt „ce ai voie să faci după accident” în România, cu disclaimere: „Nu este consultanță juridică”.
+
+FAQ (scurt, RO, conversion-oriented):
+
+„Trebuie să plătesc Gutachter-ul?”
+„Pot alege eu Gutachter-ul?”
+„Cât durează?”
+„Dacă asigurarea nu vrea?”
+
+Contact / captura de lead:
+
+Formular: Nume, Email (opțional), mesaj.
+Nu complica; focus pe WhatsApp, formular secundar.
+3) SEO pentru români (organic)
+Optimizează meta title/description cu query-uri românești:
+accident Germania ce fac
+expert auto Germania român
+despăgubiri accident Germania
+gutachter român Frankfurt / Hofheim / Wiesbaden / Mainz
+Adaugă structured data (LocalBusiness/Service) pentru zona Rhein‑Main (limba RO), în limita corectitudinii.
+4) Refolosește asset-uri existente
+Folosește același logo, scheme de culori, carduri și componente existente, ca să ai coerență vizuală.
+Adaugă alt text în RO la imagini (SEO + accesibilitate).
+5) Tracking / Google Ads readiness
+Pregătește pagina pentru tracking (Google Analytics / conversion events):
+event pentru click WhatsApp
+event pentru submit form
+Fără să introduci date sensibile; doar hook-uri de tracking.
+6) Definition of done (ce verific)
+/ro/ se încarcă rapid și are CTA vizibil “WhatsApp”
+hreflang + canonical + sitemap corecte
+sitemap include /ro/ și /ro/servicii
+Links în RO funcționale și nu rup site-ul german
+SEO on-page: titluri, headings, paragraphs în RO orientate pe “accident Germania”, “Gutachter român”, “despăgubiri”
+Nu schimbă existența/funcționarea chat-ului existente; doar îl încadrezi și în variantă RO.

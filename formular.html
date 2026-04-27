@@ -7,6 +7,8 @@
     <meta name="description" content="Gutachten-Anfrage bei Corion Gutachter: Fotos hochladen, Schaden beschreiben und kostenlose Erstberatung erhalten. Schnell und einfach online.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.corion-gutachter.de/formular.html">
+    <link rel="alternate" hreflang="de" href="https://www.corion-gutachter.de/formular.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.corion-gutachter.de/formular.html">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -32,15 +34,25 @@
                              >
                     </a>
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <nav class="ml-10 flex items-baseline space-x-4">
                         <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm">Start</a>
                         <a href="servicii.html" class="nav-link px-3 py-2 rounded-md text-sm">Leistungen</a>
                         <a href="contact.html" class="nav-link px-3 py-2 rounded-md text-sm">Kontakt</a>
                         <a href="formular.html" class="nav-link px-3 py-2 rounded-md text-sm active corion-red">Anfrage</a>
                     </nav>
+                    <div class="lang-switcher ml-4">
+                        <span class="lang-active">DE</span>
+                        <span class="lang-sep">|</span>
+                        <a href="/ro/" class="lang-link">RO</a>
+                    </div>
                 </div>
-                <div class="md:hidden">
+                <div class="md:hidden flex items-center gap-3">
+                    <div class="lang-switcher">
+                        <span class="lang-active text-xs">DE</span>
+                        <span class="lang-sep">|</span>
+                        <a href="/ro/" class="lang-link text-xs">RO</a>
+                    </div>
                     <button id="mobile-menu-button" type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
                         <i class="fas fa-bars fa-fw text-xl"></i>

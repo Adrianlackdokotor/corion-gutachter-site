@@ -19,7 +19,19 @@ app.use("/assets", express.static(path.join(projectRoot, "assets")));
 app.use("/favicon.svg", express.static(path.join(projectRoot, "favicon.svg")));
 app.get("/favicon.ico", (_req, res) => res.sendFile(path.join(projectRoot, "favicon.svg")));
 
-// HTML pages statice (în afara React app care e la /gutachter)
+// Sitemap & robots.txt
+app.get("/sitemap.xml", (_req, res) => {
+  res.setHeader("Content-Type", "application/xml");
+  res.sendFile(path.join(projectRoot, "sitemap.xml"));
+});
+app.get("/robots.txt", (_req, res) => {
+  res.setHeader("Content-Type", "text/plain");
+  res.send(
+    "User-agent: *\nAllow: /\nAllow: /ro/\nAllow: /ro/servicii\nAllow: /ro/faq\nSitemap: https://www.corion-gutachter.de/sitemap.xml\n"
+  );
+});
+
+// HTML pages statice DE (în afara React app care e la /gutachter)
 const staticHtmlPages = ["index.html", "servicii.html", "blog.html", "contact.html", "formular.html"];
 staticHtmlPages.forEach((page) => {
   app.get(`/${page}`, (_req, res) => {
@@ -29,6 +41,17 @@ staticHtmlPages.forEach((page) => {
 // Ruta root "/" serveste index.html static
 app.get("/", (_req, res) => {
   res.sendFile(path.join(projectRoot, "index.html"));
+});
+
+// ─── Rute RO (/ro/) ───────────────────────────────────────────────────────
+app.get(["/ro", "/ro/"], (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "index.html"));
+});
+app.get("/ro/servicii", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "servicii.html"));
+});
+app.get("/ro/faq", (_req, res) => {
+  res.sendFile(path.join(projectRoot, "ro", "faq.html"));
 });
 
 async function main() {
