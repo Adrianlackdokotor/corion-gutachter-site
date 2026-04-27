@@ -137,9 +137,15 @@ export function setupRoutes(app: Express) {
     }
   });
 
-  app.get("/api/repair-requests", async (_req: Request, res: Response) => {
+  app.get("/api/repair-requests", async (req: Request, res: Response) => {
+    const adminKey = process.env.ADMIN_API_KEY;
+    if (!adminKey || req.headers["x-admin-key"] !== adminKey) {
+      return res.status(403).json({ status: "error", message: "Nicht autorisiert." });
+    }
     try {
-      const result = await pool.query("SELECT * FROM repair_requests ORDER BY created_at DESC LIMIT 100");
+      const result = await pool.query(
+        "SELECT id, name, email, phone, subject, request_type, status, created_at FROM repair_requests ORDER BY created_at DESC LIMIT 100"
+      );
       res.json(result.rows);
     } catch (error) {
       console.error("List requests error:", error);

@@ -9,9 +9,35 @@ import { registerOrchestratorRoutes, initOrchestratorDB } from "./orchestrator/i
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const ALLOWED_ORIGINS: string[] = [
+  "https://www.corion-gutachter.de",
+  "https://corion-gutachter.de",
+];
+
+if (process.env.REPLIT_DEV_DOMAIN) {
+  ALLOWED_ORIGINS.push(`https://${process.env.REPLIT_DEV_DOMAIN}`);
+}
+
 const app = express();
-app.use(cors());
-app.use(express.json());
+
+app.set("trust proxy", 1);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(null, false);
+      }
+    },
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: false,
+  })
+);
+
+app.use(express.json({ limit: "32kb" }));
 
 // Servim folderul assets/ (CSS, imagini, iconițe) și fișierele HTML statice din rădăcina proiectului
 const projectRoot = path.resolve(__dirname, "..");

@@ -30,6 +30,7 @@ export default function CoraChat() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessionToken, setSessionToken] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -48,7 +49,7 @@ export default function CoraChat() {
     }
   }, [isOpen]);
 
-  const streamChat = useCallback(async (text: string, currentSessionId: string | null) => {
+  const streamChat = useCallback(async (text: string, currentSessionId: string | null, currentSessionToken: string | null) => {
     if (isLoading) return;
     setIsLoading(true);
 
@@ -72,7 +73,11 @@ export default function CoraChat() {
       const res = await fetch("/api/orchestrator/chat/stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, sessionId: currentSessionId }),
+        body: JSON.stringify({
+          message: text,
+          sessionId: currentSessionId,
+          sessionToken: currentSessionToken,
+        }),
         signal: controller.signal,
       });
 
@@ -101,9 +106,11 @@ export default function CoraChat() {
 
             if (data.type === "meta") {
               skillName = data.skillName || "";
-              if (data.sessionId) {
+              if (data.sessionId && data.sessionToken) {
                 setSessionId(data.sessionId);
+                setSessionToken(data.sessionToken);
                 currentSessionId = data.sessionId;
+                currentSessionToken = data.sessionToken;
               }
             } else if (data.type === "content") {
               assistantContent += data.content;
@@ -162,16 +169,21 @@ export default function CoraChat() {
     const trimmed = input.trim();
     if (!trimmed || isLoading) return;
     setInput("");
-    streamChat(trimmed, sessionId);
+    streamChat(trimmed, sessionId, sessionToken);
   };
 
   const clearChat = () => {
     if (abortRef.current) abortRef.current.abort();
     setMessages([]);
-    if (sessionId) {
-      fetch(`/api/orchestrator/conversation/${sessionId}`, { method: "DELETE" }).catch(() => {});
+    if (sessionId && sessionToken) {
+      fetch(`/api/orchestrator/conversation/${sessionId}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionToken }),
+      }).catch(() => {});
     }
     setSessionId(null);
+    setSessionToken(null);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -244,7 +256,7 @@ export default function CoraChat() {
                   ].map((q) => (
                     <button
                       key={q}
-                      onClick={() => streamChat(q, sessionId)}
+                      onClick={() => streamChat(q, sessionId, sessionToken)}
                       disabled={isLoading}
                       className="text-left text-xs px-3 py-2 rounded-lg bg-[#1f2937] hover:bg-[#374151] text-gray-300 border border-[#374151] transition-colors disabled:opacity-50"
                     >
