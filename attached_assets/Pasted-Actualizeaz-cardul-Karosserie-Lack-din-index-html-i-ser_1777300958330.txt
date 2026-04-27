@@ -1,0 +1,102 @@
+Actualizează cardul **„Karosserie & Lack”** din `index.html` și `servicii.html` folosind imaginea reală încărcată (lăcătuș auto care șlefuiește ușa).
+
+OBIECTIV:
+Înlocuiește imaginea actuală (prea generică / asemănătoare cu „Erstberatung”) cu imaginea reală din atelier pentru a transmite clar serviciul de vopsitorie auto și reparații caroserie.
+
+---
+
+1. SALVARE IMAGINE:
+
+Salvează imaginea în:
+`/assets/images/services/`
+
+Denumire SEO:
+
+karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.jpg
+
+* creează și varianta WebP:
+
+karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.webp
+
+Resize:
+
+* 800x500 px
+* object-fit: cover
+* optimizare <80KB JPG / <50KB WebP
+
+---
+
+2. UPDATE HTML (index.html – card Leistungen):
+
+Înlocuiește imaginea existentă cu:
+
+```html
+<picture>
+  <source srcset="/assets/images/services/karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.webp" type="image/webp">
+  <img 
+    src="/assets/images/services/karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.jpg"
+    alt="Karosserie und Lack Reparatur, Lackierer schleift Autotür, Smart Repair Werkstatt Corion Lackdoktor Deutschland"
+    title="Karosserie & Lack – Smart Repair und Autolackierung bei Corion Lackdoktor"
+    loading="lazy"
+    width="800"
+    height="500"
+  >
+</picture>
+```
+
+---
+
+3. UPDATE servicii.html (secțiunea Karosserie):
+
+Folosește aceeași imagine, dar layout:
+
+* imagine stânga
+* text dreapta
+
+Asigură:
+
+* class existent `.c-img-card`
+* fără placeholder
+* fără min-height hack
+
+---
+
+4. SEO CONTEXT (IMPORTANT):
+
+Actualizează textul din card dacă este nevoie:
+
+Titlu:
+Karosserie & Lack
+
+Descriere:
+Professionelle Smart Repair und Lackierarbeiten für Kratzer, Dellen und Unfallschäden. Präzise Vorbereitung, perfekte Farbangleichung und hochwertige Ergebnisse durch erfahrene Lackierer.
+
+---
+
+5. CONSISTENȚĂ BRAND:
+
+Verifică:
+
+* logo Corion Lackdoktor vizibil pe îmbrăcăminte (NU modifica imaginea)
+* culorile site-ului rămân:
+  #111827 background
+  #c00000 accent
+
+---
+
+6. CURĂȚARE:
+
+* elimină orice referință la imaginea veche
+* verifică să nu existe duplicate
+* păstrează lazy loading
+
+---
+
+REZULTAT AȘTEPTAT:
+
+Cardul „Karosserie & Lack” trebuie să transmită instant:
+✔ muncă reală în atelier
+✔ vopsitorie auto profesională
+✔ diferențiere clară față de consultanță
+
+NU trebuie să mai semene deloc cu „Kostenlose Erstberatung”

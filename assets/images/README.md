@@ -27,7 +27,8 @@ assets/images/
     unfallgutachten-schadengutachten-kfz-gutachter-frankfurt-hofheim.jpg/.webp ← 73KB/43KB ✅ REAL
     wertgutachten-fahrzeugbewertung-kfz-gutachter-deutschland.jpg/.webp        ← 79KB/50KB ✅ REAL
     ki-analyse-fahrzeug-schaden-erkennung-kfz-gutachter.jpg/.webp              ← 55KB/30KB ✅ REAL
-    karosserie-lack-smart-repair-unfallschaden-reparatur.jpg/.webp             ← 58KB/31KB ✅ REAL
+    karosserie-lack-smart-repair-unfallschaden-reparatur.jpg/.webp             ← 58KB/31KB (înlocuit)
+    karosserie-lack-smart-repair-lackierer-schleifen-auto-tuer-corion-lackdoktor.jpg/.webp ← 56KB/29KB ✅ REAL (atelier real)
     erstberatung-kfz-gutachter-telefonische-beratung.jpg/.webp                 ← 56KB/29KB ✅ REAL
     kostenvoranschlag-auto-reparatur-kfz-gutachter.jpg/.webp                   ← 67KB/38KB ✅ REAL
 
